@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { GetAll } from "../services/items";
-import filteredProducts from "./filteredProducts";
 
 const initialState = {
   value: [],
@@ -9,6 +8,7 @@ const initialState = {
   tags: [],
   status: "idle",
 };
+
 
 const getAllTags = (state) => {
   const tags = new Set();

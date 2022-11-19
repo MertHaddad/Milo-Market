@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setQuantity } from "../../features/basketSlice";
+import PropTypes from 'prop-types';
 
 const Counter = ({ product }) => {
   const dispatch = useDispatch();
@@ -35,6 +36,14 @@ const Counter = ({ product }) => {
       </button>
     </div>
   );
+};
+
+Counter.propTypes = {
+  product: PropTypes.exact({
+    name: PropTypes.string.isRequired,
+    quantity:PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired
+  })
 };
 
 export default Counter;

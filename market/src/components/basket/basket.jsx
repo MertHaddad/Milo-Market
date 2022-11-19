@@ -12,7 +12,7 @@ const Basket = () => {
           selectBasket.basketProducts.map((item, i) => (
             <div key={i} className="basket-item parent text-default">
               <div className="div2 basket-product-name">{item.name}</div>
-              <div class="counter-parent">
+              <div className="counter-parent">
                 <Counter product={item} />
               </div>
               <div className="price-parent text-primary text-bold">

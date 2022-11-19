@@ -1,4 +1,6 @@
 import { store } from "../app/store";
+import PropTypes from 'prop-types';
+
 
 export const buildURL = (baseURL, noPagination) => {
   const allQueries = store.getState().query.value;
@@ -15,3 +17,9 @@ export const buildURL = (baseURL, noPagination) => {
     return url;
   } else return url;
 };
+
+
+buildURL.PropTypes={
+  baseURL:PropTypes.string,
+  noPagination:PropTypes.bool
+}
