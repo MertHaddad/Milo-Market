@@ -10,6 +10,8 @@ import {
   getTags,
 } from "../../features/allProductsSlice";
 import { getBrands } from "../../features/brandSlice";
+import useDidMountEffect from "../../helpers/useDidMountEffect";
+import { getFilteredItemsNumber } from "../../features/filteredProducts";
 
 const Options = () => {
   const dispatch = useDispatch();
@@ -19,16 +21,17 @@ const Options = () => {
   useEffect(() => {
     dispatch(getAllItems());
     dispatch(getBrands());
+    dispatch(getFilteredItemsNumber())
   }, []);
-
-  useEffect(() => {
+  
+  useDidMountEffect(() => {
     if (selectAllProducts.status === "fulfilled") {
       dispatch(getTags());
       dispatch(getStockByTags([]));
     }
   }, [selectAllProducts.status]);
 
-  useEffect(() => {
+  useDidMountEffect(() => {
     if (
       selectBrands.status === "fulfilled" &&
       selectAllProducts.status === "fulfilled"

@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setQuantity } from "../../features/basketSlice";
+
 const Counter = ({ product }) => {
   const dispatch = useDispatch();
+
   const handleQuantity = (e) => {
     dispatch(
       setQuantity({

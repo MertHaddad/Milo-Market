@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { usePagination, DOTS } from "./usePagination";
 import "./../../assets/css/pagination.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuery } from "../../features/querySlice";
 import { getItems } from "../../features/productSlice";
+import useDidMountEffect from "../../helpers/useDidMountEffect";
 const Pagination = () => {
   const dispatch = useDispatch();
   const selectQuery = useSelector((state) => state.query.value);
@@ -18,8 +19,8 @@ const Pagination = () => {
       dispatch(getItems(selectQuery));
     }
   };
-
-  useEffect(() => {
+  
+  useDidMountEffect(() => {
     onPageChange(1);
   }, [filteredProducts.currentProductNumber]);
 

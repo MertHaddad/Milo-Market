@@ -6,7 +6,6 @@ const initialState = {
 };
 
 const handleQuantityChange = (state, action) => {
-  console.log(action);
   
   if(action.action === "increase"){
     state.basketProducts.map(product=>product.name===action.product && product.quantity++)

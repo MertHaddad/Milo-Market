@@ -32,7 +32,7 @@ const Sort = () => {
       {inputsArray.map((input, i) => (
         <div className="filter-item" key={i}>
           <input
-          checked={input.name === checkedOption}
+          defaultChecked={input.name === checkedOption}
             onClick={handleChange}
             // onChange={handleChange}
             id={input.name}

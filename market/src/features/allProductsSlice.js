@@ -24,7 +24,7 @@ const calculateStockByTags = (state, payload) => {
   state.tags.forEach((tag) => {
     let count = 0;
     for (let item of state.value) {
-      if (selectedBrands.length) {
+      if (selectedBrands.length && selectedBrands[0] !== "All" ) {
         if (item.tags.includes(tag)) {
           const evaluateTag = selectedBrands.find((product) =>
             selectedBrands.includes(item.manufacturer)
@@ -54,7 +54,7 @@ const calculateStockByBrands = (state, action) => {
   brandsArray.forEach((brand) => {
     let count = 0;
     for (let item of state.value) {
-      if (action.payload.selected.length) {
+      if (action.payload.selected.length && action.payload.selected[0]!=="All" ) {
         if (item.manufacturer === brand.slug) {
           const evaluateTag = action.payload.selected.find((tag) =>
             item.tags.includes(tag)

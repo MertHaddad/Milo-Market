@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuery } from "../../features/querySlice";
 import { getItems } from "../../features/productSlice";
 import { getStockByTags } from "../../features/allProductsSlice";
 import { getFilteredItemsNumber } from "../../features/filteredProducts";
+import useDidMountEffect from "../../helpers/useDidMountEffect";
+import Spinner from "../spinner";
 
 const BrandFilter = () => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(["All"]);
   const querySelector = useSelector((state) => state.query.value);
   const selectBrand = useSelector((state) => state.allProducts.stockByBrand);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useDidMountEffect(() => {
     let res = selectBrand.filter((brand) =>
       brand.brand.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
     );
@@ -21,27 +23,32 @@ const BrandFilter = () => {
   }, [search]);
 
   const handleChange = (e) => {
-    // if (e.target.id !== "uncheck-brands") {
-    if (e.target.id === "uncheck-brands") {
-      setSelected([]);
-    } else {
+    if (e.target.name === "All") {
       setSelected(
-        selected.includes(e.target.id)
-          ? selected.filter((item) => item !== e.target.id)
-          : [...selected, e.target.id]
+        selected.includes("All")
+          ? selected.filter((item) => item !== "All")
+          : ["All"]
+      );
+    } else {
+      let filtered = selected
+      if(selected.includes("All")){filtered = selected.filter((item) => item !== "All")} 
+      
+
+      setSelected(
+        filtered.includes(e.target.id)
+          ? filtered.filter((item) => item !== e.target.id)
+          : [...filtered, e.target.id]
       );
     }
-    let query = `manufacturer=${e.target.id}`;
+    let query = `manufacturer=${e.target.id === "All" ? "uncheck-brands" :e.target.id}`;
     dispatch(setQuery(query));
-
-    // } else setSelected([]);
   };
 
-  useEffect(() => {
+  useDidMountEffect(()=>{
     dispatch(getStockByTags(selected));
     dispatch(getItems(querySelector));
     dispatch(getFilteredItemsNumber());
-  }, [selected]);
+  },[selected])
 
   return (
     <>
@@ -53,20 +60,17 @@ const BrandFilter = () => {
         className="search-bar"
       />
       <div className="filter-body custom-scrollbar">
-        {(searchResults.length ? searchResults : selectBrand).map((brand, i) =>
+        {selectBrand.length ? (searchResults.length ? searchResults : selectBrand).map((brand, i) =>
           brand.products ? (
             <div className="filter-item" key={i}>
               <input
                 key={selected}
                 onChange={handleChange}
                 type="checkbox"
-                name=""
+                name={brand.brand.name}
                 className="custom-checkbox"
                 id={brand.brand.slug}
-                defaultChecked={
-                  brand.brand.slug === "uncheck-brands"
-                    ? !selected.length
-                    : selected.includes(brand.brand.slug)
+                defaultChecked={selected.includes(brand.brand.slug) ||selected.includes(brand.brand.name)
                 }
               />
               <label
@@ -78,7 +82,7 @@ const BrandFilter = () => {
               </label>
             </div>
           ) : null
-        )}
+        ) : <Spinner/>}
       </div>
     </>
   );
