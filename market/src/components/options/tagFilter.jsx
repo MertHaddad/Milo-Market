@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuery } from "../../features/querySlice";
 import { getItems } from "../../features/productSlice";
-import { allProductsSlice, getStockByBrands } from "../../features/allProductsSlice";
+import { getStockByBrands } from "../../features/allProductsSlice";
 import { getFilteredItemsNumber } from "../../features/filteredProducts";
 import useDidMountEffect from "../../helpers/useDidMountEffect";
-import { useEffect } from "react";
 import Spinner from "./../spinner"
 const TagsFilter = () => {
   const [search, setSearch] = useState("");
@@ -14,13 +13,10 @@ const TagsFilter = () => {
   const querySelector = useSelector((state) => state.query.value);
   const selectTags = useSelector((state) => state.allProducts.stockByTag);
   const selectBrands = useSelector((state) => state.brand.value);
-  const selectAllState = useSelector((state) => state.allProducts.status);
-  
-  useEffect(()=>{
-    console.log(selectTags);
-  },[selectTags])
+  const productsNumberSelector = useSelector((state) => state.filteredProducts);
 
   const dispatch = useDispatch();
+
   const handleChange = (e) => {
     if (e.target.id === "All") {
       setSelected(
@@ -42,9 +38,13 @@ const TagsFilter = () => {
   };
 
   useDidMountEffect(() => {
-    dispatch(getStockByBrands({ brands: selectBrands, selected: selected }));
+    if(productsNumberSelector.status === "fulfilled")
+    dispatch(getStockByBrands({ brands: selectBrands, selected: selected ,filteredProductsNum:productsNumberSelector.currentProductNumber}));
+  }, [productsNumberSelector.status]);
+  useDidMountEffect(() => {
     dispatch(getItems(querySelector));
     dispatch(getFilteredItemsNumber());
+    // dispatch(getStockByTags({selected:selected,else:productsNumberSelector.currentProductNumber}));
   }, [selected]);
 
   useDidMountEffect(() => {

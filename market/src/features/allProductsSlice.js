@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { GetAll } from "../services/items";
+import filteredProducts from "./filteredProducts";
 
 const initialState = {
   value: [],
@@ -19,12 +20,12 @@ const getAllTags = (state) => {
 };
 
 const calculateStockByTags = (state, payload) => {
-  const selectedBrands = payload;
-  const stockByTag = [{ tag: "All", products: state.value.length }];
+  const selectedBrands = payload.selected;
+  const stockByTag = [{ tag: "All", products: payload.filteredProductsNum }];
   state.tags.forEach((tag) => {
     let count = 0;
     for (let item of state.value) {
-      if (selectedBrands.length && selectedBrands[0] !== "All" ) {
+      if (selectedBrands.length && selectedBrands[0] !== "All") {
         if (item.tags.includes(tag)) {
           const evaluateTag = selectedBrands.find((product) =>
             selectedBrands.includes(item.manufacturer)
@@ -47,14 +48,17 @@ const calculateStockByBrands = (state, action) => {
   const stockByBrand = [
     {
       brand: { name: "All", slug: "uncheck-brands" },
-      products: state.value.length,
+      products: action.payload.filteredProductsNum,
     },
   ];
   const brandsArray = action.payload.brands;
   brandsArray.forEach((brand) => {
     let count = 0;
     for (let item of state.value) {
-      if (action.payload.selected.length && action.payload.selected[0]!=="All" ) {
+      if (
+        action.payload.selected.length &&
+        action.payload.selected[0] !== "All"
+      ) {
         if (item.manufacturer === brand.slug) {
           const evaluateTag = action.payload.selected.find((tag) =>
             item.tags.includes(tag)

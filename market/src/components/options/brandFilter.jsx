@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuery } from "../../features/querySlice";
 import { getItems } from "../../features/productSlice";
@@ -13,7 +13,10 @@ const BrandFilter = () => {
   const [selected, setSelected] = useState(["All"]);
   const querySelector = useSelector((state) => state.query.value);
   const selectBrand = useSelector((state) => state.allProducts.stockByBrand);
+  const productsNumberSelector = useSelector((state) => state.filteredProducts);
   const dispatch = useDispatch();
+
+  const [isPending, startTransition] = useTransition();
 
   useDidMountEffect(() => {
     let res = selectBrand.filter((brand) =>
@@ -23,32 +26,46 @@ const BrandFilter = () => {
   }, [search]);
 
   const handleChange = (e) => {
-    if (e.target.name === "All") {
-      setSelected(
-        selected.includes("All")
-          ? selected.filter((item) => item !== "All")
-          : ["All"]
-      );
-    } else {
-      let filtered = selected
-      if(selected.includes("All")){filtered = selected.filter((item) => item !== "All")} 
-      
+    startTransition(() => {
+      if (e.target.name === "All") {
+        setSelected(
+          selected.includes("All")
+            ? selected.filter((item) => item !== "All")
+            : ["All"]
+        );
+      } else {
+        let filtered = selected;
+        if (selected.includes("All")) {
+          filtered = selected.filter((item) => item !== "All");
+        }
 
-      setSelected(
-        filtered.includes(e.target.id)
-          ? filtered.filter((item) => item !== e.target.id)
-          : [...filtered, e.target.id]
-      );
-    }
-    let query = `manufacturer=${e.target.id === "All" ? "uncheck-brands" :e.target.id}`;
-    dispatch(setQuery(query));
+        setSelected(
+          filtered.includes(e.target.id)
+            ? filtered.filter((item) => item !== e.target.id)
+            : [...filtered, e.target.id]
+        );
+      }
+      let query = `manufacturer=${
+        e.target.id === "All" ? "uncheck-brands" : e.target.id
+      }`;
+      dispatch(setQuery(query));
+    });
   };
 
-  useDidMountEffect(()=>{
-    dispatch(getStockByTags(selected));
+  useDidMountEffect(() => {
+    if (productsNumberSelector.status === "fulfilled")
+      dispatch(
+        getStockByTags({
+          selected: selected,
+          filteredProductsNum: productsNumberSelector.currentProductNumber,
+        })
+      );
+  }, [productsNumberSelector.status]);
+
+  useDidMountEffect(() => {
     dispatch(getItems(querySelector));
     dispatch(getFilteredItemsNumber());
-  },[selected])
+  }, [selected]);
 
   return (
     <>
@@ -60,29 +77,35 @@ const BrandFilter = () => {
         className="search-bar"
       />
       <div className="filter-body custom-scrollbar">
-        {selectBrand.length ? (searchResults.length ? searchResults : selectBrand).map((brand, i) =>
-          brand.products ? (
-            <div className="filter-item" key={i}>
-              <input
-                key={selected}
-                onChange={handleChange}
-                type="checkbox"
-                name={brand.brand.name}
-                className="custom-checkbox"
-                id={brand.brand.slug}
-                defaultChecked={selected.includes(brand.brand.slug) ||selected.includes(brand.brand.name)
-                }
-              />
-              <label
-                className="filtering-label text-secondary"
-                htmlFor={brand.brand.slug}
-              >
-                {brand.brand.name}
-                <span className="text-dark-gray"> ({brand.products})</span>
-              </label>
-            </div>
-          ) : null
-        ) : <Spinner/>}
+        {selectBrand.length ? (
+          (searchResults.length ? searchResults : selectBrand).map((brand, i) =>
+            brand.products ? (
+              <div className="filter-item" key={i}>
+                <input
+                  key={selected}
+                  onChange={handleChange}
+                  type="checkbox"
+                  name={brand.brand.name}
+                  className="custom-checkbox"
+                  id={brand.brand.slug}
+                  defaultChecked={
+                    selected.includes(brand.brand.slug) ||
+                    selected.includes(brand.brand.name)
+                  }
+                />
+                <label
+                  className="filtering-label text-secondary"
+                  htmlFor={brand.brand.slug}
+                >
+                  {brand.brand.name}
+                  <span className="text-dark-gray"> ({brand.products})</span>
+                </label>
+              </div>
+            ) : null
+          )
+        ) : (
+          <Spinner />
+        )}
       </div>
     </>
   );

@@ -27,7 +27,7 @@ const Options = () => {
   useDidMountEffect(() => {
     if (selectAllProducts.status === "fulfilled") {
       dispatch(getTags());
-      dispatch(getStockByTags([]));
+      dispatch(getStockByTags({selected:[],filteredProductsNum:selectAllProducts.value.length}));
     }
   }, [selectAllProducts.status]);
 
@@ -36,7 +36,7 @@ const Options = () => {
       selectBrands.status === "fulfilled" &&
       selectAllProducts.status === "fulfilled"
     ) {
-      dispatch(getStockByBrands({ brands: selectBrands.value, selected: [] }));
+      dispatch(getStockByBrands({ brands: selectBrands.value, selected: [],filteredProductsNum:selectAllProducts.value.length }));
     }
   }, [selectBrands.status, selectAllProducts.status]);
 
