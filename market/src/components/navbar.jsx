@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="navbar-logo">
           <img alt="market-logo" src={logo} />
         </div>
-        <div className="button pointer">
+        <div id="cart-button" className="button pointer">
           <img alt="market-shopping" src={basketIcon} /> ₺ {Number(select).toFixed(2)}
         </div>
       </div>

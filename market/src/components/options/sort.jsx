@@ -21,10 +21,10 @@ const Sort = () => {
   };
 
   const inputsArray = [
-    { name: "priceAsc", label: "Price low to high" },
-    { name: "priceDesc", label: "Price high to low" },
-    { name: "dateDesc", label: "New to old" },
-    { name: "dateAsc", label: "Old to new" },
+    {testId:"sort-radio", name: "priceAsc", label: "Price low to high" },
+    {testId:"sort-radio", name: "priceDesc", label: "Price high to low" },
+    {testId:"sort-radio", name: "dateDesc", label: "New to old" },
+    {testId:"sort-radio", name: "dateAsc", label: "Old to new" },
   ];
 
   return (
@@ -37,6 +37,7 @@ const Sort = () => {
             // onChange={handleChange}
             id={input.name}
             type="radio"
+            data-testid="test-sort-radio"
             value={input.name}
             className="custom-radio"
             name="sort-radio"
