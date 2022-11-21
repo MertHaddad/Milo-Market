@@ -13,7 +13,7 @@ const Item = () => {
       <div className="products products-container">
         {products.value.length ? (
           products.value.map((item, i) => (
-            <div className="product-card" key={i}>
+            <div data-testid="product-item" className="product-card" key={i}>
               <span className="product-thumbnail">
                 <img
                   width={90}
@@ -27,7 +27,7 @@ const Item = () => {
               <span className="product-title text-default">{item.name}</span>
               <button
                 onClick={() => dispatch(addProduct({ product: item }))}
-                className="product-button text-bold fs-3"
+                data-testid="add-button" className="product-button text-bold fs-3"
               >
                 Add
               </button>
@@ -42,7 +42,7 @@ const Item = () => {
           </div>
           </div>
         ) : (
-          <Spinner />
+          <Spinner  />
         )}
         <span></span>
       </div>

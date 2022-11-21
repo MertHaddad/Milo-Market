@@ -16,7 +16,7 @@ const BrandFilter = () => {
   const productsNumberSelector = useSelector((state) => state.filteredProducts);
   const dispatch = useDispatch();
 
-  const [isPending, startTransition] = useTransition();
+  const [isPending,startTransition] = useTransition();
 
   useDidMountEffect(() => {
     let res = selectBrand.filter((brand) =>
@@ -73,6 +73,7 @@ const BrandFilter = () => {
         onChange={(e) => setSearch(e.target.value)}
         value={search}
         type="text"
+        
         placeholder="Search brand"
         className="search-bar"
       />
@@ -87,6 +88,7 @@ const BrandFilter = () => {
                   type="checkbox"
                   name={brand.brand.name}
                   className="custom-checkbox"
+                  data-testid="test-brand-filter-checkbox"
                   id={brand.brand.slug}
                   defaultChecked={
                     selected.includes(brand.brand.slug) ||

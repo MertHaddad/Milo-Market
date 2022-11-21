@@ -18,6 +18,7 @@ const ToggleBar = () => {
   return (
     <>
       <button
+      data-testid="filter-by-type-mug"
       name="itemType=mug"
         className={`toggle-button pointer text-bold ${selectQuery.includes("itemType=mug") ? "bg-primary text-light-white" : "text-primary secondary-button"}`}
         onClick={handleChange}
@@ -25,6 +26,7 @@ const ToggleBar = () => {
         mug
       </button>
       <button
+      data-testid="filter-by-type-shirt"
       name="itemType=shirt"
         className={`toggle-button pointer text-bold ${selectQuery.includes("itemType=shirt") ? "bg-primary text-light-white" : "text-primary secondary-button"}`}
         onClick={handleChange}

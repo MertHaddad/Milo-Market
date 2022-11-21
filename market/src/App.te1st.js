@@ -13,8 +13,8 @@ test('renders navbar with logo', () => {
   );
 
   // eslint-disable-next-line testing-library/prefer-screen-queries
-  // expect(getByText(/learn/i)).toBeInTheDocument();
+  expect(getByText(/Products/i)).toBeInTheDocument();
 
-  expect(getByText('Visible Details Example')).toBeVisible()
+  expect(getByText(/Products/i)).toBeVisible()
 
 });
