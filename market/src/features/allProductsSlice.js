@@ -11,12 +11,13 @@ const initialState = {
 
 
 const getAllTags = (state) => {
-  const tags = new Set();
+  const tags = []
   for (let item of state.value) {
-    tags.add(...item.tags);
+    tags.push(...item.tags)
   }
-  const tagsArray = Array.from(tags);
-  return tagsArray;
+  const uniqueTags = [...new Set(tags)]
+  
+  return uniqueTags;
 };
 
 const calculateStockByTags = (state, payload) => {
