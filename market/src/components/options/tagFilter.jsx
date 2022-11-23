@@ -9,7 +9,7 @@ import Spinner from "./../spinner";
 const TagsFilter = () => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [selected, setSelected] = useState([{tag:"All"}]);
+  const [selected, setSelected] = useState(["All"]);
   const querySelector = useSelector((state) => state.query.value);
   const selectTags = useSelector((state) => state.allProducts.stockByTag);
   const selectBrands = useSelector((state) => state.brand.value);
@@ -17,43 +17,44 @@ const TagsFilter = () => {
 
   const dispatch = useDispatch();
 
-  const handleChange = (tag) => {
-    if (tag.tag === "All") {
+  const handleChange = (e) => {
+    if (e.target.id === "All") {
       setSelected(
-        selected.some(el=> el.tag === "All")
-          ? selected.filter((item) => item.tag !== "All")
-          : [{tag:"All"}]
+        selected.includes("All")
+          ? selected.filter((item) => item !== "All")
+          : ["All"]
       );
     } else {
       let filtered = selected;
-      if (selected.some(el=> el.tag === "All")) {
-        filtered = selected.filter((item) => item.tag !== "All");
+      if (selected.includes("All")) {
+        filtered = selected.filter((item) => item !== "All");
       }
       setSelected(
-        filtered.some((item) => item.tag === tag.tag)
-          ? filtered.filter((item) => item.tag !== tag.tag)
-          : [...filtered, tag]
+        filtered.includes(e.target.id)
+          ? filtered.filter((item) => item !== e.target.id)
+          : [...filtered, e.target.id]
       );
     }
-    let query = `tags_like=(?<!\\s)\\b${tag.tag}\\b(?!\\s)`;
+    let query = `tags_like=(?<!\\s)\\b${e.target.id}\\b(?!\\s)`;
     dispatch(setQuery(query));
   };
 
   useDidMountEffect(() => {
-    if (productsNumberSelector.status === "fulfilled")
+    if (productsNumberSelector.status === "fulfilled"){
+      console.log("Brands should update");
       dispatch(
         getStockByBrands({
+          query:querySelector,
           brands: selectBrands,
-          selected: selected.map((item) => item.tag),
+          selected: selected,
           filteredProductsNum: productsNumberSelector.currentProductNumber,
         })
-      );
-  }, [selected]);
+      );}
+  }, [productsNumberSelector]);
 
   useDidMountEffect(() => {
     dispatch(getItems(querySelector));
     dispatch(getFilteredItemsNumber());
-    // dispatch(getStockByTags({selected:selected,else:productsNumberSelector.currentProductNumber}));
   }, [selected]);
 
   useDidMountEffect(() => {
@@ -63,16 +64,8 @@ const TagsFilter = () => {
     setSearchResults(res);
   }, [search]);
 
-  useDidMountEffect(() => {
-    console.log("selectedTags");
-    console.log(selected);
-    console.log("searchResults");
-    console.log(searchResults);
-  }, [selected, search]);
-
   return (
     <>
-
       <input
         onChange={(e) => setSearch(e.target.value)}
         value={search}
@@ -80,26 +73,25 @@ const TagsFilter = () => {
         placeholder="Search tag"
         className="search-bar"
       />
-      <div  className="filter-body custom-scrollbar">
+      <div className="filter-body custom-scrollbar">
         {selectTags.length ? (
           (searchResults.length ? searchResults : selectTags).map((tag, i) =>
             tag.products ? (
               <div className="form-group filter-item" key={i}>
                 <input
                   key={selected}
-                  onChange={() => handleChange(tag)}
-                  type="checkbox d-block"
-                  // className="custom-checkbox"
+                  onChange={handleChange}
+                  type="checkbox"
+                  className="custom-checkbox"
                   name=""
                   id={tag.tag}
-                  defaultChecked={selected.some((x) => x.tag === tag.tag)
+                  defaultChecked={selected.includes(tag.tag)
                   }
                 />
                 <label
-                  className="filtering-label d-block text-secondary"
+                  className="filtering-label text-secondary"
                   htmlFor={tag.tag}
                 >
-                  
                   {tag.tag}{" "}
                   <span className="text-dark-gray ">({tag.products})</span>
                 </label>

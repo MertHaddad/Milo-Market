@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import ToggleBar from "./toggleBar"
 import Item from "./item"
 const Pagination = React.lazy(() => import("../pagination/pagination"));

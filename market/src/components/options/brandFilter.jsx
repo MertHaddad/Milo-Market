@@ -59,15 +59,17 @@ const BrandFilter = () => {
   useDidMountEffect(() => {
 
     if (productsNumberSelector.status === "fulfilled") {
+      console.log("tags should update");
       dispatch(
         getStockByTags({
+          query:querySelector,
           selected: selected,
           filteredProductsNum: productsNumberSelector.currentProductNumber,
         })
       );
       setShowSpinner(false);
     }
-  }, [selected]);
+  }, [productsNumberSelector]);
 
   useDidMountEffect(() => {
     dispatch(getItems(querySelector));

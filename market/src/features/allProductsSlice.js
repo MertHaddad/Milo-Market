@@ -9,32 +9,45 @@ const initialState = {
   status: "idle",
 };
 
-
 const getAllTags = (state) => {
-  const tags = []
+  const tags = [];
   for (let item of state.value) {
-    tags.push(...item.tags)
+    tags.push(...item.tags);
   }
-  const uniqueTags = [...new Set(tags)]
-  
+  const uniqueTags = [...new Set(tags)];
+
   return uniqueTags;
+};
+
+const checkQueryType = (query) => {
+  if (/itemType/.test(query)) {
+    if (/mug/i.test(query)) {
+      return "mug";
+    } else if (/shirt/i.test(query)) {
+      return "shirt";
+    }
+  } else {
+    return false;
+  }
 };
 
 const calculateStockByTags = (state, payload) => {
   const selectedBrands = payload.selected;
+  const typeFilterExists = checkQueryType(payload.query);
+  console.log(typeFilterExists);
   const stockByTag = [{ tag: "All", products: payload.filteredProductsNum }];
   state.tags.forEach((tag) => {
     let count = 0;
     for (let item of state.value) {
       if (selectedBrands.length && selectedBrands[0] !== "All") {
-        if (item.tags.includes(tag)) {
+        if (!!typeFilterExists ? item.itemType === typeFilterExists  && item.tags.includes(tag):item.tags.includes(tag)) {
           const evaluateTag = selectedBrands.find((product) =>
             selectedBrands.includes(item.manufacturer)
           );
           if (evaluateTag) count++;
         }
       } else {
-        if (item.tags.includes(tag)) count++;
+        if (!!typeFilterExists ? item.itemType === typeFilterExists  && item.tags.includes(tag):item.tags.includes(tag)) count++;
       }
     }
     stockByTag.push({
@@ -45,7 +58,12 @@ const calculateStockByTags = (state, payload) => {
   return stockByTag;
 };
 
+
+
 const calculateStockByBrands = (state, action) => {
+  // console.log(action.payload.query);
+  const typeFilterExists = checkQueryType(action.payload.query);
+  console.log(typeFilterExists);
   const stockByBrand = [
     {
       brand: { name: "All", slug: "uncheck-brands" },
@@ -60,14 +78,16 @@ const calculateStockByBrands = (state, action) => {
         action.payload.selected.length &&
         action.payload.selected[0] !== "All"
       ) {
-        if (item.manufacturer === brand.slug) {
+        if (!!typeFilterExists
+          ? item.itemType === typeFilterExists && item.manufacturer === brand.slug : item.manufacturer === brand.slug) {
           const evaluateTag = action.payload.selected.find((tag) =>
             item.tags.includes(tag)
           );
           if (evaluateTag) count++;
         }
       } else {
-        if (item.manufacturer === brand.slug) count++;
+        if (!!typeFilterExists
+          ? item.itemType === typeFilterExists && item.manufacturer === brand.slug : item.manufacturer === brand.slug) count++;
       }
     }
     stockByBrand.push({

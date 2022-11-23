@@ -17,8 +17,8 @@ export const getFilteredItemsNumber = createAsyncThunk(
 export const filteredProductsSlice = createSlice({
   name: "filteredProducts",
   initialState,
-  reducers: {
-  },
+  // reducers: {
+  // },
   extraReducers: (builder) => {
     builder
       .addCase(getFilteredItemsNumber.pending, (state) => {
