@@ -1,7 +1,9 @@
-import React, { Suspense } from "react";
+import React from "react";
 import ToggleBar from "./toggleBar"
 import Item from "./item"
-import Pagination from "../pagination/pagination"
+const Pagination = React.lazy(() => import("../pagination/pagination"));
+
+// import Pagination from "../pagination/pagination"
 const Products = ()=>{
 
     return(

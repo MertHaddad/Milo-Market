@@ -124,8 +124,8 @@ test("should render products and add to cart on Click", async () => {
   const addButtons = screen.getAllByTestId("add-button");
   for (let [index, item] of addButtons.entries()) {
     await userEvent.click(item);
-    const queryArray = store.getState().basket.basketProducts;
-    expect(queryArray.length).toBeGreaterThan(index);
+    const basketProducts = store.getState().basket.basketProducts;
+    expect(basketProducts.length).toBeGreaterThan(index);
   }
 });
 

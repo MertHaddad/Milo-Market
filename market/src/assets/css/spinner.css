@@ -1,3 +1,31 @@
+.float-spinner{
+  position: relative;
+  z-index: 9999;
+}
+
+
+
+.filters .float-spinner .lds-spinner {
+  color: official;
+  position: absolute;
+  scale: 0.6;
+  z-index: 99;
+}
+
+.filters .float-spinner .lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: var(--gray-dark);
+  /* background: var(--gray-dark); */
+  z-index: 99;
+}
+
 .filters .lds-spinner {
   color: official;
   /* display: block; */

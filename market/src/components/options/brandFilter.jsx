@@ -14,9 +14,12 @@ const BrandFilter = () => {
   const querySelector = useSelector((state) => state.query.value);
   const selectBrand = useSelector((state) => state.allProducts.stockByBrand);
   const productsNumberSelector = useSelector((state) => state.filteredProducts);
+  // const itemsSelector = useSelector((state) => state.product);
+  const [showSpinner, setShowSpinner] = useState(false);
+
   const dispatch = useDispatch();
 
-  const [isPending,startTransition] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
   useDidMountEffect(() => {
     let res = selectBrand.filter((brand) =>
@@ -26,6 +29,7 @@ const BrandFilter = () => {
   }, [search]);
 
   const handleChange = (e) => {
+    setShowSpinner(true);
     startTransition(() => {
       if (e.target.name === "All") {
         setSelected(
@@ -53,14 +57,19 @@ const BrandFilter = () => {
   };
 
   useDidMountEffect(() => {
-    if (productsNumberSelector.status === "fulfilled")
+
+    if (productsNumberSelector.status === "fulfilled") {
+      console.log("tags should update");
       dispatch(
         getStockByTags({
+          query:querySelector,
           selected: selected,
           filteredProductsNum: productsNumberSelector.currentProductNumber,
         })
       );
-  }, [productsNumberSelector.status]);
+      setShowSpinner(false);
+    }
+  }, [productsNumberSelector]);
 
   useDidMountEffect(() => {
     dispatch(getItems(querySelector));
@@ -73,41 +82,51 @@ const BrandFilter = () => {
         onChange={(e) => setSearch(e.target.value)}
         value={search}
         type="text"
-        
         placeholder="Search brand"
         className="search-bar"
       />
+      <span className="float-spinner">
+      {showSpinner? <Spinner /> : null}
+      </span>
       <div className="filter-body custom-scrollbar">
-        {selectBrand.length ? (
-          (searchResults.length ? searchResults : selectBrand).map((brand, i) =>
-            brand.products ? (
-              <div className="filter-item" key={i}>
-                <input
-                  key={selected}
-                  onChange={handleChange}
-                  type="checkbox"
-                  name={brand.brand.name}
-                  className="custom-checkbox"
-                  data-testid="test-brand-filter-checkbox"
-                  id={brand.brand.slug}
-                  defaultChecked={
-                    selected.includes(brand.brand.slug) ||
-                    selected.includes(brand.brand.name)
-                  }
-                />
-                <label
-                  className="filtering-label text-secondary"
-                  htmlFor={brand.brand.slug}
-                >
-                  {brand.brand.name}
-                  <span className="text-dark-gray"> ({brand.products})</span>
-                </label>
-              </div>
-            ) : null
-          )
-        ) : (
-          <Spinner />
-        )}
+        <>
+
+          {selectBrand.length ? (
+            (searchResults.length ? searchResults : selectBrand).map(
+              (brand, i) =>
+                brand.products ? (
+                  <div className="form-group filter-item" key={i}>
+                    <input
+                      key={selected}
+                      onChange={handleChange}
+                      type="checkbox"
+                      name={brand.brand.name}
+                      // className="custom-checkbox"
+                      data-testid="test-brand-filter-checkbox"
+                      id={brand.brand.slug}
+                      defaultChecked={
+                        selected.includes(brand.brand.slug) ||
+                        selected.includes(brand.brand.name)
+                      }
+                    />
+                    <label
+                      className="filtering-label text-secondary"
+                      htmlFor={brand.brand.slug}
+                    >
+                      {brand.brand.name}
+                      <span className="text-dark-gray">
+                        {" "}
+                        ({brand.products})
+                      </span>
+                    </label>
+                  </div>
+                ) : null
+            )
+          ) : (
+            <Spinner />
+          )}
+
+        </>
       </div>
     </>
   );

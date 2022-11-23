@@ -5,7 +5,7 @@ import { getItems } from "../../features/productSlice";
 import { getStockByBrands } from "../../features/allProductsSlice";
 import { getFilteredItemsNumber } from "../../features/filteredProducts";
 import useDidMountEffect from "../../helpers/useDidMountEffect";
-import Spinner from "./../spinner"
+import Spinner from "./../spinner";
 const TagsFilter = () => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -25,8 +25,10 @@ const TagsFilter = () => {
           : ["All"]
       );
     } else {
-      let filtered = selected
-      if(selected.includes("All")){filtered = selected.filter((item) => item !== "All")} 
+      let filtered = selected;
+      if (selected.includes("All")) {
+        filtered = selected.filter((item) => item !== "All");
+      }
       setSelected(
         filtered.includes(e.target.id)
           ? filtered.filter((item) => item !== e.target.id)
@@ -38,13 +40,21 @@ const TagsFilter = () => {
   };
 
   useDidMountEffect(() => {
-    if(productsNumberSelector.status === "fulfilled")
-    dispatch(getStockByBrands({ brands: selectBrands, selected: selected ,filteredProductsNum:productsNumberSelector.currentProductNumber}));
-  }, [productsNumberSelector.status]);
+    if (productsNumberSelector.status === "fulfilled"){
+      console.log("Brands should update");
+      dispatch(
+        getStockByBrands({
+          query:querySelector,
+          brands: selectBrands,
+          selected: selected,
+          filteredProductsNum: productsNumberSelector.currentProductNumber,
+        })
+      );}
+  }, [productsNumberSelector]);
+
   useDidMountEffect(() => {
     dispatch(getItems(querySelector));
     dispatch(getFilteredItemsNumber());
-    // dispatch(getStockByTags({selected:selected,else:productsNumberSelector.currentProductNumber}));
   }, [selected]);
 
   useDidMountEffect(() => {
@@ -53,10 +63,9 @@ const TagsFilter = () => {
     );
     setSearchResults(res);
   }, [search]);
-  
+
   return (
     <>
-    
       <input
         onChange={(e) => setSearch(e.target.value)}
         value={search}
@@ -65,28 +74,33 @@ const TagsFilter = () => {
         className="search-bar"
       />
       <div className="filter-body custom-scrollbar">
-        {selectTags.length ? (searchResults.length ? searchResults : selectTags).map((tag, i) =>
-          tag.products ? (
-            <div key={i}>
-              <input
-                key={selected}
-                onChange={handleChange}
-                type="checkbox"
-                className="custom-checkbox"
-                name=""
-                id={tag.tag}
-                defaultChecked={selected.includes(tag.tag)}
-              />
-              <label
-                className="filtering-label text-secondary"
-                htmlFor={tag.tag}
-              >
-                {tag.tag}{" "}
-                <span className="text-dark-gray ">({tag.products})</span>
-              </label>
-            </div>
-          ) :null 
-        ) : <Spinner/>}
+        {selectTags.length ? (
+          (searchResults.length ? searchResults : selectTags).map((tag, i) =>
+            tag.products ? (
+              <div className="form-group filter-item" key={i}>
+                <input
+                  key={selected}
+                  onChange={handleChange}
+                  type="checkbox"
+                  className="custom-checkbox"
+                  name=""
+                  id={tag.tag}
+                  defaultChecked={selected.includes(tag.tag)
+                  }
+                />
+                <label
+                  className="filtering-label text-secondary"
+                  htmlFor={tag.tag}
+                >
+                  {tag.tag}{" "}
+                  <span className="text-dark-gray ">({tag.products})</span>
+                </label>
+              </div>
+            ) : null
+          )
+        ) : (
+          <Spinner />
+        )}
       </div>
     </>
   );

@@ -246,36 +246,96 @@ input[type="text"] {
   outline: none !important;
 }
 
-input[type="checkbox"] {
+
+/* input[type="checkbox"] {
   width: 22px !important;
   height: 22px !important;
-  /* -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none; */
   box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.25);
   background: transparent;
   padding: 0;
   border-radius: 2px !important;
-}
+} */
 
-input[type="checkbox"]:checked:after {
+/* input[type="checkbox"]:checked:after {
   position: absolute;
   border-radius: 2px !important;
   width: 22px !important;
   height: 22px !important;
-  /* text-align: center; */
-  /* content: "✔"; */
   color: white;
   background-color: var(--primary-color) !important;
   accent-color: var(--primary-color) !important;
+} */
+
+.form-group {
+  display: flex;
 }
 
-.custom-checkbox {
+.form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.form-group label {
+  position: relative;
+  cursor: pointer;
+}
+
+
+
+
+.form-group label:before {
+  content:'';
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0px solid #0079bf;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  /* position: relative; */
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 0.9rem;
+  box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 2px !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+
+
+.form-group input:checked + label:before {
+  background-color: var(--primary-color) !important;
+}
+
+
+.form-group input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  width: 3px;
+  height: 8px;
+  border: 0px solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+
+}
+
+
+/* .custom-checkbox {
   accent-color: #1f9fc6;
   height: 22px;
   width: 22px;
-}
+} */
+
+/* *********************************************************** */
+
+/* *********************************************************** */
+
+
 /* filter container styles */
 
 /* scrollbar style */
