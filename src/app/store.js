@@ -16,9 +16,5 @@ export const store = configureStore(
       allProducts: allproductsSlice,
       filteredProducts: filteredProductsSlice,
     },
-    // middleware: (getDefaultMiddleware) => {
-    //   return getDefaultMiddleware({ thunk: false }).prepend(sagaMiddleware)
-    // },
   },
 );
-// sagaMiddleware.run(helloSaga)

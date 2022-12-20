@@ -1,8 +1,10 @@
 :root {
   --x-padding: 7.4rem;
   --navbar-height: 5.5rem;
-  --primary-color: #1ea4ce;
-  --secondary-color: #147594;
+  --primary-color: #8F95D3;
+  --secondary-color: #D3C4E3;
+  --info-color: #89DAFF;
+  --warn-color: #58504A;
   --gray-color: #e0e0e0;
   --gray-dark: #a8a8a8;
   --gray-darkest: #6f6f6f;
@@ -81,6 +83,16 @@ button {
   left: 0;
   right: 0;
   text-align: center;
+}
+
+.navbar-logo strong {
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 2.5rem;
+}
+.navbar-logo strong:hover{
+color: var(--secondary-color) !important;
 }
 /* navbar styling */
 

@@ -8,7 +8,8 @@ const Navbar = () => {
     <>
       <div className="navbar">
         <div className="navbar-logo">
-          <img alt="market-logo" src={logo} />
+          {/* <img alt="market-logo" src={logo} /> */}
+          <strong>Milo Market</strong>
         </div>
         <div id="cart-button" className="button pointer">
           <img alt="market-shopping" src={basketIcon} /> ₺ {Number(select).toFixed(2)}
