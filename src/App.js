@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useLayoutEffect } from "react";
 import "./assets/css/styles.css";
 import "./assets/css/predefined.css";
 import Navbar from "./components/navbar";
@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch();
   const querySelector = useSelector((state) => state.query.value);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(getItems(querySelector));
   }, []);
 

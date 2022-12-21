@@ -21,13 +21,20 @@ const Item = () => {
                   src={require(`./../../assets/img/thumbnails/thumbnail${
                     item.name.length + Math.floor(item.price) - 6 - i
                   }.jpg`)}
+                  onError={() =>
+                    this.src !==
+                    require(`./../../assets/img/thumbnails/thumbnail1.jpg`)
+                      ? (this.src = require(`./../../assets/img/thumbnails/thumbnail1.jpg`))
+                      : null
+                  }
                 />
               </span>
               <span className="product-price">₺ {item.price}</span>
               <span className="product-title text-default">{item.name}</span>
               <button
                 onClick={() => dispatch(addProduct({ product: item }))}
-                data-testid="add-button" className="product-button text-bold fs-3"
+                data-testid="add-button"
+                className="product-button text-bold fs-3"
               >
                 Add
               </button>
@@ -37,12 +44,11 @@ const Item = () => {
           <div>
             <div className="empty-cart">
               <p className="fs-1">Oppsssss!! no products here :(</p>
-            <img alt="" width={600} src={noProduct} />
-            
-          </div>
+              <img alt="" width={600} src={noProduct} />
+            </div>
           </div>
         ) : (
-          <Spinner  />
+          <Spinner />
         )}
         <span></span>
       </div>

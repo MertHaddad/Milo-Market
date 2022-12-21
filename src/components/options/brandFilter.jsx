@@ -29,7 +29,7 @@ const BrandFilter = () => {
   }, [search]);
 
   const handleChange = (e) => {
-    setShowSpinner(true);
+
     startTransition(() => {
       if (e.target.name === "All") {
         setSelected(
@@ -59,7 +59,7 @@ const BrandFilter = () => {
   useDidMountEffect(() => {
 
     if (productsNumberSelector.status === "fulfilled") {
-      console.log("tags should update");
+      setShowSpinner(true);
       dispatch(
         getStockByTags({
           query:querySelector,
@@ -69,7 +69,7 @@ const BrandFilter = () => {
       );
       setShowSpinner(false);
     }
-  }, [productsNumberSelector]);
+  }, []);
 
   useDidMountEffect(() => {
     dispatch(getItems(querySelector));

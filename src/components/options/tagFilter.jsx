@@ -41,7 +41,6 @@ const TagsFilter = () => {
 
   useDidMountEffect(() => {
     if (productsNumberSelector.status === "fulfilled"){
-      console.log("Brands should update");
       dispatch(
         getStockByBrands({
           query:querySelector,
@@ -50,7 +49,7 @@ const TagsFilter = () => {
           filteredProductsNum: productsNumberSelector.currentProductNumber,
         })
       );}
-  }, [productsNumberSelector]);
+  }, []);
 
   useDidMountEffect(() => {
     dispatch(getItems(querySelector));

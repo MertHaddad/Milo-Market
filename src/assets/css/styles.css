@@ -94,6 +94,12 @@ button {
 .navbar-logo strong:hover{
 color: var(--secondary-color) !important;
 }
+
+.price-text{
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 /* navbar styling */
 
 /* product card styling */
