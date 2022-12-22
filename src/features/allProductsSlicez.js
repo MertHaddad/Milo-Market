@@ -32,43 +32,50 @@ const checkQueryType = (query) => {
 };
 
 const calculateStockByTags = (state, payload) => {
-  console.time("calculateStockByTags")
+  console.log("!!!!!!!!!!!!!!!!!!!!!");
+  console.log("calculateStockByTags");
+  console.time("calculateStockByTags");
   const selectedBrands = payload.selected;
   const typeFilterExists = checkQueryType(payload.query);
-  console.log(typeFilterExists);
   const stockByTag = [{ tag: "All", products: payload.filteredProductsNum }];
-  console.timeLog("calculateStockByTags")
   state.tags.forEach((tag) => {
     let count = 0;
     for (let item of state.value) {
-      if (selectedBrands.length && selectedBrands[0] !== "All") {
-        if (!!typeFilterExists ? item.itemType === typeFilterExists  && item.tags.includes(tag):item.tags.includes(tag)) {
-          const evaluateTag = selectedBrands.find((product) =>
-            selectedBrands.includes(item.manufacturer)
-          );
+      
+      if (
+        
+        selectedBrands.length &&
+        selectedBrands[0] !== "All"
+      ) {
+        if (
+          (item.itemType === typeFilterExists && item.tags.includes(tag)) ||
+          item.tags.includes(tag)
+        ) {
+          const evaluateTag = selectedBrands.includes(item.manufacturer);
+
           if (evaluateTag) count++;
         }
-      } else {
-        if (!!typeFilterExists ? item.itemType === typeFilterExists  && item.tags.includes(tag):item.tags.includes(tag)) count++;
+      } else if (
+        (item.itemType === typeFilterExists && item.tags.includes(tag)) ||
+        item.tags.includes(tag)
+      ) {
+        count++;
       }
     }
-    console.timeEnd("calculateStockByTags")
     stockByTag.push({
       tag: tag,
       products: count,
     });
   });
+  console.timeEnd("calculateStockByTags");
   return stockByTag;
 };
 
-
-
 const calculateStockByBrands = (state, action) => {
-  console.time("calculateStockByBrands")
-  
+  console.log("#######################");
+  console.log("calculateStockByBrands");
   // console.log(action.payload.query);
   const typeFilterExists = checkQueryType(action.payload.query);
-  console.log(typeFilterExists);
   const stockByBrand = [
     {
       brand: { name: "All", slug: "uncheck-brands" },
@@ -83,16 +90,25 @@ const calculateStockByBrands = (state, action) => {
         action.payload.selected.length &&
         action.payload.selected[0] !== "All"
       ) {
-        if (!!typeFilterExists
-          ? item.itemType === typeFilterExists && item.manufacturer === brand.slug : item.manufacturer === brand.slug) {
+        if (
+          !!typeFilterExists
+            ? item.itemType === typeFilterExists &&
+              item.manufacturer === brand.slug
+            : item.manufacturer === brand.slug
+        ) {
           const evaluateTag = action.payload.selected.find((tag) =>
             item.tags.includes(tag)
           );
           if (evaluateTag) count++;
         }
       } else {
-        if (!!typeFilterExists
-          ? item.itemType === typeFilterExists && item.manufacturer === brand.slug : item.manufacturer === brand.slug) count++;
+        if (
+          !!typeFilterExists
+            ? item.itemType === typeFilterExists &&
+              item.manufacturer === brand.slug
+            : item.manufacturer === brand.slug
+        )
+          count++;
       }
     }
     stockByBrand.push({
@@ -100,7 +116,6 @@ const calculateStockByBrands = (state, action) => {
       products: count,
     });
   });
-  console.timeEnd("calculateStockByBrands")
   return stockByBrand;
 };
 

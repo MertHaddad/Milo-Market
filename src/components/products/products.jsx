@@ -13,7 +13,7 @@ const Products = ()=>{
         <ToggleBar/>
         <Item/>
         <Pagination/>
-
+        
         </div>
         </>
     )

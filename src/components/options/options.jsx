@@ -27,7 +27,7 @@ const Options = () => {
   useDidMountEffect(() => {
     if (selectAllProducts.status === "fulfilled") {
       dispatch(getTags());
-      dispatch(getStockByTags({selected:[],filteredProductsNum:selectAllProducts.value.length}));
+      //dispatch(getStockByTags({selected:[],filteredProductsNum:selectAllProducts.value.length}));
     }
   }, [selectAllProducts.status]);
 

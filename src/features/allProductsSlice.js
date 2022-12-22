@@ -70,7 +70,6 @@ const calculateStockByTags = (state, payload) => {
 const calculateStockByBrands = (state, action) => {
   // console.log(action.payload.query);
   const typeFilterExists = checkQueryType(action.payload.query);
-  console.log(typeFilterExists);
   const stockByBrand = [
     {
       brand: { name: "All", slug: "uncheck-brands" },

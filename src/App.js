@@ -1,36 +1,22 @@
-import React, { Suspense, useEffect } from "react";
-import "./assets/css/styles.css";
-import "./assets/css/predefined.css";
-import Navbar from "./components/navbar";
-import Products from "./components/products/products";
-import Basket from "./components/basket/basket";
-import Footer from "./components/footer";
-import Spinner from "./components/spinner";
-import { useDispatch, useSelector } from "react-redux";
-import { getItems } from "./features/productSlice";
-const Options = React.lazy(() => import("./components/options/options"));
+import * as React from "react";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Home from "./routes/home";
+import Product from "./routes/product";
+import Checkout from "./routes/checkout";
+import Contact from "./routes/contact";
+import NoMatch from "./routes/noMatch";
+import Store from "./routes/store";
 
-function App() {
-  const dispatch = useDispatch();
-  const querySelector = useSelector((state) => state.query.value);
-
-  useEffect(() => {
-    dispatch(getItems(querySelector));
-  }, []);
-
+export default function App() {
   return (
-    <>
-      <Navbar />
-      <Suspense fallback={<Spinner />}>
-        <div className="container">
-          <Basket />
-          <Products />
-          <Options />
-        </div>
-        <Footer />
-      </Suspense>
-    </>
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path="store" element={<Store />} />
+      <Route path="product/:slug" element={<Product />}>
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<NoMatch />} />
+      </Route>
+    </Routes>
   );
 }
-
-export default App;

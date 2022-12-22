@@ -1,6 +1,5 @@
 import React from "react";
-import logo from "./../assets/img/logo.svg";
-import basketIcon from "./../assets/img/basket.svg";
+import basketIcon from "./../../assets/img/basket.svg";
 import { useSelector } from "react-redux";
 const Navbar = () => {
   const select = useSelector(state=>state.basket.payment)
@@ -9,10 +8,10 @@ const Navbar = () => {
       <div className="navbar">
         <div className="navbar-logo">
           {/* <img alt="market-logo" src={logo} /> */}
-          <strong>Milo Market</strong>
+          <strong> Milo Market 🐈</strong>
         </div>
-        <div id="cart-button" className="button pointer">
-          <img alt="market-shopping" src={basketIcon} /> ₺ {Number(select).toFixed(2)}
+        <div id="cart-button" className="button pointer ">
+          <img alt="market-shopping"  src={basketIcon} /><span className="price-text"> ₺ {Number(select).toFixed(2)}</span>
         </div>
       </div>
     </>

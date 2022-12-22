@@ -35,4 +35,15 @@ const GetPerView = async () => {
   }
 };
 
-export { GetAll , GetPerView,GetAllFiltered };
+const GetItem = async (slug) => {
+  console.log(slug);
+  try {
+    const resp = await axios.get(ITEMS_SERVICE_URL+"?slug="+slug);
+    return resp;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+export { GetAll , GetPerView,GetAllFiltered,GetItem };

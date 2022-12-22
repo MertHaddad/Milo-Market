@@ -1,11 +1,11 @@
 import React, { useState, useTransition } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setQuery } from "../../features/querySlice";
+import { selectQueries, setQuery } from "../../features/querySlice";
 import { getItems } from "../../features/productSlice";
 import { getStockByTags } from "../../features/allProductsSlice";
 import { getFilteredItemsNumber } from "../../features/filteredProducts";
 import useDidMountEffect from "../../helpers/useDidMountEffect";
-import Spinner from "../spinner";
+import Spinner from "../main/spinner";
 
 const BrandFilter = () => {
   const [search, setSearch] = useState("");
@@ -16,7 +16,7 @@ const BrandFilter = () => {
   const productsNumberSelector = useSelector((state) => state.filteredProducts);
   // const itemsSelector = useSelector((state) => state.product);
   const [showSpinner, setShowSpinner] = useState(false);
-
+  const selectQuery = useSelector((state) => state.query.value);
   const dispatch = useDispatch();
 
   const [isPending, startTransition] = useTransition();
@@ -29,7 +29,7 @@ const BrandFilter = () => {
   }, [search]);
 
   const handleChange = (e) => {
-    setShowSpinner(true);
+
     startTransition(() => {
       if (e.target.name === "All") {
         setSelected(
@@ -44,7 +44,7 @@ const BrandFilter = () => {
         }
 
         setSelected(
-          filtered.includes(e.target.id)
+          filtered.includes(e.target.id) || selectQuery.includes("manufacturer="+e.target.id)
             ? filtered.filter((item) => item !== e.target.id)
             : [...filtered, e.target.id]
         );
@@ -59,7 +59,7 @@ const BrandFilter = () => {
   useDidMountEffect(() => {
 
     if (productsNumberSelector.status === "fulfilled") {
-      console.log("tags should update");
+      setShowSpinner(true);
       dispatch(
         getStockByTags({
           query:querySelector,
@@ -69,7 +69,7 @@ const BrandFilter = () => {
       );
       setShowSpinner(false);
     }
-  }, [productsNumberSelector]);
+  }, []);
 
   useDidMountEffect(() => {
     dispatch(getItems(querySelector));
@@ -106,7 +106,8 @@ const BrandFilter = () => {
                       id={brand.brand.slug}
                       defaultChecked={
                         selected.includes(brand.brand.slug) ||
-                        selected.includes(brand.brand.name)
+                        selected.includes(brand.brand.name) ||
+                        selectQuery.includes("manufacturer="+brand.brand.slug)
                       }
                     />
                     <label

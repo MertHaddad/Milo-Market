@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { value: ["?_page=1&_limit=16"] };
+const initialState = { value: ["?_page=1&_limit=24"] };
 
 const manageQueries = (que, state, action) => {
   const findElement = state.find((x) =>
