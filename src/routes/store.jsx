@@ -7,11 +7,28 @@ import Footer from "../components/main/footer";
 import Spinner from "../components/main/spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { getItems } from "./../features/productSlice";
+import { useLocation } from "react-router-dom";
+import { setQuery } from "../features/querySlice";
+import { useEffect } from "react";
 const Options = React.lazy(() => import("./../components/options/options"));
 
 export default function Store() {
   const dispatch = useDispatch();
   const querySelector = useSelector((state) => state.query.value);
+  const location = useLocation();
+
+  const { item = {}, type = {} } = location?.state || {} ;
+  useEffect(() => {
+    if (item) {
+      let query = "";
+      if (type === "brand") {
+        query = `manufacturer=${item.slug}`;
+      } else if(type === "tag") {
+        query = `tags_like=(?<!\\s)\\b${item}\\b(?!\\s)`;
+      }
+      dispatch(setQuery(query));
+    }
+  }, []);
 
   useLayoutEffect(() => {
     dispatch(getItems(querySelector));

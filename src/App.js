@@ -12,7 +12,7 @@ export default function App() {
     <Routes>
       <Route index element={<Home />} />
       <Route path="store" element={<Store />} />
-      <Route path="product" element={<Product />}>
+      <Route path="product/:slug" element={<Product />}>
         <Route path="checkout" element={<Checkout />} />
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<NoMatch />} />

@@ -12,9 +12,10 @@ const TagsFilter = () => {
   const [selected, setSelected] = useState(["All"]);
   const querySelector = useSelector((state) => state.query.value);
   const selectTags = useSelector((state) => state.allProducts.stockByTag);
+  const selectSoloTags = useSelector((state) => state.allProducts.tags);
   const selectBrands = useSelector((state) => state.brand.value);
   const productsNumberSelector = useSelector((state) => state.filteredProducts);
-
+  const selectQuery = useSelector((state) => state.query.value);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -30,7 +31,8 @@ const TagsFilter = () => {
         filtered = selected.filter((item) => item !== "All");
       }
       setSelected(
-        filtered.includes(e.target.id)
+        filtered.includes(e.target.id) ||
+          selectQuery.includes(`tags_like=(?<!\\s)\\b${e.target.id}\\b(?!\\s)`)
           ? filtered.filter((item) => item !== e.target.id)
           : [...filtered, e.target.id]
       );
@@ -40,16 +42,17 @@ const TagsFilter = () => {
   };
 
   useDidMountEffect(() => {
-    if (productsNumberSelector.status === "fulfilled"){
+    if (productsNumberSelector.status === "fulfilled") {
       dispatch(
         getStockByBrands({
-          query:querySelector,
+          query: querySelector,
           brands: selectBrands,
           selected: selected,
           filteredProductsNum: productsNumberSelector.currentProductNumber,
         })
-      );}
-  }, []);
+      );
+    }
+  }, [productsNumberSelector.currentProductNumber]);
 
   useDidMountEffect(() => {
     dispatch(getItems(querySelector));
@@ -73,9 +76,10 @@ const TagsFilter = () => {
         className="search-bar"
       />
       <div className="filter-body custom-scrollbar">
-        {selectTags.length ? (
-          (searchResults.length ? searchResults : selectTags).map((tag, i) =>
-            tag.products ? (
+        {selectSoloTags.length ? (
+          (searchResults.length ? searchResults : selectSoloTags).map(
+            (tag, i) => (
+              // tag.products ? (
               <div className="form-group filter-item" key={i}>
                 <input
                   key={selected}
@@ -83,19 +87,19 @@ const TagsFilter = () => {
                   type="checkbox"
                   className="custom-checkbox"
                   name=""
-                  id={tag.tag}
-                  defaultChecked={selected.includes(tag.tag)
+                  id={tag}
+                  defaultChecked={
+                    selected.includes(tag) ||
+                    selectQuery.includes(`tags_like=(?<!\\s)\\b${tag}\\b(?!\\s)`)
                   }
                 />
-                <label
-                  className="filtering-label text-secondary"
-                  htmlFor={tag.tag}
-                >
-                  {tag.tag}{" "}
-                  <span className="text-dark-gray ">({tag.products})</span>
+                <label className="filtering-label text-secondary" htmlFor={tag}>
+                  {tag}{" "}
+                  {/* <span className="text-dark-gray ">({tag.products})</span> */}
                 </label>
               </div>
-            ) : null
+            )
+            // ) : null
           )
         ) : (
           <Spinner />

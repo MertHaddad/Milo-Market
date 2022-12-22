@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { addProduct } from "../../features/basketSlice";
 import Spinner from "../main/spinner";
 import noProduct from "./../../assets/img/no-product.jpg";
-
+const  fb = require("./../../assets/img/thumbnails/thumbnail1.jpg");
 const Item = () => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
@@ -15,25 +15,16 @@ const Item = () => {
         {products.value.length ? (
           products.value.map((item, i) => (
             <div data-testid="product-item" className="product-card" key={i}>
-              <Link to="/product" state={{ item: item,i:i }}>
-              <span
-                
-                className="product-thumbnail"
-              >
-                <img
-                  width={90}
-                  alt=""
-                  src={require(`./../../assets/img/thumbnails/thumbnail${
-                    item.name.length + Math.floor(item.price) - 6 - i
-                  }.jpg`)}
-                  onError={() =>
-                    this.src !==
-                    require(`./../../assets/img/thumbnails/thumbnail1.jpg`)
-                      ? (this.src = require(`./../../assets/img/thumbnails/thumbnail1.jpg`))
-                      : null
-                  }
-                />
-              </span>
+              <Link to={"/product/slug="+item.slug } state={{ item: item, i: i }}>
+                <span className="product-thumbnail">
+                  <img
+                    width={90}
+                    alt=""
+                    src={require(`./../../assets/img/thumbnails/thumbnail${
+                      item.name.length + Math.floor(item.price)-6
+                    }.jpg`)}
+                  />
+                </span>
               </Link>
               <span className="product-price">₺ {item.price}</span>
               <span className="product-title text-default">{item.name}</span>

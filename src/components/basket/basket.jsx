@@ -7,35 +7,37 @@ const Basket = () => {
 
   return (
     <>
-      {selectBasket.basketProducts.length ? (
-        <div className="basket basket-container custom-scrollbar">
-          {selectBasket.basketProducts.length ? (
-            selectBasket.basketProducts.map((item, i) => (
-              <div key={i} className="basket-item parent text-default">
-                <div className="div2 basket-product-name">{item.name}</div>
-                <div className="counter-parent">
-                  <Counter product={item} />
+      <div className="basket">
+        {selectBasket.basketProducts.length ? (
+          <div className="basket-container custom-scrollbar">
+            {selectBasket.basketProducts.length ? (
+              selectBasket.basketProducts.map((item, i) => (
+                <div key={i} className="basket-item parent text-default">
+                  <div className="div2 basket-product-name">{item.name}</div>
+                  <div className="counter-parent">
+                    <Counter product={item} />
+                  </div>
+                  <div className="price-parent text-primary text-bold">
+                    ₺{item.price}
+                    <span>{item.amount}</span>
+                  </div>
                 </div>
-                <div className="price-parent text-primary text-bold">
-                  ₺{item.price}
-                  <span>{item.amount}</span>
-                </div>
+              ))
+            ) : (
+              <div className="empty-cart">
+                <img alt="" width={170} src={emptyCart} />
               </div>
-            ))
-          ) : (
-            <div className="empty-cart">
-              <img alt="" width={170} src={emptyCart} />
-            </div>
-          )}
-          {selectBasket.basketProducts.length ? (
-            <div className="basket-button-container">
-              <button className="basket-button">
-                ₺{Math.abs(Number(selectBasket.payment).toFixed(2))}
-              </button>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+            )}
+            {selectBasket.basketProducts.length ? (
+              <div className="basket-button-container">
+                <button className="basket-button">
+                  ₺{Math.abs(Number(selectBasket.payment).toFixed(2))}
+                </button>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+      </div>
     </>
   );
 };

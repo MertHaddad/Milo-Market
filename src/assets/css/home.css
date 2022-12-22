@@ -1,0 +1,38 @@
+.hot-products {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .hot-products >*{
+    padding: 2rem;
+  }
+
+  .hot-thumbnail{
+    width: 100%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .home-gallery{
+    display: flex;
+    justify-content: center;
+  }
+
+  .home-gallery >*{
+    margin: 2rem;
+    text-align: center;
+  }
+
+  *{
+    text-decoration: none
+  }
+
+  .card-titles{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .card-titles > * {
+    max-width: 10rem;
+
+  }
