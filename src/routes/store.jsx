@@ -1,0 +1,32 @@
+import React, { Suspense, useLayoutEffect } from "react";
+import "./../assets/css/styles.css";
+import "./../assets/css/predefined.css";
+import Products from "./../components/products/products";
+import Basket from "./../components/basket/basket";
+import Footer from "../components/main/footer";
+import Spinner from "../components/main/spinner";
+import { useDispatch, useSelector } from "react-redux";
+import { getItems } from "./../features/productSlice";
+const Options = React.lazy(() => import("./../components/options/options"));
+
+export default function Store() {
+  const dispatch = useDispatch();
+  const querySelector = useSelector((state) => state.query.value);
+
+  useLayoutEffect(() => {
+    dispatch(getItems(querySelector));
+  }, []);
+
+  return (
+    <>
+      <Suspense fallback={<Spinner />}>
+        <div className="container">
+          <Basket />
+          <Products />
+          <Options />
+        </div>
+        <Footer />
+      </Suspense>
+    </>
+  );
+}

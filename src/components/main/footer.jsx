@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       <div className="footer">
         <span className="text-primary">
-          ©2019 Market •{" "}
+          ©2023 Milo Market •{" "}
           <a className="no-text-style text-primary" href="/">
             Privacy Policy
           </a>{" "}

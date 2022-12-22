@@ -5,7 +5,7 @@ import { getItems } from "../../features/productSlice";
 import { getStockByTags } from "../../features/allProductsSlice";
 import { getFilteredItemsNumber } from "../../features/filteredProducts";
 import useDidMountEffect from "../../helpers/useDidMountEffect";
-import Spinner from "../spinner";
+import Spinner from "../main/spinner";
 
 const BrandFilter = () => {
   const [search, setSearch] = useState("");

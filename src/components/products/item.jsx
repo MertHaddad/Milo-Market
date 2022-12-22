@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { addProduct } from "../../features/basketSlice";
-import Spinner from "../spinner";
+import Spinner from "../main/spinner";
 import noProduct from "./../../assets/img/no-product.jpg";
 
 const Item = () => {
@@ -14,7 +15,11 @@ const Item = () => {
         {products.value.length ? (
           products.value.map((item, i) => (
             <div data-testid="product-item" className="product-card" key={i}>
-              <span className="product-thumbnail">
+              <Link to="/product" state={{ item: item,i:i }}>
+              <span
+                
+                className="product-thumbnail"
+              >
                 <img
                   width={90}
                   alt=""
@@ -29,6 +34,7 @@ const Item = () => {
                   }
                 />
               </span>
+              </Link>
               <span className="product-price">₺ {item.price}</span>
               <span className="product-title text-default">{item.name}</span>
               <button

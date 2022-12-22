@@ -1,5 +1,5 @@
 import React from "react";
-import basketIcon from "./../assets/img/basket.svg";
+import basketIcon from "./../../assets/img/basket.svg";
 import { useSelector } from "react-redux";
 const Navbar = () => {
   const select = useSelector(state=>state.basket.payment)

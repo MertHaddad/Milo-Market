@@ -1,0 +1,18 @@
+.product-container{ 
+    display: flex;
+    padding: 2rem;
+}
+.product-image{}
+.product-details{
+    margin: 3rem 2rem;
+    border-width: 0 0 0 1px;
+    border-color: rgba(0, 0, 0, 0.267);
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-details > * {
+    padding: 0.2rem 1rem;
+    font-size: 1.3rem;
+}

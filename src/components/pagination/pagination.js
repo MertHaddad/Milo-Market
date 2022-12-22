@@ -14,7 +14,7 @@ const Pagination = () => {
   const onPageChange = (p) => {
     if (currentPage !== p) {
       setCurrentPage(p);
-      const query = `_page=${p}&_limit=16`;
+      const query = `_page=${p}&_limit=24`;
       dispatch(setQuery(query));
       dispatch(getItems(selectQuery));
     }
@@ -26,7 +26,7 @@ const Pagination = () => {
 
   let totalCount = filteredProducts.currentProductNumber;
   const siblingCount = 1;
-  const pageSize = 16;
+  const pageSize = 24;
 
   const paginationRange = usePagination({
     currentPage,
