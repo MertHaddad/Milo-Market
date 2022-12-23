@@ -10,17 +10,12 @@ import HotProducts from "../components/main/hotProducts";
 import TopBrands from "../components/main/topBrands";
 import TopTags from "../components/main/topTags";
 
-
-import {
-  getAllItems,
-  getTags,
-} from "./../features/allProductsSlice";
+import { getAllItems, getTags } from "./../features/allProductsSlice";
 import { getBrands } from "./../features/brandSlice";
 import useDidMountEffect from "./../helpers/useDidMountEffect";
 import { getFilteredItemsNumber } from "./../features/filteredProducts";
 
 export default function Home() {
-
   const dispatch = useDispatch();
 
   const selectAllProducts = useSelector((state) => state.allProducts);
@@ -28,9 +23,9 @@ export default function Home() {
   useLayoutEffect(() => {
     dispatch(getAllItems());
     dispatch(getBrands());
-    dispatch(getFilteredItemsNumber())
+    dispatch(getFilteredItemsNumber());
   }, []);
-  
+
   useDidMountEffect(() => {
     if (selectAllProducts.status === "fulfilled") {
       dispatch(getTags());
@@ -46,13 +41,13 @@ export default function Home() {
 
   return (
     <>
-      <SlideShow />
       <Suspense fallback={<Spinner />}>
         <div className="home-container">
+          <SlideShow />
+          <HotProducts />
+          <TopBrands />
+          <TopTags />
         </div>
-        <HotProducts/>
-        <TopBrands/>
-        <TopTags/>
       </Suspense>
     </>
   );

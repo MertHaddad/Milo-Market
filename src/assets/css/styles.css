@@ -22,7 +22,7 @@
 .container{
   display: flex;
   flex-direction: row-reverse;
-  padding-top: var(--navbar-height);
+
 }
 
 .container > *{
@@ -60,12 +60,37 @@ button {
   background-color: var(--primary-color);
   display: flex;
   position: fixed;
+  top: 0;
   width: 100%;
   justify-content: flex-end;
   align-items: center;
   height: var(--navbar-height);
   z-index: 99;
   /* padding: 0 var(--x-padding); */
+}
+
+html:not([data-scroll='0']) .navbar, .go-up-button {
+  background-color: #8f95d3b2;
+  backdrop-filter: blur(10px);
+}
+
+.go-up-button{
+  display: none;
+  bottom: 20px;
+  right: 30px;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  color: #ffffff;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.281);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.281);
+  height: 4rem;
+  width: 4rem;
+  z-index: 99;
+}
+
+html:not([data-scroll='0']) .go-up-button{
+  display: block;
+  position: fixed;
 }
 
 .navbar > .button {
@@ -390,7 +415,7 @@ input[type="text"] {
   background-color: white;
   max-height: 19vh;
   overflow-y: auto;
-  border: 9px solid var(--primary-color);
+  border: 2px solid var(--primary-color);
 }
 
 .basket-item {

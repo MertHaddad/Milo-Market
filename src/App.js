@@ -6,8 +6,10 @@ import Checkout from "./routes/checkout";
 import Contact from "./routes/contact";
 import NoMatch from "./routes/noMatch";
 import Store from "./routes/store";
+import useScrollDetector from "./assets/hooks/useScrollDetector";
 
 export default function App() {
+  useScrollDetector()
   return (
     <Routes>
       <Route index element={<Home />} />

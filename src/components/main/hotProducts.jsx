@@ -10,7 +10,9 @@ export default function HotProducts() {
   return (
     <>
     <Link to="/store" state={{ item: {}, type: {} }} >
-      <div className=" fs-1 product-thumbnail text-center p-4 text-bold pointer " style={{width:"20%",margin:"auto",marginTop:20}}>Visit Store</div>
+      <div className=" fs-1 product-thumbnail text-center p-4 text-bold pointer visit-store-button" >
+        <div className="visit-store-text">Visit Store</div>
+        </div>
       </Link>
       <div className=" fs-1 text-center p-4">Hot Products</div>
     <div className="hot-products ">
@@ -20,7 +22,7 @@ export default function HotProducts() {
           (item, i) =>
             i < 4 && (
               <div data-testid="product-item" className="product-card" key={i}>
-                <Link to="/product" state={{ item: item, i: i }}>
+                <Link to={"/product/slug="+item.slug } state={{ item: item, i: i }}>
                   <span className="product-thumbnail hot-thumbnail">
                     <img
                       width={160}

@@ -8,8 +8,10 @@ import reportWebVitals from "./reportWebVitals";
 import "./assets/css/index.css";
 import Navbar from "./components/main/navbar";
 import Footer from "./components/main/footer";
+import UpButton from "./components/main/upButton";
 const container = document.getElementById("root");
 const root = createRoot(container);
+
 
 root.render(
   <>
@@ -17,6 +19,7 @@ root.render(
       <HashRouter>
       <Navbar/>
         <App />
+        <UpButton/>
       <Footer/>
       </HashRouter>
     </Provider>
