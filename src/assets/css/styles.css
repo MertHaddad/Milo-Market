@@ -490,6 +490,23 @@ input[type="text"] {
   /* flex-direction: "column"; */
 }
 
+
+/* Pills style */
+
+.pills{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pill{
+  color: #ffffff;
+  padding: 0.2rem 0.4rem;
+  margin: 0 0.4rem 0.2rem 0;
+  background-color: var(--secondary-color);
+}
+
+/* Pills style */
+
 /* basket styling */
 
 @media screen and (max-width: 1100px) {
@@ -511,3 +528,5 @@ input[type="text"] {
 
   
 }
+
+

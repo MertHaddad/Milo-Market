@@ -14,6 +14,7 @@ import { getAllItems, getTags } from "./../features/allProductsSlice";
 import { getBrands } from "./../features/brandSlice";
 import useDidMountEffect from "./../helpers/useDidMountEffect";
 import { getFilteredItemsNumber } from "./../features/filteredProducts";
+import { clearQuery } from "../features/querySlice";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function Home() {
   const selectAllProducts = useSelector((state) => state.allProducts);
 
   useLayoutEffect(() => {
+    dispatch(clearQuery());
     dispatch(getAllItems());
     dispatch(getBrands());
     dispatch(getFilteredItemsNumber());

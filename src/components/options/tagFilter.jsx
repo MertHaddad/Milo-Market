@@ -75,7 +75,7 @@ const TagsFilter = () => {
         placeholder="Search tag"
         className="search-bar"
       />
-      <div className="filter-body custom-scrollbar">
+      <div key={selectQuery} className="filter-body custom-scrollbar">
         {selectSoloTags.length ? (
           (searchResults.length ? searchResults : selectSoloTags).map(
             (tag, i) => (

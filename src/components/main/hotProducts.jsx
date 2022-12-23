@@ -11,7 +11,7 @@ export default function HotProducts() {
     <>
     <Link to="/store" state={{ item: {}, type: {} }} >
       <div className=" fs-1 product-thumbnail text-center p-4 text-bold pointer visit-store-button" >
-        <div className="visit-store-text">Visit Store</div>
+        <div className="visit-store-text">Checkout the Store</div>
         </div>
       </Link>
       <div className=" fs-1 text-center p-4">Hot Products</div>
@@ -28,7 +28,7 @@ export default function HotProducts() {
                       width={160}
                       alt=""
                       src={require(`./../../assets/img/thumbnails/thumbnail${
-                        item.name.length + Math.floor(item.price) - 6 - i
+                        item.name.length + Math.floor(item.price) - 6-i
                       }.jpg`)}
                       onError={() =>
                         this.src !==

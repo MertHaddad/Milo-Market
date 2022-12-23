@@ -45,9 +45,10 @@ export const querySlice = createSlice({
   initialState,
   reducers: {
     setQuery: (state, action) => (state = evaluateQuery(state.value, action)),
+    clearQuery:(state)=>(state = initialState)
   },
 });
 
-export const { setQuery } = querySlice.actions;
+export const { setQuery,clearQuery } = querySlice.actions;
 export const selectQueries = (state) => state.query.value; //defined in alice name
 export default querySlice.reducer;

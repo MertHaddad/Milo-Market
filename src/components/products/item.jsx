@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { addProduct } from "../../features/basketSlice";
 import Spinner from "../main/spinner";
 import noProduct from "./../../assets/img/no-product.jpg";
-const  fb = require("./../../assets/img/thumbnails/thumbnail1.jpg");
 const Item = () => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
