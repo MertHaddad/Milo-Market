@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useLocation } from "react-router-dom";
+import Counter from "../components/basket/counter";
+import { addProduct } from "../features/basketSlice";
 import { getSelectedItem } from "../features/filteredProducts";
 import useDidMountEffect from "../helpers/useDidMountEffect";
 import "./../assets/css/product.css";
@@ -15,6 +17,7 @@ export default function Product() {
   //so the state will get lost.
   const dispatch = useDispatch();
   const selectedItem = useSelector((state) => state.filteredProducts);
+  const selectBasket = useSelector((state) => state.basket);
   const [item, setItem] = useState(null);
   const { slug } = useParams();
   const location = useLocation();
@@ -35,6 +38,9 @@ export default function Product() {
     }
   }, [selectedItem.status]);
 
+  
+
+  // const demoProd  = {name:item.name,price:item.price,quantity:0}
   return (
     <>
       {item ? (
@@ -53,12 +59,32 @@ export default function Product() {
               }
             />
           </div>
+
           <div className="product-details">
             <span>Name : {item.name}</span>
             <span>Price : {item.price}</span>
             <span>Manufacturer : {item.manufacturer}</span>
             <span>Description : {item.description}</span>
             <span>Tags : {item.tags.join(" - ")}</span>
+            
+            {
+              selectBasket?.basketProducts?.filter(
+                (x) => x.name === item.name
+              )[0] &&
+              <Counter
+              product={
+                selectBasket?.basketProducts?.filter(
+                  (x) => x.name === item.name
+                )[0]
+              }
+            /> }
+            <button
+                onClick={() => dispatch(addProduct({ product: item }))}
+                data-testid="add-button"
+                className="product-button text-bold fs-3"
+              >
+                Add
+              </button>
           </div>
         </div>
       ) : null}

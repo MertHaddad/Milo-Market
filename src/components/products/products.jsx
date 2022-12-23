@@ -5,7 +5,7 @@ const Pagination = React.lazy(() => import("../pagination/pagination"));
 
 // import Pagination from "../pagination/pagination"
 const Products = ()=>{
-
+    
     return(
         <>
         <div className="products">

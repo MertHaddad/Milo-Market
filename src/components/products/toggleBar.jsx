@@ -17,26 +17,28 @@ const ToggleBar = () => {
   };
 
   useEffect(() => {
-    console.log(selectQuery);
+    const filterArray = []
     selectQuery.forEach((item) =>
       item.includes("manufacturer")
-        ? setFilters((prev) => [...new Set([...prev, item.split("=")[1]])] )
-        : item.includes("tags_like")
-        ? setFilters((prev) => [...new Set( [...prev, item.split("\\b")[1]])] )
+        ? 
+          filterArray.push(item.split("=")[1])
+        : 
+        item.includes("tags_like")
+        ? filterArray.push(item.split("\\b")[1])
         : null
     );
+    setFilters(filterArray)
   }, [selectQuery]);
 
-  const handleClearFilters = ()=>{
-    dispatch(clearQuery())
-    dispatch(getItems())
-    dispatch(getBrands())
-    dispatch(getFilteredItemsNumber())
-    setFilters([])
-    //will be Fixed
 
-    // window.refresh
-  }
+  //coming soon feature
+  const handleClearFilters = () => {
+    dispatch(clearQuery());
+    dispatch(getItems());
+    dispatch(getBrands());
+    dispatch(getFilteredItemsNumber());
+    setFilters([]);
+  };
 
   return (
     <>
@@ -77,11 +79,15 @@ const ToggleBar = () => {
         Clear 
       </button> */}
       <div className="div pills">
-
-      {filters.length
-        ? filters.map((item, i) => <span className="pill" key={i}> {item} </span>)
-        : null}
-        </div>
+        {filters.length
+          ? filters.map((item, i) => (
+              <span className="pill" key={i}>
+                {" "}
+                {item}{" "}
+              </span>
+            ))
+          : null}
+      </div>
     </>
   );
 };

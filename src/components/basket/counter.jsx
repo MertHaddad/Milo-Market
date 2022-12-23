@@ -4,6 +4,7 @@ import { setQuantity } from "../../features/basketSlice";
 import PropTypes from 'prop-types';
 
 const Counter = ({ product }) => {
+  console.log(product);
   const dispatch = useDispatch();
 
   const handleQuantity = (e) => {

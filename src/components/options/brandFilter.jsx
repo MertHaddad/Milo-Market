@@ -88,7 +88,7 @@ const BrandFilter = () => {
       <span className="float-spinner">
       {showSpinner? <Spinner /> : null}
       </span>
-      <div className="filter-body custom-scrollbar">
+      <div key={selectQuery} className="filter-body custom-scrollbar">
         <>
 
           {selectBrand.length ? (
