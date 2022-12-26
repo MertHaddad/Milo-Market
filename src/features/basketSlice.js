@@ -39,7 +39,8 @@ const handleQuantityChange = (state, action) => {
 
 const handleAddProduct = (state, action) => {
   const checkExisting = state.basketProducts.find(
-    (product) => product.name === action.payload.product.name
+    (product) =>
+      product.name === (action?.payload?.product.name || action.product)
   );
   if (!checkExisting) {
     console.log("recived first Adding order!");
