@@ -59,22 +59,23 @@ color: #191919;
 }
 
 .fs-1{
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 .fs-2{
-    font-size: 15px;
+    font-size: 1.2rem;
 }
 .fs-3{
-    font-size: 12px !important;
+    font-size: 1rem !important;
+    /* font-size: 12px !important; */
 }
 .fs-4{
-    font-size: large;
+    font-size: 0.8rem;
 }
 .fs-5{
-    font-size: medium;
+    font-size: 0.6rem;
 }
 .fs-6{
-    font-size: small;
+    font-size: 0.5rem;
 }
 .fs-7{
     font-size: smaller;
@@ -90,10 +91,35 @@ color: #191919;
     padding: 3px;
 }
 .p-4{
-    padding: 4px;
+    padding: 1.4rem;
+}
+.p-5{
+    padding: 1.6rem;
 }
 
+.mx-4{
+    margin: 0 1.4rem 0 1.4rem ;
+}
+
+.px-4{
+    padding: 0 1.4rem 0 1.4rem ;
+}
+
+.d-flex{
+display: flex;
+}
+.d-block{
+    display: block;
+}
 
 .text-center{
     text-align: center;
+}
+
+.fw-bold{
+font-weight: bold;
+}
+
+.shadow{
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.616);
 }

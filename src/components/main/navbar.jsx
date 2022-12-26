@@ -15,7 +15,7 @@ const Navbar = () => {
         </Link>
         </div>
         <div id="cart-button" className="button pointer ">
-          <img alt="market-shopping"  src={basketIcon} /><span className="price-text"> ₺ {Number(select).toFixed(2)}</span>
+          <img alt="market-shopping"  src={basketIcon} /><span className="price-text"> $ {Number(select).toFixed(2)}</span>
         </div>
       </div>
     </>
