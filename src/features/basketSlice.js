@@ -1,4 +1,4 @@
-import {  createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   payment: 0,
@@ -6,19 +6,33 @@ const initialState = {
 };
 
 const handleQuantityChange = (state, action) => {
-  
-  if(action.action === "increase"){
-    state.basketProducts.map(product=>product.name===action.product && product.quantity++)
-    state.payment+=action.price
-  }
-  else{
-    state.basketProducts.map(product=>product.name===action.product && product.quantity--)
-    state.payment-=action.price;
-    let checkQuantity = state.basketProducts.find(
-      (product) => product.name === action.product
-    );
-    if(checkQuantity.quantity === 0){
-      state.basketProducts = state.basketProducts.filter(product=> product.name!==checkQuantity.name) 
+  const checkExisting = state.basketProducts.find(
+    (product) => product.name === action.product
+  );
+  if (checkExisting) {
+    if (action.action === "increase") {
+      console.log("recived increse order!");
+      state.basketProducts.map(
+        (product) => product.name === action.product && product.quantity++
+      );
+      state.payment += action.price;
+    } else if (action.action === "decrease") {
+      state.basketProducts.map(
+        (product) => product.name === action.product && product.quantity--
+      );
+      state.payment -= action.price;
+      let checkQuantity = state.basketProducts.find(
+        (product) => product.name === action.product
+      );
+      if (checkQuantity.quantity === 0) {
+        state.basketProducts = state.basketProducts.filter(
+          (product) => product.name !== checkQuantity.name
+        );
+      }
+    } else return;
+  } else {
+    if (action.action === "increase") {
+      handleAddProduct(state, action);
     }
   }
 };
@@ -28,17 +42,19 @@ const handleAddProduct = (state, action) => {
     (product) => product.name === action.payload.product.name
   );
   if (!checkExisting) {
+    console.log("recived first Adding order!");
+    console.log(action);
     state.basketProducts.push({
       quantity: 1,
-      name: action.payload.product.name,
-      price: action.payload.product.price,
+      name: action?.payload?.product.name || action.product,
+      price: action?.payload?.product.price || action.price,
     });
-    state.payment += action.payload.product.price;
+    state.payment += action?.payload?.product.price || action.price;
   } else {
-    handleQuantityChange(state,{
+    handleQuantityChange(state, {
       product: action.payload.product.name,
       action: "increase",
-      price:action.payload.product.price
+      price: action.payload.product.price,
     });
   }
 };

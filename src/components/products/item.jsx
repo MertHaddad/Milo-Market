@@ -25,7 +25,7 @@ const Item = () => {
                   />
                 </span>
               </Link>
-              <span className="product-price">₺ {item.price}</span>
+              <span className="product-price">$ {item.price}</span>
               <span className="product-title text-default">{item.name}</span>
               <button
                 onClick={() => dispatch(addProduct({ product: item }))}

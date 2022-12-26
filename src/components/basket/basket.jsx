@@ -18,7 +18,7 @@ const Basket = () => {
                     <Counter product={item} />
                   </div>
                   <div className="price-parent text-primary text-bold">
-                    ₺{item.price}
+                    ${item.price}
                     <span>{item.amount}</span>
                   </div>
                 </div>
@@ -31,7 +31,7 @@ const Basket = () => {
             {selectBasket.basketProducts.length ? (
               <div className="basket-button-container">
                 <button className="basket-button">
-                  ₺{Math.abs(Number(selectBasket.payment).toFixed(2))}
+                  ${Math.abs(Number(selectBasket.payment).toFixed(2))}
                 </button>
               </div>
             ) : null}

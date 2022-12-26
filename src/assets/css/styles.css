@@ -448,11 +448,17 @@ input[type="text"] {
 
 .quantity-button {
   vertical-align: middle;
-  background-color: transparent;
+  background-color: var(--secondary-button);
   color: var(--primary-color);
   width: 2.3rem;
   height: 2.3rem;
   border-radius: 0 !important ;
+}
+
+.quantity-button:hover{
+  background-color: var(--secondary-color);
+  color: #ffffff;
+  
 }
 .counter {
   width: 2.3rem;
@@ -475,6 +481,7 @@ input[type="text"] {
   border: 2px solid var(--primary-color);
   background-color: transparent;
   color: var(--primary-color);
+  
   font-weight: 600;
   cursor: pointer;
 }
@@ -499,10 +506,11 @@ input[type="text"] {
 }
 
 .pill{
-  color: #ffffff;
+  color: var(--primary-color);
   padding: 0.2rem 0.4rem;
   margin: 0 0.4rem 0.2rem 0;
-  background-color: var(--secondary-color);
+  font-weight: bold;
+  background-color: var(--secondary-button);
 }
 
 /* Pills style */
