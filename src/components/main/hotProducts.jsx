@@ -14,7 +14,7 @@ export default function HotProducts() {
         <div className="visit-store-text">Checkout the Store</div>
         </div>
       </Link>
-      <div className=" fs-1 text-center p-4">Hot Products</div>
+      <div className=" fs-1 text-center ">Hot Products</div>
     <div className="hot-products ">
 
       {allProducts.value.length ? (
