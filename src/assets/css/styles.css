@@ -1,5 +1,5 @@
 :root {
-  --navbar-height: 4.5rem;
+  --navbar-height: 4rem;
   --primary-color: #8F95D3;
   --secondary-color: #D3C4E3;
   --info-color: #89DAFF;
@@ -9,6 +9,7 @@
   --gray-darkest: #6f6f6f;
   --light-blue: #697488;
   --secondary-button: #f2f0fd;
+  --primary-text-color : #000000cc;
 }
 
 .container * {
@@ -119,6 +120,16 @@ html:not([data-scroll='0']) .go-up-button{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 2.5rem;
 }
+.prev{
+  transform: rotate(180deg);
+}
+
+.main-text{
+  color: var(--primary-text-color);
+  font-weight: 600;
+  font-size: x-large !important;
+}
+
 .navbar-logo strong:hover{
 color: var(--secondary-color) !important;
 }

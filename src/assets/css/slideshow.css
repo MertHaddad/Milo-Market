@@ -2,9 +2,10 @@
 
 .slideshow {
 
-  margin: 2rem auto 0 auto;
   overflow: hidden;
-  max-width: 50%;
+  height: 35vh;
+  /* margin: 2rem auto 0 auto; */
+  /* max-width: 50%; */
 }
 
 .slideshowSlider {
@@ -14,9 +15,12 @@
 
 .slide {
   display: inline-block;
-  max-height: 20%;
+  height: 30vh;
+  background-size: auto;
+  background-position: center; /* Center the image */
+  background-repeat: repeat; /* Do not repeat the image */
+  background-size: contain;
   width: 100%;
-  border-radius: 40px;
 }
 
 /* Buttons */

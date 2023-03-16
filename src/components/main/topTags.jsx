@@ -7,7 +7,7 @@ export default function TopTags() {
 
   return (
     <>
-      <div className=" fs-1 text-center ">Top Tags</div>
+      <div className="main-text text-center ">Top Tags</div>
       <div className="home-gallery">
         {selectTags.length
           ? selectTags.map(

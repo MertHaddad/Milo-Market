@@ -7,7 +7,7 @@ export default function TopBrands() {
 
   return (
     <>
-      <div className=" fs-1 text-center ">Top Brands</div>
+      <div className="main-text text-center ">Top Brands</div>
       <div className="home-gallery">
         {selectBrands.length
           ? selectBrands.map(
