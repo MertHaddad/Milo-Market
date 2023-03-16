@@ -9,8 +9,6 @@ const Navbar = () => {
       <div className="navbar">
         <div className="navbar-logo">
         <Link to="/">
-
-          {/* <img alt="market-logo" src={logo} /> */}
           <strong> Milo Market 🐈</strong>
         </Link>
         </div>

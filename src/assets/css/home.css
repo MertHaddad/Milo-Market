@@ -1,9 +1,20 @@
 .home-container {
 }
 
+.hot-products-container{
+display: flex;
+align-items: center;
+justify-content: center
+}
+.nav-buttons{
+  padding: 10px;
+}
+
 .hot-products {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  overflow-y: hidden;
+  width: 70vw;
 }
 
 .hot-products > * {

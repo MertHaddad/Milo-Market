@@ -33,12 +33,13 @@ export default function SlideShow() {
 
   return (
     <div className="slideshow">
+
       <div
         className="slideshowSlider"
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
       >
         {images.map((img, index) => (
-          <img className="slide" alt="" key={index} src={img} />
+          <div className="slide" alt="" key={index} style={{backgroundImage: `url(${img})` }}></div>
         ))}
       </div>
 
