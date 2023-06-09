@@ -81,6 +81,10 @@ color: #191919;
     font-size: smaller;
 }
 
+.p-0{
+    padding: 0;
+}
+
 .p-1{
     padding: 1px;
 }
@@ -95,6 +99,10 @@ color: #191919;
 }
 .p-5{
     padding: 1.6rem;
+}
+
+.m-0{
+    margin: 0 !;
 }
 
 .mx-4{

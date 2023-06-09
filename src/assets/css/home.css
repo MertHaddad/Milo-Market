@@ -1,6 +1,3 @@
-.home-container {
-}
-
 .hot-products-container{
 display: flex;
 align-items: center;
@@ -14,7 +11,7 @@ justify-content: center
   display: flex;
   justify-content: flex-start;
   overflow-y: hidden;
-  width: 70vw;
+  /* width: 70vw; */
 }
 
 .hot-products > * {
@@ -29,10 +26,11 @@ justify-content: center
 .home-gallery {
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 }
 
 .home-gallery > * {
-  margin: 2rem;
+  padding: 2rem;
   text-align: center;
 }
 

@@ -17,18 +17,18 @@ export default function Store() {
   const querySelector = useSelector((state) => state.query.value);
   const location = useLocation();
 
-  const { item = {}, type = {} } = location?.state || {} ;
+  const { item = {}, type = {} } = location?.state || {};
   useEffect(() => {
     if (item) {
       let query = "";
       if (type === "brand") {
         query = `manufacturer=${item.slug}`;
-      } else if(type === "tag") {
+      } else if (type === "tag") {
         query = `tags_like=(?<!\\s)\\b${item}\\b(?!\\s)`;
       }
       dispatch(setQuery(query));
     }
-    window.scrollTo({ left: 0, top: 0, behavior: "smooth" })
+    window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
   }, []);
 
   useLayoutEffect(() => {
@@ -41,7 +41,13 @@ export default function Store() {
         <div className="container">
           <Basket />
           <Products />
-          <Options />
+          <details className="mobile-filters">
+            <summary className="fs-2 text-darkest-gray">Filter/Sort</summary>
+            <Options />
+          </details>
+          <span className="screen-filters">
+            <Options />
+          </span>
         </div>
         <Footer />
       </Suspense>

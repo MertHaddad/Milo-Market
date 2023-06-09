@@ -9,18 +9,19 @@ import "./assets/css/index.css";
 import Navbar from "./components/main/navbar";
 import Footer from "./components/main/footer";
 import UpButton from "./components/main/upButton";
+import MobileNavigation from "./components/main/mobileNavigation";
 const container = document.getElementById("root");
 const root = createRoot(container);
-
 
 root.render(
   <>
     <Provider store={store}>
       <HashRouter>
-      <Navbar/>
+        <Navbar />
         <App />
-        <UpButton/>
-      <Footer/>
+        <UpButton />
+        <Footer />
+        <MobileNavigation/>
       </HashRouter>
     </Provider>
   </>

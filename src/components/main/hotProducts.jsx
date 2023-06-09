@@ -3,35 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addProduct } from "../../features/basketSlice";
 import Spinner from "../main/spinner";
-import nextIcon from "./../../assets/img/next.svg";
 
 export default function HotProducts() {
-  let screenIndex = 0;
-  const hotProducts = useRef(null);
   const allProducts = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  const handleScroll = (amount) => {
-    screenIndex += amount;
-    screenIndex = screenIndex > 3600 ? 2700 : screenIndex < 0 ? 0 : screenIndex;
-    hotProducts?.current.scroll({
-      left: screenIndex,
-      behavior: "smooth",
-    });
-  };
   return (
     <>
       <div className="text-center main-text ">Hot Products</div>
       <div className="hot-products-container">
-        <div
-          className="nav-buttons prev pointer"
-          onClick={() => {
-            handleScroll(-900);
-          }}
-        >
-          <img alt="" src={nextIcon} width="32px" />{" "}
-        </div>
-        <div className="hot-products" ref={hotProducts}>
+
+        <div className="hot-products" >
           {allProducts.value.length ? (
             allProducts.value.map(
               (item, i) =>
@@ -79,9 +61,7 @@ export default function HotProducts() {
             <Spinner />
           )}
         </div>
-        <div className="nav-buttons pointer" onClick={() => handleScroll(900)}>
-          <img alt="" src={nextIcon} width="32px" />{" "}
-        </div>
+   
       </div>
     </>
   );

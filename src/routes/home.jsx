@@ -44,12 +44,10 @@ export default function Home() {
   return (
     <>
       <Suspense fallback={<Spinner />}>
-        <div className="home-container">
           <SlideShow />
           <HotProducts />
           <TopBrands />
           <TopTags />
-        </div>
       </Suspense>
     </>
   );
