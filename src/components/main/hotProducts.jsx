@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addProduct } from "../../features/basketSlice";
@@ -8,12 +8,47 @@ export default function HotProducts() {
   const allProducts = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
+  const containerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [allowClick, setAllowClick] = useState(true);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - containerRef.current.offsetLeft);
+    setScrollLeft(containerRef.current.scrollLeft);
+    setAllowClick(true);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - containerRef.current.offsetLeft;
+    const scroll = x - startX;
+    containerRef.current.scrollLeft = scrollLeft - scroll;
+    setAllowClick(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    setTimeout(() => {
+      setAllowClick(true);
+    }, 100);
+  };
+
   return (
     <>
       <div className="text-center main-text ">Hot Products</div>
       <div className="hot-products-container">
-
-        <div className="hot-products" >
+        <div
+          ref={containerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          className="hot-products"
+        >
           {allProducts.value.length ? (
             allProducts.value.map(
               (item, i) =>
@@ -24,7 +59,7 @@ export default function HotProducts() {
                     key={i}
                   >
                     <Link
-                      to={"/product/slug=" + item.slug}
+                      to={allowClick ? "/product/slug=" + item.slug : "#"}
                       state={{ item: item, i: i }}
                     >
                       <span className="product-thumbnail hot-thumbnail">
@@ -61,7 +96,6 @@ export default function HotProducts() {
             <Spinner />
           )}
         </div>
-   
       </div>
     </>
   );

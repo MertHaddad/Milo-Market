@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { addProduct } from "../../features/basketSlice";
 import Spinner from "../main/spinner";
 import noProduct from "./../../assets/img/no-product.jpg";
+import Counter from "../basket/counter";
 const Item = () => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
@@ -27,13 +28,14 @@ const Item = () => {
               </Link>
               <span className="product-price">$ {item.price}</span>
               <span className="product-title text-default">{item.name}</span>
-              <button
+              <Counter item={item}/>
+              {/* <button
                 onClick={() => dispatch(addProduct({ product: item }))}
                 data-testid="add-button"
                 className="product-button text-bold fs-3"
               >
                 Add
-              </button>
+              </button> */}
             </div>
           ))
         ) : products.status === "fulfilled" ? (

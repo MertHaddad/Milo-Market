@@ -12,7 +12,7 @@ const Counter = ({ product }) => {
       setQuantity({
         product: product.name,
         action: e.target.name,
-        price: product.price,
+        price: product.price || 0,
       })
     );
   };
@@ -26,7 +26,7 @@ const Counter = ({ product }) => {
        -
       </button>
       <button className="counter fs-2">
-        {product.quantity}
+        {product?.quantity || 0}
       </button>
       <button
         onClick={handleQuantity}

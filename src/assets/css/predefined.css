@@ -131,3 +131,7 @@ font-weight: bold;
 .shadow{
     text-shadow: 1px 1px rgba(0, 0, 0, 0.616);
 }
+
+.invert{
+    filter: invert(1);
+}

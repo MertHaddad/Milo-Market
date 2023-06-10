@@ -12,7 +12,7 @@ const Navbar = () => {
           <strong> Milo Market 🐈</strong>
         </Link>
         </div>
-        <div id="cart-button" className="button pointer ">
+        <div onClick={()=>window.scrollTo({ left: 0, top: 0, behavior: "smooth" })} id="cart-button" className="button pointer ">
           <img alt="market-shopping"  src={basketIcon} /><span className="price-text"> $ {Number(select).toFixed(2)}</span>
         </div>
       </div>

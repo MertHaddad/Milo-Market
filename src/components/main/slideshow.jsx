@@ -43,7 +43,7 @@ export default function SlideShow() {
         ))}
       </div>
 
-      <div className="slideshowDots">
+      {/* <div className="slideshowDots">
         {images.map((_, idx) => (
           <div
             key={idx}
@@ -53,7 +53,7 @@ export default function SlideShow() {
             }}
           ></div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

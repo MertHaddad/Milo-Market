@@ -22,10 +22,8 @@
 .container {
   display: flex;
   flex-direction: row-reverse;
-}
-
-.container > *:not(.mobile-filters) {
-  margin: 1.5rem;
+  margin-top: 1rem;
+  justify-content: space-around;
 }
 
 .basket {
@@ -305,25 +303,6 @@ input[type="text"] {
   outline: none !important;
 }
 
-/* input[type="checkbox"] {
-  width: 22px !important;
-  height: 22px !important;
-  box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.25);
-  background: transparent;
-  padding: 0;
-  border-radius: 2px !important;
-} */
-
-/* input[type="checkbox"]:checked:after {
-  position: absolute;
-  border-radius: 2px !important;
-  width: 22px !important;
-  height: 22px !important;
-  color: white;
-  background-color: var(--primary-color) !important;
-  accent-color: var(--primary-color) !important;
-} */
-
 .form-group {
   display: flex;
 }
@@ -410,7 +389,7 @@ input[type="text"] {
 .basket-container {
   padding: 1.35rem;
   background-color: white;
-  max-height: 19vh;
+  max-height: 80vh;
   overflow-y: auto;
   border: 2px solid var(--primary-color);
 }
@@ -467,7 +446,8 @@ input[type="text"] {
 
 .basket-button-container {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .basket-button {
@@ -518,17 +498,26 @@ input[type="text"] {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #f1f1f1;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.355);
+  background-color: #ffffff;
   display: none;
-  justify-content: space-around;
-  padding: 10px 0;
+  justify-content: space-between;
+  /* padding: 10px 0; */
+  text-align: center;
 }
 
-.bottom-navigation span {
+.bottom-navigation a {
+  width: 100%;
+}
+
+.bottom-navigation a span {
+  display: block;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: #666;
   font-size: 16px;
-  padding: 10px;
+  padding: 10px 0;
   transition: color 0.3s;
 }
 
@@ -537,8 +526,8 @@ input[type="text"] {
 }
 
 .bottom-navigation span.active {
-  color: #000;
-  background-color: #0079bf;
+  color: #fff;
+  background-color: var(--primary-color);
   font-weight: bold;
 }
 /* mobile bottom Navigation */
@@ -549,12 +538,16 @@ input[type="text"] {
   margin-bottom: 0;
 }
 
+
 @media screen and (max-width: 1100px) {
   .container {
-    padding: 1rem;
+    margin: 0.2rem 0.4rem;
     flex-direction: column-reverse;
   }
 
+  .screen-basket{
+    display: none;
+  }
   .navbar {
     padding: 1rem;
     height: 1.5rem;
@@ -574,7 +567,8 @@ input[type="text"] {
   .screen-filters {
     display: none;
   }
-  .bottom-navigation{
+  .bottom-navigation {
     display: flex;
   }
 }
+

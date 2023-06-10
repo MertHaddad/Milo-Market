@@ -39,7 +39,9 @@ export default function Store() {
     <>
       <Suspense fallback={<Spinner />}>
         <div className="container">
+          <span className="screen-basket" >
           <Basket />
+          </span>
           <Products />
           <details className="mobile-filters">
             <summary className="fs-2 text-darkest-gray">Filter/Sort</summary>

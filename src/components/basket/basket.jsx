@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useEffect,useRef } from "react";
 import { useSelector } from "react-redux";
 import Counter from "./counter";
 import emptyCart from "./../../assets/img/empty-cart.jpg";
 const Basket = () => {
   const selectBasket = useSelector((state) => state.basket);
+  const basketRef = useRef();
+
+  useEffect(()=>{
+    console.log(selectBasket);
+    setTimeout(() => {
+      if (basketRef.current) {
+        basketRef.current.scrollTo({
+          top: basketRef.current.scrollHeight,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+  },[selectBasket.payment])
 
   return (
     <>
-      <div className="basket">
+      <div  className="basket">
         {selectBasket.basketProducts.length ? (
-          <div className="basket-container custom-scrollbar">
+          <div ref={basketRef} className="basket-container custom-scrollbar">
             {selectBasket.basketProducts.length ? (
               selectBasket.basketProducts.map((item, i) => (
                 <div key={i} className="basket-item parent text-default">
@@ -33,6 +46,7 @@ const Basket = () => {
                 <button className="basket-button">
                   ${Math.abs(Number(selectBasket.payment).toFixed(2))}
                 </button>
+                <button className="basket-button" >Checkout</button>
               </div>
             ) : null}
           </div>
