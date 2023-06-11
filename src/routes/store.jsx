@@ -1,4 +1,4 @@
-import React, { Suspense, useLayoutEffect } from "react";
+import React, { Suspense, useLayoutEffect, useState } from "react";
 import "./../assets/css/styles.css";
 import "./../assets/css/predefined.css";
 import Products from "./../components/products/products";
@@ -16,7 +16,6 @@ export default function Store() {
   const dispatch = useDispatch();
   const querySelector = useSelector((state) => state.query.value);
   const location = useLocation();
-
   const { item = {}, type = {} } = location?.state || {};
   useEffect(() => {
     if (item) {
@@ -39,14 +38,11 @@ export default function Store() {
     <>
       <Suspense fallback={<Spinner />}>
         <div className="container">
-          <span className="screen-basket" >
-          <Basket />
+          <span className="screen-basket">
+            <Basket />
           </span>
           <Products />
-          <details className="mobile-filters">
-            <summary className="fs-2 text-darkest-gray">Filter/Sort</summary>
-            <Options />
-          </details>
+
           <span className="screen-filters">
             <Options />
           </span>
