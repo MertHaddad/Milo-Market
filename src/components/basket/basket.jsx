@@ -7,7 +7,6 @@ const Basket = () => {
   const basketRef = useRef();
 
   useEffect(()=>{
-    console.log(selectBasket);
     setTimeout(() => {
       if (basketRef.current) {
         basketRef.current.scrollTo({
