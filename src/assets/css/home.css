@@ -1,12 +1,9 @@
-.home-container {
+.hot-products-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.hot-products-container{
-display: flex;
-align-items: center;
-justify-content: center
-}
-.nav-buttons{
+.nav-buttons {
   padding: 10px;
 }
 
@@ -14,11 +11,11 @@ justify-content: center
   display: flex;
   justify-content: flex-start;
   overflow-y: hidden;
-  width: 70vw;
+  scroll-behavior: smooth;
 }
 
 .hot-products > * {
-  padding: 2rem;
+  padding: 0.5rem 2rem;
 }
 
 .hot-thumbnail {
@@ -29,10 +26,11 @@ justify-content: center
 .home-gallery {
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 }
 
 .home-gallery > * {
-  margin: 2rem;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -75,4 +73,3 @@ justify-content: center
   /* background-color: #d3c4e333; */
   /* backdrop-filter: blur(3px); */
 }
-

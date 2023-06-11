@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   payment: 0,
+  quantity: 0,
   basketProducts: [],
 };
 
@@ -16,11 +17,13 @@ const handleQuantityChange = (state, action) => {
         (product) => product.name === action.product && product.quantity++
       );
       state.payment += action.price;
+      state.quantity++;
     } else if (action.action === "decrease") {
       state.basketProducts.map(
         (product) => product.name === action.product && product.quantity--
       );
       state.payment -= action.price;
+      state.quantity--;
       let checkQuantity = state.basketProducts.find(
         (product) => product.name === action.product
       );
@@ -51,11 +54,13 @@ const handleAddProduct = (state, action) => {
       price: action?.payload?.product.price || action.price,
     });
     state.payment += action?.payload?.product.price || action.price;
+    state.quantity++;
   } else {
     handleQuantityChange(state, {
       product: action.payload.product.name,
       action: "increase",
       price: action.payload.product.price,
+      quantity: state.quantity++,
     });
   }
 };

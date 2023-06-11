@@ -1,4 +1,4 @@
-import React, { Suspense, useLayoutEffect } from "react";
+import React, { Suspense, useLayoutEffect, useState } from "react";
 import "./../assets/css/styles.css";
 import "./../assets/css/predefined.css";
 import Products from "./../components/products/products";
@@ -16,19 +16,18 @@ export default function Store() {
   const dispatch = useDispatch();
   const querySelector = useSelector((state) => state.query.value);
   const location = useLocation();
-
-  const { item = {}, type = {} } = location?.state || {} ;
+  const { item = {}, type = {} } = location?.state || {};
   useEffect(() => {
     if (item) {
       let query = "";
       if (type === "brand") {
         query = `manufacturer=${item.slug}`;
-      } else if(type === "tag") {
+      } else if (type === "tag") {
         query = `tags_like=(?<!\\s)\\b${item}\\b(?!\\s)`;
       }
       dispatch(setQuery(query));
     }
-    window.scrollTo({ left: 0, top: 0, behavior: "smooth" })
+    window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
   }, []);
 
   useLayoutEffect(() => {
@@ -39,9 +38,14 @@ export default function Store() {
     <>
       <Suspense fallback={<Spinner />}>
         <div className="container">
-          <Basket />
+          <span className="screen-basket">
+            <Basket />
+          </span>
           <Products />
-          <Options />
+
+          <span className="screen-filters">
+            <Options />
+          </span>
         </div>
         <Footer />
       </Suspense>

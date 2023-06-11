@@ -1,37 +1,54 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addProduct } from "../../features/basketSlice";
 import Spinner from "../main/spinner";
-import nextIcon from "./../../assets/img/next.svg";
 
 export default function HotProducts() {
-  let screenIndex = 0;
-  const hotProducts = useRef(null);
   const allProducts = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  const handleScroll = (amount) => {
-    screenIndex += amount;
-    screenIndex = screenIndex > 3600 ? 2700 : screenIndex < 0 ? 0 : screenIndex;
-    hotProducts?.current.scroll({
-      left: screenIndex,
-      behavior: "smooth",
-    });
+  const containerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [allowClick, setAllowClick] = useState(true);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - containerRef.current.offsetLeft);
+    setScrollLeft(containerRef.current.scrollLeft);
+    setAllowClick(true);
   };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - containerRef.current.offsetLeft;
+    const scroll = x - startX;
+    containerRef.current.scrollLeft = scrollLeft - scroll;
+    setAllowClick(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    setTimeout(() => {
+      setAllowClick(true);
+    }, 100);
+  };
+
   return (
     <>
       <div className="text-center main-text ">Hot Products</div>
       <div className="hot-products-container">
         <div
-          className="nav-buttons prev pointer"
-          onClick={() => {
-            handleScroll(-900);
-          }}
+          ref={containerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          className="hot-products"
         >
-          <img alt="" src={nextIcon} width="32px" />{" "}
-        </div>
-        <div className="hot-products" ref={hotProducts}>
           {allProducts.value.length ? (
             allProducts.value.map(
               (item, i) =>
@@ -42,7 +59,7 @@ export default function HotProducts() {
                     key={i}
                   >
                     <Link
-                      to={"/product/slug=" + item.slug}
+                      to={allowClick ? "/product/slug=" + item.slug : "#"}
                       state={{ item: item, i: i }}
                     >
                       <span className="product-thumbnail hot-thumbnail">
@@ -78,9 +95,6 @@ export default function HotProducts() {
           ) : (
             <Spinner />
           )}
-        </div>
-        <div className="nav-buttons pointer" onClick={() => handleScroll(900)}>
-          <img alt="" src={nextIcon} width="32px" />{" "}
         </div>
       </div>
     </>

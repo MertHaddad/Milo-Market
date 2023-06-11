@@ -12,6 +12,14 @@ body {
   font-size: 14px;
 }
 
+.home-container{
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin: 0;
+  padding: 0;
+}
+
 @font-face {
   font-family: "Open-Sans";
   font-style: normal;
@@ -35,11 +43,11 @@ body {
 
 @media screen and (max-width: 1250px) {
 
-  .home-container,.container,.product-container{
+  /* .home-container,.container,.product-container{
     display: none;
   }
   .phone-message{
     display: block;
-  }
+  } */
 
 }

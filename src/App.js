@@ -7,9 +7,10 @@ import Contact from "./routes/contact";
 import NoMatch from "./routes/noMatch";
 import Store from "./routes/store";
 import useScrollDetector from "./assets/hooks/useScrollDetector";
+import BasketPage from "./routes/basketPage";
 
 export default function App() {
-  useScrollDetector()
+  useScrollDetector();
   return (
     <Routes>
       <Route index element={<Home />} />
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
+      <Route path="basket" element={<BasketPage />} />
     </Routes>
   );
 }
