@@ -38,14 +38,13 @@ export default function Product() {
     }
   }, [selectedItem.status]);
 
-
-  // const demoProd  = {name:item.name,price:item.price,quantity:0}
   return (
     <>
       {item ? (
         <div className="product-container">
           <div className="product-image">
             <img
+              width={"100%"}
               alt={item.name + " image"}
               src={require(`./../assets/img/thumbnails/thumbnail${
                 item.name.length + Math.floor(item.price) - 6
@@ -58,7 +57,6 @@ export default function Product() {
               }
             />
           </div>
-
           <div className="product-details">
             <span className="fs-1"> {item.name}</span>
             <div className="fs-1">{item.price} $</div>
@@ -72,11 +70,10 @@ export default function Product() {
                   product={
                     selectBasket?.basketProducts?.filter(
                       (x) => x.name === item.name
-                    )[0] || {name:item.name,quantity:0,price:item.price}
+                    )[0] || { name: item.name, quantity: 0, price: item.price }
                   }
                 />
               ) : null}
-              {/* )} */}
               <button
                 onClick={() => dispatch(addProduct({ product: item }))}
                 data-testid="add-button"
@@ -85,8 +82,6 @@ export default function Product() {
                 Add to cart
               </button>
             </div>
-
-            {/* <span>Tags : {item.tags.join(" - ")}</span> */}
             <div className="div pills">
               {item.tags.length
                 ? item.tags.map((item, i) => (
@@ -96,9 +91,6 @@ export default function Product() {
                     </span>
                   ))
                 : null}
-              {/* {selectBasket?.basketProducts?.filter(
-                (x) => x.name === item.name
-              )[0] && ( */}
             </div>
           </div>
         </div>
