@@ -19,21 +19,33 @@ export default function Product() {
   const selectedItem = useSelector((state) => state.filteredProducts);
   const selectBasket = useSelector((state) => state.basket);
   const [item, setItem] = useState(null);
+  const [product, setProduct] = useState();
   const { slug } = useParams();
   const location = useLocation();
   const { item: clickedItem = null } = location?.state || {};
 
+  const checkQuantity = (item) => {
+    return (
+      selectBasket?.basketProducts?.filter((x) => x.name === item.name)[0] || {
+        name: item.name,
+        quantity: 0,
+        price: item.price,
+      }
+    );
+  };
   useEffect(() => {
     if (clickedItem) {
       setItem(clickedItem);
+      setProduct(checkQuantity(clickedItem));
     } else {
-      dispatch(getSelectedItem(slug.split("=")[1]));
+      const prod = getSelectedItem(slug.split("=")[1]);
+      dispatch(prod);
+      setProduct(checkQuantity(prod));
     }
-  }, []);
+  }, [selectBasket]);
 
   useDidMountEffect(() => {
     if (selectedItem.status === "fulfilled") {
-      console.log(selectedItem.item.data);
       setItem(...selectedItem.item.data[0]);
     }
   }, [selectedItem.status]);
@@ -65,15 +77,7 @@ export default function Product() {
               Description :<div> {item.description} </div>
             </div>
             <div className="d-flex">
-              {item?.name ? (
-                <Counter
-                  product={
-                    selectBasket?.basketProducts?.filter(
-                      (x) => x.name === item.name
-                    )[0] || { name: item.name, quantity: 0, price: item.price }
-                  }
-                />
-              ) : null}
+              {item?.name ? <Counter product={product} /> : null}
               <button
                 onClick={() => dispatch(addProduct({ product: item }))}
                 data-testid="add-button"

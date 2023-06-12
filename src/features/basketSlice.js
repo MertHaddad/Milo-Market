@@ -60,7 +60,6 @@ const handleAddProduct = (state, action) => {
       product: action.payload.product.name,
       action: "increase",
       price: action.payload.product.price,
-      quantity: state.quantity++,
     });
   }
 };

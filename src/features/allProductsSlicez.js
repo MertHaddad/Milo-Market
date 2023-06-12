@@ -32,9 +32,6 @@ const checkQueryType = (query) => {
 };
 
 const calculateStockByTags = (state, payload) => {
-  console.log("!!!!!!!!!!!!!!!!!!!!!");
-  console.log("calculateStockByTags");
-  console.time("calculateStockByTags");
   const selectedBrands = payload.selected;
   const typeFilterExists = checkQueryType(payload.query);
   const stockByTag = [{ tag: "All", products: payload.filteredProductsNum }];
@@ -72,9 +69,6 @@ const calculateStockByTags = (state, payload) => {
 };
 
 const calculateStockByBrands = (state, action) => {
-  console.log("#######################");
-  console.log("calculateStockByBrands");
-  // console.log(action.payload.query);
   const typeFilterExists = checkQueryType(action.payload.query);
   const stockByBrand = [
     {
