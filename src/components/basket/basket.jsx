@@ -5,7 +5,6 @@ import emptyCart from "./../../assets/img/empty-cart.jpg";
 const Basket = () => {
   const selectBasket = useSelector((state) => state.basket);
   const basketRef = useRef();
-  console.log(selectBasket);
 
   useEffect(()=>{
     setTimeout(() => {

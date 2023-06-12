@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addProduct } from "../../features/basketSlice";
 import Spinner from "../main/spinner";
+import Counter from "../basket/counter";
 
 export default function HotProducts() {
   const allProducts = useSelector((state) => state.product);
@@ -13,6 +14,11 @@ export default function HotProducts() {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [allowClick, setAllowClick] = useState(true);
+  const selectBasket = useSelector((state) => state.basket);
+
+  const checkProduct = (item) => {
+    return selectBasket.basketProducts.find((el) => el.name === item.name);
+  };
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -82,13 +88,18 @@ export default function HotProducts() {
                     <span className="product-title text-default">
                       {item.name}
                     </span>
-                    <button
-                      onClick={() => dispatch(addProduct({ product: item }))}
-                      data-testid="add-button"
-                      className="product-button text-bold fs-3 "
-                    >
-                      Add
-                    </button>
+                    
+                    {checkProduct(item) ? (
+                <Counter product={checkProduct(item)} />
+              ) : (
+                <button
+                  onClick={() => dispatch(addProduct({ product: item }))}
+                  data-testid="add-button"
+                  className="product-button text-bold fs-3"
+                >
+                  Add
+                </button>
+              )}
                   </div>
                 )
             )

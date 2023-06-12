@@ -8,8 +8,6 @@ import Counter from "../basket/counter";
 const Item = () => {
   const products = useSelector((state) => state.product);
   const selectBasket = useSelector((state) => state.basket);
-  console.log(selectBasket);
-  console.log(products);
   const dispatch = useDispatch();
 
   const checkProduct = (item) => {
