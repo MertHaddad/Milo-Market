@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export default function ItemCarousel({ items, title, type }) {
+export default function ItemCarousel({ items, title, type,description }) {
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -49,7 +48,8 @@ export default function ItemCarousel({ items, title, type }) {
 
   return (
     <>
-      <div className="text-center main-text">{title}</div>
+      <div className="main-title main-text">{title}</div>
+      <div className="main-title text-darkest-gray">{description}</div>
       <div className="hot-products-container">
         <div
           className="hot-products"

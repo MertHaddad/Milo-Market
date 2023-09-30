@@ -11,7 +11,6 @@ const TagsFilter = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [selected, setSelected] = useState(["All"]);
   const querySelector = useSelector((state) => state.query.value);
-  const selectTags = useSelector((state) => state.allProducts.stockByTag);
   const selectSoloTags = useSelector((state) => state.allProducts.tags);
   const selectBrands = useSelector((state) => state.brand.value);
   const productsNumberSelector = useSelector((state) => state.filteredProducts);
@@ -60,8 +59,8 @@ const TagsFilter = () => {
   }, [selected]);
 
   useDidMountEffect(() => {
-    let res = selectTags.filter((tag) =>
-      tag.tag.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+    let res = selectSoloTags.filter((tag) =>
+      tag.toLocaleLowerCase().includes(search.toLocaleLowerCase())
     );
     setSearchResults(res);
   }, [search]);
@@ -76,8 +75,8 @@ const TagsFilter = () => {
         className="search-bar"
       />
       <div key={selectQuery} className="filter-body custom-scrollbar">
-        {selectSoloTags.length ? (
-          (searchResults.length ? searchResults : selectSoloTags).map(
+        {selectSoloTags.length>0 ? (
+          (searchResults.length>0 ? searchResults : selectSoloTags).map(
             (tag, i) => (
               // tag.products ? (
               <div className="form-group filter-item" key={i}>
@@ -90,7 +89,9 @@ const TagsFilter = () => {
                   id={tag}
                   defaultChecked={
                     selected.includes(tag) ||
-                    selectQuery.includes(`tags_like=(?<!\\s)\\b${tag}\\b(?!\\s)`)
+                    selectQuery.includes(
+                      `tags_like=(?<!\\s)\\b${tag}\\b(?!\\s)`
+                    )
                   }
                 />
                 <label className="filtering-label text-secondary" htmlFor={tag}>
