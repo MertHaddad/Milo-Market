@@ -592,12 +592,16 @@ input[type="text"] {
   padding: 0.5rem;
 }
 .banner-title{
+  color: aliceblue;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 3rem;
+  font-weight: 600;
 }
 .banner-description{
+  color: aliceblue;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 1.5rem;
+  font-weight: 600;
 }
 .banner-items button{
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
