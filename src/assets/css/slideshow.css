@@ -1,12 +1,9 @@
 /* Slideshow */
 
 .slideshow {
-
   overflow: hidden;
-  height: 35vh;
-  /* margin: 2rem auto 0 auto; */
-  /* max-width: 50%; */
-  padding-bottom: 1rem;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 .slideshowSlider {
@@ -16,12 +13,20 @@
 
 .slide {
   display: inline-block;
-  height: 30vh;
+  height: 50vh;
   background-size: auto;
   background-position: center; /* Center the image */
   background-repeat: repeat; /* Do not repeat the image */
   background-size: contain;
   width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+
+  .slide {
+    height: 20vh;
+  }
+  
 }
 
 /* Buttons */
