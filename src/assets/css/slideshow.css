@@ -21,14 +21,6 @@
   width: 100%;
 }
 
-@media screen and (max-width: 500px) {
-
-  .slide {
-    height: 20vh;
-  }
-  
-}
-
 /* Buttons */
 
 .slideshowDots {
@@ -50,4 +42,12 @@
 
 .slideshowDot.active {
   background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 500px) {
+
+  .slide {
+    height: 20vh;
+  }
+  
 }

@@ -111,6 +111,7 @@ const BrandFilter = () => {
                       }
                     />
                     <label
+                    title={brand.brand.slug}
                       className="filtering-label text-secondary"
                       htmlFor={brand.brand.slug}
                     >

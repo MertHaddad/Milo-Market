@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
         <div onClick={()=>window.scrollTo({ left: 0, top: 0, behavior: "smooth" })} id="cart-button" className="button pointer ">
         {select.quantity>0 && <small className="quantity-circle">{select.quantity}</small>}
-          <img alt="market-shopping"  src={basketIcon} /><span className="price-text"> $ {Number(select.payment).toFixed(2)}</span>
+        <img alt="market-shopping"  src={basketIcon} /><span className="price-text"> $ {Number(select.payment).toFixed(2)}</span>
         </div>
       </div>
     </>

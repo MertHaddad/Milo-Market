@@ -41,9 +41,8 @@ export default function Home() {
       <Suspense fallback={<Spinner />}>
         <VideoBanner/>
         <div className="content" >
-
-        <ItemCarousel type="brand" title={"Hot Brands"} items={selectBrands} />
-        <ItemCarousel type="tag" title={"Top Tags"} items={selectTags} />
+        <ItemCarousel type="brand" title="Hot Brands" description="Check out our organic products and healthy snacks" items={selectBrands} />
+        <ItemCarousel type="tag" title="Top Tags" description="Best collection for this year summer, most wanted all the time" items={selectTags} />
         <HotProducts />
         <SlideShow/>
         </div>

@@ -165,6 +165,9 @@ html:not([data-scroll="0"]) .go-up-button {
   margin: 0.8rem;
   max-width: 8rem;
   text-align: center;
+  flex-grow: 1; /* Make all items take up equal space */
+  flex-basis: 0;
+  
 }
 
 .product-thumbnail {
@@ -203,12 +206,11 @@ html:not([data-scroll="0"]) .go-up-button {
 }
 
 .products-container {
-  /* padding: 0.4rem; */
   display: flex;
   flex-wrap: wrap;
   background-color: white;
   align-content: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* product card styling */
@@ -305,6 +307,8 @@ input[type="radio"] {
 .filtering-label {
   margin: 0 0 0 0.4rem;
   cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .search-bar {
@@ -574,6 +578,41 @@ input[type="text"] {
   margin-bottom: 1rem;
 }
 
+.banner-items{
+  position: relative;
+  top: 18%;
+  left: 20%;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+  color: white;
+  text-shadow: 1px 0px 1px black;
+}
+.banner-items>*{
+  padding: 0.5rem;
+}
+.banner-title{
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 3rem;
+}
+.banner-description{
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.5rem;
+}
+.banner-items button{
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  font-size: large;
+  padding: 0.5rem 0.5rem;
+}
+.banner-items button:hover{
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+
 .video-banner video {
   width: 100%;
   height: auto; /* Allow the video to maintain its aspect ratio */
@@ -583,7 +622,12 @@ input[type="text"] {
   right: 0;
 }
 .content{
-  margin:0 10%
+  margin:0 10%;
+}
+
+.main-title{
+  padding: 0.2rem 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 @media screen and (max-width: 500px) {
@@ -593,7 +637,23 @@ input[type="text"] {
   .content{
     margin:0 0.5rem
   }
-  
+  .products-container {
+    align-content: center;
+    justify-content: center;
+  }
+  .banner-items{
+   left: 1%;
+  }
+  .banner-title{
+    font-size: 20px;
+  }
+
+  .banner-description {
+    font-size: 14px;
+  }
+  .banner-items button {
+    font-size: 12px;
+  }
 }
 
 
