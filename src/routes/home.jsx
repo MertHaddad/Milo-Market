@@ -13,6 +13,7 @@ import { getBrands } from "./../features/brandSlice";
 import useDidMountEffect from "./../helpers/useDidMountEffect";
 import { getFilteredItemsNumber } from "./../features/filteredProducts";
 import { clearQuery } from "../features/querySlice";
+import VideoBanner from "../components/main/videoBanner";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -38,10 +39,14 @@ export default function Home() {
   return (
     <>
       <Suspense fallback={<Spinner />}>
-        <SlideShow />
+        <VideoBanner/>
+        <div className="content" >
+
         <ItemCarousel type="brand" title={"Hot Brands"} items={selectBrands} />
         <ItemCarousel type="tag" title={"Top Tags"} items={selectTags} />
         <HotProducts />
+        <SlideShow/>
+        </div>
       </Suspense>
     </>
   );

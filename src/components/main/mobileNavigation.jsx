@@ -10,13 +10,13 @@ export default function MobileNavigation() {
     <div className="bottom-navigation">
       <Link to={"/"}>
         <span className={`${pathname === "/" ? "active " : ""}`}>
-          <i class="bi bi-house-door  fs-2 p-3"></i>
+          <i className="bi bi-house-door  fs-2 p-3"></i>
           Home
         </span>
       </Link>
       <Link to={"/store"}>
         <span className={`${pathname === "/store" ? "active" : ""}`}>
-          <i class="bi bi-shop fs-2 p-3"></i>
+          <i className="bi bi-shop fs-2 p-3"></i>
           Store
         </span>
       </Link>
@@ -25,7 +25,7 @@ export default function MobileNavigation() {
           {selectBasket.basketProducts.length ? (
             <small className="quantity-circle">{selectBasket.quantity}</small>
           ) : (
-            <i class="bi bi-cart fs-2 p-3"></i>
+            <i className="bi bi-cart fs-2 p-3"></i>
           )}
           Basket
         </span>

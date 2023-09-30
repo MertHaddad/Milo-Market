@@ -17,7 +17,7 @@ const Products = ()=>{
               onClick={() => setShowDetails(!showDetails)}
               className="fs-2 text-darkest-gray"
             >
-              <i class="bi bi-funnel fs-2 p-2"></i>
+              <i className="bi bi-funnel fs-2 p-2"></i>
               Filter/Sort
             </button>
             <div className="mobile-filter-details">

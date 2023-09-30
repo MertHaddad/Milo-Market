@@ -1,5 +1,5 @@
 :root {
-  --navbar-height: 2.5rem;
+  --navbar-height: 3rem;
   --primary-color: #8f95d3;
   --secondary-color: #d3c4e3;
   --info-color: #89daff;
@@ -565,6 +565,37 @@ input[type="text"] {
   color: #fff  ;
   margin-right: 4px;
 }
+
+.video-banner {
+  width: 100%;
+  height: 40vh; /* Set the desired height for your banner */
+  overflow: hidden; /* Hide the overflow of the video */
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.video-banner video {
+  width: 100%;
+  height: auto; /* Allow the video to maintain its aspect ratio */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.content{
+  margin:0 10%
+}
+
+@media screen and (max-width: 500px) {
+  .video-banner {
+    height: 25vh; 
+  }
+  .content{
+    margin:0 0.5rem
+  }
+  
+}
+
 
 @media screen and (max-width: 1100px) {
   .container {
