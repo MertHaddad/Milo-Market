@@ -4,7 +4,7 @@ export default function Contact(){
 
     return(
         <>
-          <p>aaaaaaaaaaa</p>
+          <p>contact page</p>
         </>
     )
 }

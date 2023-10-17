@@ -3,7 +3,7 @@ import { GetAllFiltered, GetItem } from "../services/items";
 
 const initialState = {
   currentProductNumber: 0,
-  item:{}
+  item: {},
 };
 
 export const getFilteredItemsNumber = createAsyncThunk(
@@ -13,10 +13,11 @@ export const getFilteredItemsNumber = createAsyncThunk(
     return resp;
   }
 );
+
 export const getSelectedItem = createAsyncThunk(
   "getSelectedItem/api",
-  async (state,action) => {
-    const resp = await GetItem(state);
+  async (payload) => {
+    const resp = await GetItem(payload);
     return resp;
   }
 );
@@ -24,11 +25,6 @@ export const getSelectedItem = createAsyncThunk(
 export const filteredProductsSlice = createSlice({
   name: "filteredProducts",
   initialState,
-  // reducers: {
-  //   getItem: (state,action) => {
-  //     state.item = GetItem(action.payload);
-  //   },
-  // },
   extraReducers: (builder) => {
     builder
       .addCase(getFilteredItemsNumber.pending, (state) => {
@@ -40,23 +36,16 @@ export const filteredProductsSlice = createSlice({
       })
       .addCase(getFilteredItemsNumber.rejected, (state) => {
         state.status = "rejected";
-      });
-      builder.addCase(getSelectedItem.pending, (state) => {
+      })
+      .addCase(getSelectedItem.pending, (state) => {
         state.status = "loading";
       })
       .addCase(getSelectedItem.fulfilled, (state, action) => {
         state.status = "fulfilled";
         state.item = action.payload;
-      })
-      .addCase(getSelectedItem.rejected, (state) => {
-        state.status = "rejected";
       });
-      
   },
-  
 });
 
-export const selectProducts = (state) => state.filteredProducts.value; //defined in alice name
+export const selectFilteredProducts = (state) => state.filteredProducts;
 export default filteredProductsSlice.reducer;
-
-// export const { getItem } = filteredProductsSlice.actions;

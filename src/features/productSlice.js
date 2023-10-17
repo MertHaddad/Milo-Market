@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { GetPerView } from "../services/items";
 
-//products Slice
 const initialState = {
   value: [],
   status: "idle",
@@ -31,5 +30,5 @@ export const productSlice = createSlice({
   },
 });
 
-export const selectProducts = (state) => state.products.value; //defined in alice name
+export const selectProducts = (state) => state.products.value;
 export default productSlice.reducer;

@@ -149,5 +149,5 @@ export const allProductsSlice = createSlice({
 
 export const { getTags, getStockByTags, getStockByBrands } =
   allProductsSlice.actions;
-export const selectProducts = (state) => state.allproducts.value; //defined in alice name
+export const selectProducts = (state) => state.allproducts.value;
 export default allProductsSlice.reducer;
