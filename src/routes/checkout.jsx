@@ -4,7 +4,7 @@ export default function Checkout(){
 
     return(
         <>
-        <p>aaaaaaaaaaa</p>
+        <p>checkout page</p>
         </>
     )
 }
