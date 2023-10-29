@@ -7,6 +7,41 @@
   padding: 10px;
 }
 
+.carousel-nav-button{
+  position:absolute;
+  background-color: #8f95d390;
+  color:#ffffff;
+  backdrop-filter: blur(10px);
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50%;
+  flex:0 0 auto;
+  z-index: 1;
+  font-weight: bold;
+  font-size: 1.7em;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
+  margin: 0 10%;
+}
+.carousel-nav-button#prev{
+  left:10px;
+}
+.carousel-nav-button#next{
+  right:10px;
+}
+
+.carousel-nav-button:hover{
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-nav-button{
+    display: none;
+  }
+}
+
+
 .hot-products {
   display: flex;
   justify-content: flex-start;
