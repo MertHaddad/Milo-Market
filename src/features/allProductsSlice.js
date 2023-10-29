@@ -51,7 +51,7 @@ const calculateStockByTags = (state, payload) => {
           if (evaluateTag) count++;
         } 
       } else if (
-        !!typeFilterExists
+        typeFilterExists
           ? item.itemType === typeFilterExists && item.tags.includes(tag)
           : item.tags.includes(tag)
       ) {
@@ -85,7 +85,7 @@ const calculateStockByBrands = (state, action) => {
         action.payload.selected[0] !== "All"
       ) {
         if (
-          !!typeFilterExists
+          typeFilterExists
             ? item.itemType === typeFilterExists &&
               item.manufacturer === brand.slug
             : item.manufacturer === brand.slug
@@ -97,7 +97,7 @@ const calculateStockByBrands = (state, action) => {
         }
       } else {
         if (
-          !!typeFilterExists
+          typeFilterExists
             ? item.itemType === typeFilterExists &&
               item.manufacturer === brand.slug
             : item.manufacturer === brand.slug

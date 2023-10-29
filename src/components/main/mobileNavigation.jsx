@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
@@ -7,7 +7,7 @@ export default function MobileNavigation() {
   const selectBasket = useSelector((state) => state.basket);
 
   return (
-    <div className="bottom-navigation">
+    <nav role="navigation" className="bottom-navigation">
       <Link to={"/"}>
         <span className={`${pathname === "/" ? "active " : ""}`}>
           <i className="bi bi-house-door  fs-2 p-3"></i>
@@ -30,6 +30,6 @@ export default function MobileNavigation() {
           Basket
         </span>
       </Link>
-    </div>
+    </nav>
   );
 }

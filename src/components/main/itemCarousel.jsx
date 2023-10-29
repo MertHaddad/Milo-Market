@@ -47,7 +47,7 @@ export default function ItemCarousel({ items, title, type,description }) {
   };
 
   return (
-    <>
+    <section>
       <div className="main-title main-text">{title}</div>
       <div className="main-title text-darkest-gray">{description}</div>
       <div className="hot-products-container">
@@ -91,6 +91,6 @@ export default function ItemCarousel({ items, title, type,description }) {
             : null}
         </div>
       </div>
-    </>
+    </section>
   );
 }

@@ -32,7 +32,7 @@ export default function SlideShow() {
   }, [index]);
 
   return (
-    <div className="slideshow">
+    <div role="banner" className="slideshow">
 
       <div
         className="slideshowSlider"
