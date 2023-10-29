@@ -90,7 +90,28 @@ html:not([data-scroll="0"]) .go-up-button {
   position: fixed;
 }
 
-.navbar > .button {
+/* .navbar > .button {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: white;
+  padding: 0 2.1rem;
+  background-color: var(--secondary-color);
+  z-index: 1;
+  cursor: pointer;
+} */
+
+.navbar-logo {
+  display: table-cell;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.card-button{
+  display: flex;
+  align-items: center;
   display: flex;
   align-items: center;
   height: 100%;
@@ -101,15 +122,7 @@ html:not([data-scroll="0"]) .go-up-button {
   cursor: pointer;
 }
 
-.navbar-logo {
-  display: table-cell;
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-.navigation-items{
+.navigation-items {
   display: table-cell;
   position: absolute;
   margin: 0 auto;
@@ -120,11 +133,11 @@ html:not([data-scroll="0"]) .go-up-button {
   text-decoration: none;
   font-weight: bold;
 }
-.navigation-items span{
+.navigation-items span {
   color: #fff;
-  padding: 0 0.7rem ;
+  padding: 0 0.7rem;
 }
-.navigation-items span:hover{
+.navigation-items span:hover {
   color: var(--info-color);
 }
 
@@ -167,7 +180,6 @@ html:not([data-scroll="0"]) .go-up-button {
   text-align: center;
   flex-grow: 1; /* Make all items take up equal space */
   flex-basis: 0;
-  
 }
 
 .product-thumbnail {
@@ -272,7 +284,7 @@ html:not([data-scroll="0"]) .go-up-button {
   flex-direction: column;
   background-color: white;
   margin: 0.8rem 0 1.6rem 0;
-  padding: 1rem 1.6rem ;
+  padding: 1rem 1.6rem;
   border-radius: 2px;
 }
 
@@ -562,12 +574,12 @@ input[type="text"] {
   align-items: end;
 }
 
-.quantity-circle{
+.quantity-circle {
   background-color: var(--primary-color);
   border-radius: 50%;
   padding: 2px 6px;
   text-align: center;
-  color: #fff  ;
+  color: #fff;
   margin-right: 4px;
 }
 
@@ -579,7 +591,7 @@ input[type="text"] {
   margin-bottom: 1rem;
 }
 
-.banner-items{
+.banner-items {
   position: relative;
   top: 18%;
   left: 20%;
@@ -589,22 +601,22 @@ input[type="text"] {
   color: white;
   text-shadow: 1px 0px 1px black;
 }
-.banner-items>*{
+.banner-items > * {
   padding: 0.5rem;
 }
-.banner-title{
+.banner-title {
   color: aliceblue;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 3rem;
   font-weight: 600;
 }
-.banner-description{
+.banner-description {
   color: aliceblue;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 1.5rem;
   font-weight: 600;
 }
-.banner-items button{
+.banner-items button {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-color: var(--primary-color);
   color: white;
@@ -612,11 +624,10 @@ input[type="text"] {
   font-size: large;
   padding: 0.5rem 0.5rem;
 }
-.banner-items button:hover{
+.banner-items button:hover {
   background-color: var(--secondary-color);
   color: white;
 }
-
 
 .video-banner video {
   width: 100%;
@@ -626,30 +637,30 @@ input[type="text"] {
   left: 0;
   right: 0;
 }
-.content{
-  margin:0 10%;
+.content {
+  margin: 0 10%;
 }
 
-.main-title{
+.main-title {
   padding: 0.2rem 1rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 @media screen and (max-width: 500px) {
   .video-banner {
-    height: 25vh; 
+    height: 25vh;
   }
-  .content{
-    margin:0 0.5rem
+  .content {
+    margin: 0 0.5rem;
   }
   .products-container {
     align-content: center;
     justify-content: center;
   }
-  .banner-items{
-   left: 1%;
+  .banner-items {
+    left: 1%;
   }
-  .banner-title{
+  .banner-title {
     font-size: 20px;
   }
 
@@ -660,7 +671,6 @@ input[type="text"] {
     font-size: 12px;
   }
 }
-
 
 @media screen and (max-width: 1100px) {
   .container {
@@ -676,7 +686,7 @@ input[type="text"] {
     height: 1.5rem;
   }
 
-  .navbar > .button {
+  .navbar > .card-button {
     display: none;
   }
   .basket,
@@ -696,7 +706,7 @@ input[type="text"] {
   .products {
     margin-top: 1.4rem;
   }
-  .navigation-items{
+  .navigation-items {
     display: none;
   }
 }

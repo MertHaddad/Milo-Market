@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBrands } from "../../features/brandSlice";
 import { getFilteredItemsNumber } from "../../features/filteredProducts";
 import { getItems } from "../../features/productSlice";
-import { clearQuery, setQuery } from "../../features/querySlice";
+// import { getBrands } from "../../features/brandSlice";
+// import { clearQuery, setQuery } from "../../features/querySlice";
 
 const ToggleBar = () => {
   const [filters, setFilters] = useState([]);
   const dispatch = useDispatch();
   const selectQuery = useSelector((state) => state.query.value);
 
-  const handleChange = (e) => {
-    dispatch(setQuery(e.target.name));
+  const handleChange = () => {
+    // dispatch(setQuery(e.target.name));
     dispatch(getItems(selectQuery));
     dispatch(getFilteredItemsNumber());
   };
@@ -32,13 +32,13 @@ const ToggleBar = () => {
 
 
   //coming soon feature
-  const handleClearFilters = () => {
-    dispatch(clearQuery());
-    dispatch(getItems());
-    dispatch(getBrands());
-    dispatch(getFilteredItemsNumber());
-    setFilters([]);
-  };
+  // const handleClearFilters = () => {
+  //   dispatch(clearQuery());
+  //   dispatch(getItems());
+  //   dispatch(getBrands());
+  //   dispatch(getFilteredItemsNumber());
+  //   setFilters([]);
+  // };
 
   return (
     <>

@@ -27,6 +27,7 @@ const Item = () => {
                   <img
                     width={90}
                     alt=""
+                    // eslint-disable-next-line no-undef
                     src={require(`./../../assets/img/thumbnails/thumbnail${
                       item.name.length + Math.floor(item.price) - 6
                     }.jpg`)}

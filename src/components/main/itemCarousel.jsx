@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+
 export default function ItemCarousel({ items, title, type, description }) {
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -25,20 +26,11 @@ export default function ItemCarousel({ items, title, type, description }) {
     setAllowClick(false);
   };
 
-  useEffect(() => {
-    setTimeout(
-      () => {
-        containerRef.current.scrollLeft = scrollLeft + 800;
-      },
-      type === "brand" ? 400 : 800
-    );
-    setTimeout(
-      () => {
-        containerRef.current.scrollLeft = scrollLeft - 800;
-      },
-      type === "brand" ? 1300 : 1800
-    );
-  }, []);
+  const handleClick = (e) => {
+    e.target.id === "prev"
+      ? (containerRef.current.scrollLeft -= 800)
+      : (containerRef.current.scrollLeft += 800);
+  };
 
   const handleMouseUp = () => {
     setIsDragging(false);
@@ -52,6 +44,9 @@ export default function ItemCarousel({ items, title, type, description }) {
       <div className="main-title main-text">{title}</div>
       <div className="main-title text-darkest-gray">{description}</div>
       <div className="hot-products-container">
+        <button onClick={handleClick} id="prev" className="carousel-nav-button">
+          {"<"}
+        </button>
         <div
           className="hot-products"
           ref={containerRef}
@@ -91,6 +86,9 @@ export default function ItemCarousel({ items, title, type, description }) {
               )
             : null}
         </div>
+        <button onClick={handleClick} id="next" className="carousel-nav-button">
+          {">"}
+        </button>
       </div>
     </section>
   );
