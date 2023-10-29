@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-export default function ItemCarousel({ items, title, type,description }) {
+import PropTypes from "prop-types";
+export default function ItemCarousel({ items, title, type, description }) {
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -94,3 +95,10 @@ export default function ItemCarousel({ items, title, type,description }) {
     </section>
   );
 }
+
+ItemCarousel.propTypes = {
+  items: PropTypes.string,
+  title: PropTypes.string,
+  type: PropTypes.string,
+  description: PropTypes.string,
+};
