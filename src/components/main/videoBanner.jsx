@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React,{ useEffect, useRef } from "react";
 import bannerVideo from "./../../assets/videos/banner/banner.webm";
 import { Link } from "react-router-dom";
 
@@ -10,15 +10,14 @@ export default function VideoBanner() {
   }, []);
 
   return (
-    <>
-      <div className="video-banner">
+      <header className="video-banner">
         <video
           ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          showcontrols="false"
+          controls={false}
           src={bannerVideo}
         />
         <div className="banner-items">
@@ -28,7 +27,6 @@ export default function VideoBanner() {
           <button >Check out the store</button>
           </Link>
         </div>
-      </div>
-    </>
+      </header>
   );
 }

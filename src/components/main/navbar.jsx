@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const select = useSelector(state=>state.basket)
   return (
-    <>
-      <div className="navbar">
+      <nav role="navigation" className="navbar">
         <div className="navigation-items">
         <Link to="/"><span>Home </span>  </Link>
         |
@@ -21,8 +20,7 @@ const Navbar = () => {
         {select.quantity>0 && <small className="quantity-circle">{select.quantity}</small>}
         <img alt="market-shopping"  src={basketIcon} /><span className="price-text"> $ {Number(select.payment).toFixed(2)}</span>
         </div>
-      </div>
-    </>
+      </nav>
   );
 };
 

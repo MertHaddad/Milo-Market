@@ -28,7 +28,8 @@ const Sort = () => {
   ];
 
   return (
-    <>
+    <section className="filter-container">
+      <h3 className="filters-title">Sorting</h3>
       {inputsArray.map((input, i) => (
         <div className="filter-item" key={i}>
           <input
@@ -45,7 +46,7 @@ const Sort = () => {
           <label className="sorting-label text-secondary" htmlFor={input.name}>{input.label}</label>
         </div>
       ))}
-    </>
+    </section>
   );
 };
 

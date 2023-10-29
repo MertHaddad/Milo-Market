@@ -15,8 +15,7 @@ const Item = () => {
   };
 
   return (
-    <>
-      <div className="products products-container">
+      <section className="products products-container">
         {products.value.length ? (
           products.value.map((item, i) => (
             <div data-testid="product-item" className="product-card" key={i}>
@@ -52,16 +51,14 @@ const Item = () => {
         ) : products.status === "fulfilled" ? (
           <div>
             <div className="empty-cart">
-              <p className="fs-1">Oppsssss!! no products here :(</p>
-              <img alt="" width={600} src={noProduct} />
+              <p className="fs-1">Oppsssss!! no products here :{"("}</p>
+              <img alt="no product found on this filter" width={600} src={noProduct} />
             </div>
           </div>
         ) : (
           <Spinner />
         )}
-        <span></span>
-      </div>
-    </>
+      </section>
   );
 };
 

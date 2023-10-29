@@ -1,6 +1,6 @@
 import React, { useState, useTransition } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectQueries, setQuery } from "../../features/querySlice";
+import {  setQuery } from "../../features/querySlice";
 import { getItems } from "../../features/productSlice";
 import { getStockByTags } from "../../features/allProductsSlice";
 import { getFilteredItemsNumber } from "../../features/filteredProducts";
@@ -77,11 +77,12 @@ const BrandFilter = () => {
   }, [selected]);
 
   return (
-    <>
+    <section className="filter-container">
+      <h3 className="filters-title">Brands</h3>
       <input
         onChange={(e) => setSearch(e.target.value)}
         value={search}
-        type="text"
+        type="search"
         placeholder="Search brand"
         className="search-bar"
       />
@@ -130,7 +131,7 @@ const BrandFilter = () => {
 
         </>
       </div>
-    </>
+    </section>
   );
 };
 

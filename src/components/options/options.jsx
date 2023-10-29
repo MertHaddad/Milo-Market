@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAllItems,
   getStockByBrands,
-  getStockByTags,
   getTags,
 } from "../../features/allProductsSlice";
 import { getBrands } from "../../features/brandSlice";
@@ -21,9 +20,9 @@ const Options = () => {
   useEffect(() => {
     dispatch(getAllItems());
     dispatch(getBrands());
-    dispatch(getFilteredItemsNumber())
+    dispatch(getFilteredItemsNumber());
   }, []);
-  
+
   useDidMountEffect(() => {
     if (selectAllProducts.status === "fulfilled") {
       dispatch(getTags());
@@ -36,27 +35,23 @@ const Options = () => {
       selectBrands.status === "fulfilled" &&
       selectAllProducts.status === "fulfilled"
     ) {
-      dispatch(getStockByBrands({ brands: selectBrands.value, selected: [],filteredProductsNum:selectAllProducts.value.length }));
+      dispatch(
+        getStockByBrands({
+          brands: selectBrands.value,
+          selected: [],
+          filteredProductsNum: selectAllProducts.value.length,
+        })
+      );
     }
   }, [selectBrands.status, selectAllProducts.status]);
 
   return (
-    <>
-      <div className="filters">
-        <span className="filters-title">Sorting</span>
-        <div className="filter-container">
-          <Sort />
-        </div>
-        <span className="filters-title">Brands</span>
-        <div className="filter-container">
-          <BrandFilter />
-        </div>
-        <span className="filters-title">Tags</span>
-        <div className="filter-container">
-          <TagFilter />
-        </div>
-      </div>
-    </>
+    <section className="filters">
+      <h2 className="d-block fs-2 text-darkest-gray">Filters</h2>
+      <Sort />
+      <BrandFilter />
+      <TagFilter />
+    </section>
   );
 };
 

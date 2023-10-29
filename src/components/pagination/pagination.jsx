@@ -19,7 +19,7 @@ const Pagination = () => {
       dispatch(getItems(selectQuery));
     }
   };
-  
+
   useDidMountEffect(() => {
     onPageChange(1);
   }, [filteredProducts.currentProductNumber]);
@@ -49,46 +49,51 @@ const Pagination = () => {
 
   let lastPage = paginationRange[paginationRange?.length - 1];
   return (
-    <ul className="pagination-container">
-      <li
-        className={`pagination-item ${currentPage === 1 ? "disabled" : ""}
-         )`}
-        onClick={onPrevious}
-      >
-        {/* <div className="arrow left" /> */}
-        {"<"} Prev 
-      </li>
-      {paginationRange.map((pageNumber, i) => {
-        if (pageNumber === DOTS) {
+    <nav role="navigation">
+      <ul className="pagination-container">
+        <li>
+          <button
+            className={`pagination-item ${currentPage === 1 ? "disabled" : ""}`}
+            onClick={onPrevious}
+            disabled={currentPage === 1}
+          >
+            {"<"} Prev
+          </button>
+        </li>
+        {paginationRange.map((pageNumber, i) => {
+          if (pageNumber === DOTS) {
+            return (
+              <li key={i + "dot"} className="pagination-item dots">
+                &#8230;
+              </li>
+            );
+          }
+
           return (
-            <li key={i + "dot"} className="pagination-item dots">
-              &#8230;
+            <li key={i}>
+              <button
+                type="button"
+                className={`pagination-item ${
+                  pageNumber === currentPage ? "selected" : ""
+                }`}
+                onClick={() => onPageChange(pageNumber)}
+              >
+                {pageNumber}
+              </button>
             </li>
           );
-        }
-
-        return (
-          <li
-            key={i}
-            className={`pagination-item ${
-              pageNumber === currentPage ? "selected" : ""
-            }`}
-            onClick={() => onPageChange(pageNumber)}
-          >
-            {pageNumber}
-          </li>
-        );
-      })}
-      <li
-        className={`pagination-item ${
-          currentPage === lastPage ? "disabled" : ""
-        }`}
-        onClick={onNext}
-      >
-         Next {">"}
-        {/* <div className="arrow right" /> */}
-      </li>
-    </ul>
+        })}
+        <button
+          className={`pagination-item ${
+            currentPage === lastPage ? "disabled" : ""
+          }`}
+          onClick={onNext}
+          disabled={currentPage === lastPage}
+        >
+          Next {">"}
+        </button>
+      </ul>
+    </nav>
   );
 };
 

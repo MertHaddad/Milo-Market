@@ -66,11 +66,12 @@ const TagsFilter = () => {
   }, [search]);
 
   return (
-    <>
+    <section className="filter-container">
+      <h3 className="filters-title">Tags</h3>
       <input
         onChange={(e) => setSearch(e.target.value)}
         value={search}
-        type="text"
+        type="search"
         placeholder="Search tag"
         className="search-bar"
       />
@@ -106,7 +107,7 @@ const TagsFilter = () => {
           <Spinner />
         )}
       </div>
-    </>
+    </section>
   );
 };
 

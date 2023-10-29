@@ -44,7 +44,7 @@ export default function HotProducts() {
   };
 
   return (
-    <>
+    <section>
       <div className="main-title main-text">Hot Products</div>
       <div className="main-title text-darkest-gray">Especially picked products for you, check the store for more.</div>
       <div className="hot-products-container">
@@ -109,6 +109,6 @@ export default function HotProducts() {
           )}
         </div>
       </div>
-    </>
+    </section>
   );
 }

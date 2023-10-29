@@ -6,7 +6,7 @@ const initialState = {
   status: "idle",
 };
 
-export const getItems = createAsyncThunk("getItems/api", async (query = []) => {
+export const getItems = createAsyncThunk("getItems/api", async () => {
   const resp = await GetPerView();
   return resp.data;
 });

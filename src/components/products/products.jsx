@@ -9,10 +9,9 @@ const Products = ()=>{
     const [showDetails, setShowDetails] = useState(false);
     
     return(
-        <>
-        <div className="products">
-        <span className="d-block fs-1 text-darkest-gray">Products </span>
-        <span className="mobile-filters">
+        <section className="products">
+        <h2 className="d-block fs-2 text-darkest-gray">Products </h2>
+        <section className="mobile-filters">
             <button
               onClick={() => setShowDetails(!showDetails)}
               className="fs-2 text-darkest-gray"
@@ -21,16 +20,13 @@ const Products = ()=>{
               Filter/Sort
             </button>
             <div className="mobile-filter-details">
-                
               {showDetails && <Options />}
             </div>
-          </span>
+          </section>
         <ToggleBar/>
         <Item/>
         <Pagination/>
-        
-        </div>
-        </>
+        </section>
     )
 }
 
