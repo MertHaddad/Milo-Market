@@ -19,7 +19,7 @@ const BrandFilter = () => {
   const selectQuery = useSelector((state) => state.query.value);
   const dispatch = useDispatch();
 
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   useDidMountEffect(() => {
     let res = selectBrand.filter((brand) =>

@@ -32,6 +32,7 @@ export const querySlice = createSlice({
   initialState,
   reducers: {
     setQuery: (state, action) => (state = evaluateQuery(state.value, action)),
+    // eslint-disable-next-line no-unused-vars
     clearQuery: (state) => (state = initialState),
   },
 });
