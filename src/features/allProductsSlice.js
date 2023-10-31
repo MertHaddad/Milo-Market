@@ -7,6 +7,7 @@ const initialState = {
   stockByBrand: [],
   tags: [],
   status: "idle",
+  types:[]
 };
 
 const getAllTags = (state) => {
@@ -131,6 +132,11 @@ export const allProductsSlice = createSlice({
     getStockByBrands: (state, action) => {
       state.stockByBrand = calculateStockByBrands(state, action);
     },
+    getTypes :(state) => {
+      const types = state.value.map((item) => item.itemType);
+      const uniqueTypes = [...new Set(types)];
+      state.types = uniqueTypes;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -147,7 +153,6 @@ export const allProductsSlice = createSlice({
   },
 });
 
-export const { getTags, getStockByTags, getStockByBrands } =
-  allProductsSlice.actions;
-export const selectProducts = (state) => state.allproducts.value;
+export const { getTags, getStockByTags, getStockByBrands, getTypes } =  allProductsSlice.actions;
+// export const selectProducts = (state) => state.allproducts.value;
 export default allProductsSlice.reducer;

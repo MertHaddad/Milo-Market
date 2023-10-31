@@ -1,10 +1,11 @@
 import React from "react";
+import Basket from "../components/basket/basket";
 
 export default function Checkout(){
 
     return(
-        <>
-        <p>checkout page</p>
-        </>
+        <main className="container">
+        <Basket />
+        </main>
     )
 }

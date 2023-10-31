@@ -11,9 +11,8 @@
   position:absolute;
   background-color: #8f95d390;
   color:#ffffff;
-  backdrop-filter: blur(10px);
-  height: 2.5em;
-  width: 2.5em;
+  height: 2em;
+  width: 2em;
   border-radius: 50%;
   flex:0 0 auto;
   z-index: 1;
@@ -23,10 +22,10 @@
   margin: 0 10%;
 }
 .carousel-nav-button#prev{
-  left:10px;
+  left:-60px;
 }
 .carousel-nav-button#next{
-  right:10px;
+  right:-60px;
 }
 
 .carousel-nav-button:hover{
@@ -50,7 +49,7 @@
 }
 
 .hot-products > * {
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 0;
 }
 
 .hot-thumbnail {

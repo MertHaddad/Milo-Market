@@ -59,7 +59,7 @@ export default function Product() {
               width={"100%"}
               alt={item.name + " image"}
               src={require(`./../assets/img/thumbnails/thumbnail${
-                item.name.length + Math.floor(item.price) - 6
+                item.name.length
               }.jpg`)}
               onError={() =>
                 this.src !==

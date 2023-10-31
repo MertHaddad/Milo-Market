@@ -14,7 +14,7 @@ const Pagination = () => {
   const onPageChange = (p) => {
     if (currentPage !== p) {
       setCurrentPage(p);
-      const query = `_page=${p}&_limit=24`;
+      const query = `_page=${p}&_limit=20`;
       dispatch(setQuery(query));
       dispatch(getItems(selectQuery));
     }

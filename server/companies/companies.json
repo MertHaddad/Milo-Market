@@ -1,223 +1,464 @@
-{"companies" : [
-  {
-    "slug": "Dickens-Franecki",
-    "name": "Dickens - Franecki",
-    "address": "12158 Randall Port",
-    "city": "East Maureenbury",
-    "state": "NE",
-    "zip": "74529",
-    "account": 31010023,
-    "contact": "Lonzo Stracke"
-  },
-  {
-    "slug": "Weissnat-Schowalter-and-Koelpin",
-    "name": "Weissnat, Schowalter and Koelpin",
-    "address": "92027 Murphy Cove",
-    "city": "Port Malachi",
-    "state": "WY",
-    "zip": "56670-0684",
-    "account": 81813543,
-    "contact": "Kathryne Ernser"
-  },
-  {
-    "slug": "Cruickshank-Bayer-and-Gerlach",
-    "name": "Cruickshank, Bayer and Gerlach",
-    "address": "45974 Paxton Corner",
-    "city": "Gerlachmouth",
-    "state": "OR",
-    "zip": "67061",
-    "account": 43249604,
-    "contact": "Bernhard Greenholt"
-  },
-  {
-    "slug": "Boyle-LLC",
-    "name": "Boyle LLC",
-    "address": "54371 Mikel Spurs",
-    "city": "South Josephland",
-    "state": "SD",
-    "zip": "49608",
-    "account": 75111551,
-    "contact": "Roxanne Walsh"
-  },
-  {
-    "slug": "Bernier-Hane",
-    "name": "Bernier - Hane",
-    "address": "45929 Chaya Lane",
-    "city": "Hettingerchester",
-    "state": "GA",
-    "zip": "30052-7026",
-    "account": 98542630,
-    "contact": "Thea Gleichner"
-  },
-  {
-    "slug": "OHara-Group",
-    "name": "O'Hara Group",
-    "address": "582 Metz Harbor",
-    "city": "North Columbus",
-    "state": "HI",
-    "zip": "12645-4049",
-    "account": 8697837,
-    "contact": "Madalyn Prohaska"
-  },
-  {
-    "slug": "Bayer-and-Sons",
-    "name": "Bayer and Sons",
-    "address": "1577 Waters Alley",
-    "city": "New Sabrinahaven",
-    "state": "AR",
-    "zip": "86634",
-    "account": 43975119,
-    "contact": "Buck Hickle"
-  },
-  {
-    "slug": "Leannon-Fahey-and-Sawayn",
-    "name": "Leannon, Fahey and Sawayn",
-    "address": "3710 Lew Walk",
-    "city": "Baileybury",
-    "state": "NJ",
-    "zip": "04449",
-    "account": 78580225,
-    "contact": "Patience Block"
-  },
-  {
-    "slug": "Lowe-Wunsch-and-Stoltenberg",
-    "name": "Lowe, Wunsch and Stoltenberg",
-    "address": "93936 Barrows Dale",
-    "city": "Lake Guido",
-    "state": "AZ",
-    "zip": "96989-0569",
-    "account": 98587385,
-    "contact": "Pietro Gerlach"
-  },
-  {
-    "slug": "Hodkiewicz-Inc",
-    "name": "Hodkiewicz Inc",
-    "address": "45516 Ruben Cove",
-    "city": "Greenberg",
-    "state": "SC",
-    "zip": "01429-1435",
-    "account": 30940841,
-    "contact": "Coleman Walter"
-  },
-  {
-    "slug": "Konopelski-Inc",
-    "name": "Konopelski Inc",
-    "address": "81835 Willms Drive",
-    "city": "Harrisonton",
-    "state": "MN",
-    "zip": "81347",
-    "account": 68653249,
-    "contact": "Tyson Crona"
-  },
-  {
-    "slug": "Nikolaus-Schinner",
-    "name": "Nikolaus - Schinner",
-    "address": "04914 Heaney Turnpike",
-    "city": "Franeckiside",
-    "state": "VA",
-    "zip": "96906-4904",
-    "account": 27668101,
-    "contact": "Caleigh Block"
-  },
-  {
-    "slug": "Sipes-Inc",
-    "name": "Sipes Inc",
-    "address": "3190 Braun Rue",
-    "city": "Lake Adalbertoberg",
-    "state": "NY",
-    "zip": "34802",
-    "account": 71315,
-    "contact": "Green Schuster"
-  },
-  {
-    "slug": "McCullough---Lueilwitz",
-    "name": "McCullough - Lueilwitz",
-    "address": "8863 Osinski Views",
-    "city": "West Rachel",
-    "state": "SD",
-    "zip": "96041-6706",
-    "account": 40663162,
-    "contact": "Pasquale Parisian"
-  },
-  {
-    "slug": "Heathcote-Kautzer-and-Turner",
-    "name": "Heathcote, Kautzer and Turner",
-    "address": "3721 Maddison Ville",
-    "city": "Framishire",
-    "state": "WV",
-    "zip": "44805-2477",
-    "account": 75687014,
-    "contact": "Jayden Heathcote"
-  },
-  {
-    "slug": "Konopelski-Group",
-    "name": "Konopelski Group",
-    "address": "476 Minnie Land",
-    "city": "Walterhaven",
-    "state": "WV",
-    "zip": "22132-3558",
-    "account": 32447634,
-    "contact": "Manley Bernhard"
-  },
-  {
-    "slug": "Metz---Kautzer",
-    "name": "Metz - Kautzer",
-    "address": "240 Hoppe Shoal",
-    "city": "Julesshire",
-    "state": "FL",
-    "zip": "21083",
-    "account": 2672292,
-    "contact": "Kay Simonis"
-  },
-  {
-    "slug": "Rice-Inc",
-    "name": "Rice Inc",
-    "address": "264 Jayce Trafficway",
-    "city": "South Fleta",
-    "state": "NE",
-    "zip": "28256",
-    "account": 72247639,
-    "contact": "Catherine McKenzie"
-  },
-  {
-    "slug": "Franecki---Gaylord",
-    "name": "Franecki - Gaylord",
-    "address": "300 Vandervort Stream",
-    "city": "Lake Kylechester",
-    "state": "ID",
-    "zip": "80770-0310",
-    "account": 93660437,
-    "contact": "Eda Hayes"
-  },
-  {
-    "slug": "Oberbrunner-Block-and-Mills",
-    "name": "Oberbrunner, Block and Mills",
-    "address": "356 Conroy Garden",
-    "city": "New Aileen",
-    "state": "WY",
-    "zip": "24466",
-    "account": 11273532,
-    "contact": "Braulio Little"
-  },
-  {
-    "slug": "Feil-Dooley-and-Reinger",
-    "name": "Feil, Dooley and Reinger",
-    "address": "06966 Alfred Ways",
-    "city": "East Lucio",
-    "state": "OR",
-    "zip": "54686",
-    "account": 24745362,
-    "contact": "Pascale Waelchi"
-  },
-  {
-    "slug": "Leuschke-Smith-and-Conroy",
-    "name": "Leuschke, Smith and Conroy",
-    "address": "604 McKenzie Wall",
-    "city": "Immanuelview",
-    "state": "SC",
-    "zip": "42741",
-    "account": 21650895,
-    "contact": "Cletus Hessel"
-  }
-]
+{
+  "companies": [
+    {
+      "slug": "Dickens-Franecki",
+      "name": "Dickens - Franecki",
+      "address": "12158 Randall Port",
+      "city": "East Maureenbury",
+      "state": "NE",
+      "zip": "74529",
+      "account": 31010023,
+      "contact": "Lonzo Stracke"
+    },
+    {
+      "slug": "Weissnat-Schowalter-and-Koelpin",
+      "name": "Weissnat, Schowalter and Koelpin",
+      "address": "92027 Murphy Cove",
+      "city": "Port Malachi",
+      "state": "WY",
+      "zip": "56670-0684",
+      "account": 81813543,
+      "contact": "Kathryne Ernser"
+    },
+    {
+      "slug": "Cruickshank-Bayer-and-Gerlach",
+      "name": "Cruickshank, Bayer and Gerlach",
+      "address": "45974 Paxton Corner",
+      "city": "Gerlachmouth",
+      "state": "OR",
+      "zip": "67061",
+      "account": 43249604,
+      "contact": "Bernhard Greenholt"
+    },
+    {
+      "slug": "Boyle-LLC",
+      "name": "Boyle LLC",
+      "address": "54371 Mikel Spurs",
+      "city": "South Josephland",
+      "state": "SD",
+      "zip": "49608",
+      "account": 75111551,
+      "contact": "Roxanne Walsh"
+    },
+    {
+      "slug": "Bernier-Hane",
+      "name": "Bernier - Hane",
+      "address": "45929 Chaya Lane",
+      "city": "Hettingerchester",
+      "state": "GA",
+      "zip": "30052-7026",
+      "account": 98542630,
+      "contact": "Thea Gleichner"
+    },
+    {
+      "slug": "Bayer-and-Sons",
+      "name": "Bayer and Sons",
+      "address": "1577 Waters Alley",
+      "city": "New Sabrinahaven",
+      "state": "AR",
+      "zip": "86634",
+      "account": 43975119,
+      "contact": "Buck Hickle"
+    },
+    {
+      "slug": "Leannon-Fahey-and-Sawayn",
+      "name": "Leannon, Fahey and Sawayn",
+      "address": "3710 Lew Walk",
+      "city": "Baileybury",
+      "state": "NJ",
+      "zip": "04449",
+      "account": 78580225,
+      "contact": "Patience Block"
+    },
+    {
+      "slug": "Lowe-Wunsch-and-Stoltenberg",
+      "name": "Lowe, Wunsch and Stoltenberg",
+      "address": "93936 Barrows Dale",
+      "city": "Lake Guido",
+      "state": "AZ",
+      "zip": "96989-0569",
+      "account": 98587385,
+      "contact": "Pietro Gerlach"
+    },
+    {
+      "slug": "Hodkiewicz-Inc",
+      "name": "Hodkiewicz Inc",
+      "address": "45516 Ruben Cove",
+      "city": "Greenberg",
+      "state": "SC",
+      "zip": "01429-1435",
+      "account": 30940841,
+      "contact": "Coleman Walter"
+    },
+    {
+      "slug": "Konopelski-Inc",
+      "name": "Konopelski Inc",
+      "address": "81835 Willms Drive",
+      "city": "Harrisonton",
+      "state": "MN",
+      "zip": "81347",
+      "account": 68653249,
+      "contact": "Tyson Crona"
+    },
+    {
+      "slug": "Nikolaus-Schinner",
+      "name": "Nikolaus - Schinner",
+      "address": "04914 Heaney Turnpike",
+      "city": "Franeckiside",
+      "state": "VA",
+      "zip": "96906-4904",
+      "account": 27668101,
+      "contact": "Caleigh Block"
+    },
+    {
+      "slug": "McCullough---Lueilwitz",
+      "name": "McCullough - Lueilwitz",
+      "address": "8863 Osinski Views",
+      "city": "West Rachel",
+      "state": "SD",
+      "zip": "96041-6706",
+      "account": 40663162,
+      "contact": "Pasquale Parisian"
+    },
+    {
+      "slug": "Heathcote-Kautzer-and-Turner",
+      "name": "Heathcote, Kautzer and Turner",
+      "address": "3721 Maddison Ville",
+      "city": "Framishire",
+      "state": "WV",
+      "zip": "44805-2477",
+      "account": 75687014,
+      "contact": "Jayden Heathcote"
+    },
+    {
+      "slug": "Konopelski-Group",
+      "name": "Konopelski Group",
+      "address": "476 Minnie Land",
+      "city": "Walterhaven",
+      "state": "WV",
+      "zip": "22132-3558",
+      "account": 32447634,
+      "contact": "Manley Bernhard"
+    },
+    {
+      "slug": "Metz---Kautzer",
+      "name": "Metz - Kautzer",
+      "address": "240 Hoppe Shoal",
+      "city": "Julesshire",
+      "state": "FL",
+      "zip": "21083",
+      "account": 2672292,
+      "contact": "Kay Simonis"
+    },
+    {
+      "slug": "Rice-Inc",
+      "name": "Rice Inc",
+      "address": "264 Jayce Trafficway",
+      "city": "South Fleta",
+      "state": "NE",
+      "zip": "28256",
+      "account": 72247639,
+      "contact": "Catherine McKenzie"
+    },
+    {
+      "slug": "Franecki---Gaylord",
+      "name": "Franecki - Gaylord",
+      "address": "300 Vandervort Stream",
+      "city": "Lake Kylechester",
+      "state": "ID",
+      "zip": "80770-0310",
+      "account": 93660437,
+      "contact": "Eda Hayes"
+    },
+    {
+      "slug": "Oberbrunner-Block-and-Mills",
+      "name": "Oberbrunner, Block and Mills",
+      "address": "356 Conroy Garden",
+      "city": "New Aileen",
+      "state": "WY",
+      "zip": "24466",
+      "account": 11273532,
+      "contact": "Braulio Little"
+    },
+    {
+      "slug": "Feil-Dooley-and-Reinger",
+      "name": "Feil, Dooley and Reinger",
+      "address": "06966 Alfred Ways",
+      "city": "East Lucio",
+      "state": "OR",
+      "zip": "54686",
+      "account": 24745362,
+      "contact": "Pascale Waelchi"
+    },
+    {
+      "slug": "Leuschke-Smith-and-Conroy",
+      "name": "Leuschke, Smith and Conroy",
+      "address": "604 McKenzie Wall",
+      "city": "Immanuelview",
+      "state": "SC",
+      "zip": "42741",
+      "account": 21650895,
+      "contact": "Cletus Hessel"
+    },
+    {
+      "slug": "Health-Products-Company",
+      "name": "Health Products Company",
+      "address": "987 Health Road",
+      "city": "Wellnessville",
+      "state": "TX",
+      "zip": "65432",
+      "account": 78901234,
+      "contact": "Heather Health"
+    },
+    {
+      "slug": "Music-Instruments-Inc",
+      "name": "Music Instruments Inc",
+      "address": "123 Music Lane",
+      "city": "Melodyville",
+      "state": "NY",
+      "zip": "34567",
+      "account": 89012345,
+      "contact": "Mike Musician"
+    },
+    {
+      "slug": "Art-Supplies-Co",
+      "name": "Art Supplies Co",
+      "address": "567 Art Avenue",
+      "city": "Artville",
+      "state": "CA",
+      "zip": "45678",
+      "account": 45678901,
+      "contact": "Alice Artist"
+    },
+    {
+      "slug": "Kitchen-Gadgets-Company",
+      "name": "Kitchen Gadgets Company",
+      "address": "987 Kitchen Street",
+      "city": "Culinaryville",
+      "state": "NY",
+      "zip": "23456",
+      "account": 12345678,
+      "contact": "Chef Culinary"
+    },
+    {
+      "slug": "Sports-Equipment-Corp",
+      "name": "Sports Equipment Corp",
+      "address": "123 Sports Lane",
+      "city": "Sportsville",
+      "state": "TX",
+      "zip": "34567",
+      "account": 89012345,
+      "contact": "Sara Sporty"
+    },
+    {
+      "slug": "OHara-Group",
+      "name": "OHara Group",
+      "address": "1234 Elm Street",
+      "city": "Anytown",
+      "state": "CA",
+      "zip": "12345",
+      "account": 12345678,
+      "contact": "John Doe"
+    },
+    {
+      "slug": "Sipes-Inc",
+      "name": "Sipes Inc",
+      "address": "5678 Oak Avenue",
+      "city": "Smallville",
+      "state": "NY",
+      "zip": "54321",
+      "account": 87654321,
+      "contact": "Jane Smith"
+    },
+    {
+      "slug": "Tech-Giant-Company",
+      "name": "Tech Giant Company",
+      "address": "9876 Maple Lane",
+      "city": "Megacity",
+      "state": "TX",
+      "zip": "67890",
+      "account": 56781234,
+      "contact": "Mike Johnson"
+    },
+    {
+      "slug": "Fashion-Studio",
+      "name": "Fashion Studio",
+      "address": "5432 Fashion Boulevard",
+      "city": "Trendyville",
+      "state": "CA",
+      "zip": "98765",
+      "account": 87654321,
+      "contact": "Linda Fashionista"
+    },
+    {
+      "slug": "Smith-and-Co",
+      "name": "Smith and Co",
+      "address": "8765 Green Garden",
+      "city": "Botanicaville",
+      "state": "FL",
+      "zip": "56789",
+      "account": 12348765,
+      "contact": "Gardener Smith"
+    },
+    {
+      "slug": "Bookworm-Publishers",
+      "name": "Bookworm Publishers",
+      "address": "123 Reading Road",
+      "city": "Booksville",
+      "state": "NY",
+      "zip": "65432",
+      "account": 56781234,
+      "contact": "Betty Bookworm"
+    },
+    {
+      "slug": "Outdoor-Gear-Co",
+      "name": "Outdoor Gear Co",
+      "address": "567 Camping Lane",
+      "city": "Adventureville",
+      "state": "CO",
+      "zip": "23456",
+      "account": 98761234,
+      "contact": "Peter Outdoorsman"
+    },
+    {
+      "slug": "Tech-Accessories-Inc",
+      "name": "Tech Accessories Inc",
+      "address": "987 Tech Avenue",
+      "city": "Gadgettown",
+      "state": "CA",
+      "zip": "87654",
+      "account": 12349876,
+      "contact": "Techie Smith"
+    },
+    {
+      "slug": "Art-Designs-Studio",
+      "name": "Art Designs Studio",
+      "address": "543 Art Street",
+      "city": "Creativityville",
+      "state": "NY",
+      "zip": "12349",
+      "account": 87651234,
+      "contact": "Alice Artist"
+    },
+    {
+      "slug": "Fitness-World-Inc",
+      "name": "Fitness World Inc",
+      "address": "876 Gym Avenue",
+      "city": "Fitcity",
+      "state": "TX",
+      "zip": "98761",
+      "account": 23456781,
+      "contact": "Tom Trainer"
+    },
+    {
+      "slug": "Kitchenware-Co",
+      "name": "Kitchenware Co",
+      "address": "123 Kitchen Road",
+      "city": "Cookingville",
+      "state": "CA",
+      "zip": "23456",
+      "account": 45678912,
+      "contact": "Kate Cookware"
+    },
+    {
+      "slug": "Game-Masters-Inc",
+      "name": "Game Masters Inc",
+      "address": "567 Boardwalk",
+      "city": "Gamingville",
+      "state": "NY",
+      "zip": "34567",
+      "account": 34567890,
+      "contact": "Game Guru"
+    },
+    {
+      "slug": "Tech-Genius-Company",
+      "name": "Tech Genius Company",
+      "address": "987 Tech Street",
+      "city": "Techland",
+      "state": "CA",
+      "zip": "87654",
+      "account": 89012345,
+      "contact": "Sara Tech"
+    },
+    {
+      "slug": "Fitness-Equipment-Corp",
+      "name": "Fitness Equipment Corp",
+      "address": "123 Fitness Avenue",
+      "city": "Fitville",
+      "state": "TX",
+      "zip": "65432",
+      "account": 23456789,
+      "contact": "Fitness Fanatic"
+    },
+    {
+      "slug": "Toy-World-Enterprises",
+      "name": "Toy World Enterprises",
+      "address": "567 Toy Street",
+      "city": "Playtown",
+      "state": "CA",
+      "zip": "12345",
+      "account": 34567890,
+      "contact": "Teddy Toyman"
+    },
+    {
+      "slug": "Beauty-Products-Co",
+      "name": "Beauty Products Co",
+      "address": "876 Beauty Avenue",
+      "city": "Beautyville",
+      "state": "NY",
+      "zip": "23456",
+      "account": 45678901,
+      "contact": "Bella Beauty"
+    },
+    {
+      "slug": "Furniture-Designs-Inc",
+      "name": "Furniture Designs Inc",
+      "address": "123 Furniture Road",
+      "city": "Designville",
+      "state": "CA",
+      "zip": "56789",
+      "account": 12345678,
+      "contact": "Frank Furniture"
+    },
+    {
+      "slug": "Pet-Supplies-Company",
+      "name": "Pet Supplies Company",
+      "address": "567 Pet Street",
+      "city": "Petville",
+      "state": "TX",
+      "zip": "23456",
+      "account": 45678901,
+      "contact": "Pam Petlover"
+    },
+    {
+      "slug": "Home-Tech-Solutions",
+      "name": "Home Tech Solutions",
+      "address": "987 Home Road",
+      "city": "Techville",
+      "state": "CA",
+      "zip": "65432",
+      "account": 34567890,
+      "contact": "Harry Hometech"
+    },
+    {
+      "slug": "Athletic-Footwear-Co",
+      "name": "Athletic Footwear Co",
+      "address": "123 Sport Avenue",
+      "city": "Sportsville",
+      "state": "NY",
+      "zip": "12345",
+      "account": 56789012,
+      "contact": "Andy Athlete"
+    },
+    {
+      "slug": "Camera-Tech-Enterprises",
+      "name": "Camera Tech Enterprises",
+      "address": "567 Camera Street",
+      "city": "Photoville",
+      "state": "CA",
+      "zip": "23456",
+      "account": 23456789,
+      "contact": "Andy Athlete"
+    }
+  ]
 }

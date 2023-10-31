@@ -48,7 +48,7 @@ export default function ItemCarousel({ items, title, type, description }) {
           {"<"}
         </button>
         <div
-          className="hot-products"
+          className="hot-products hide-scroll-bar"
           ref={containerRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -56,34 +56,31 @@ export default function ItemCarousel({ items, title, type, description }) {
           onMouseLeave={handleMouseUp}
         >
           {items.length
-            ? items.map(
-                (item, i) =>
-                  i < 20 && (
-                    <div
-                      data-testid="product-item"
-                      className="product-card"
-                      key={i}
-                    >
-                      <Link
-                        to={allowClick ? "/store" : "#"}
-                        state={{ item: item, type: type }}
-                      >
-                        <div className="product-thumbnail hot-thumbnail">
-                          <img
-                            width={160}
-                            alt=""
-                            src={require(`./../../assets/img/thumbnails/thumbnail${
-                              i + 9 + type.length
-                            }.jpg`)}
-                          />
-                        </div>
-                        <div className="card-titles">
-                          <div className="pointer ">{item.name || item} </div>
-                        </div>
-                      </Link>
+            ? items.map((item, i) => (
+                <div
+                  data-testid="product-item"
+                  className="product-card"
+                  key={i}
+                >
+                  <Link
+                    to={allowClick ? "/store" : "#"}
+                    state={{ item: item, type: type }}
+                  >
+                    <div className="product-thumbnail hot-thumbnail">
+                      <img
+                        width={160}
+                        alt=""
+                        src={require(`./../../assets/img/thumbnails/thumbnail${
+                          i + 9 + type.length
+                        }.jpg`)}
+                      />
                     </div>
-                  )
-              )
+                    <div className="card-titles">
+                      <div className="pointer ">{item.name || item} </div>
+                    </div>
+                  </Link>
+                </div>
+              ))
             : null}
         </div>
         <button onClick={handleClick} id="next" className="carousel-nav-button">
@@ -95,7 +92,7 @@ export default function ItemCarousel({ items, title, type, description }) {
 }
 
 ItemCarousel.propTypes = {
-  items: PropTypes.string,
+  items: PropTypes.array,
   title: PropTypes.string,
   type: PropTypes.string,
   description: PropTypes.string,
