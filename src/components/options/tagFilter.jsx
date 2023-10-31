@@ -67,46 +67,53 @@ const TagsFilter = () => {
 
   return (
     <section className="filter-container">
-      <h3 className="filters-title">Tags</h3>
-      <input
-        onChange={(e) => setSearch(e.target.value)}
-        value={search}
-        type="search"
-        placeholder="Search tag"
-        className="search-bar"
-      />
-      <div key={selectQuery} className="filter-body custom-scrollbar">
-        {selectSoloTags.length>0 ? (
-          (searchResults.length>0 ? searchResults : selectSoloTags).map(
-            (tag, i) => (
-              // tag.products ? (
-              <div className="form-group filter-item" key={i}>
-                <input
-                  key={selected}
-                  onChange={handleChange}
-                  type="checkbox"
-                  className="custom-checkbox"
-                  name=""
-                  id={tag}
-                  defaultChecked={
-                    selected.includes(tag) ||
-                    selectQuery.includes(
-                      `tags_like=(?<!\\s)\\b${tag}\\b(?!\\s)`
-                    )
-                  }
-                />
-                <label className="filtering-label text-secondary" htmlFor={tag}>
-                  {tag}{" "}
-                  {/* <span className="text-dark-gray ">({tag.products})</span> */}
-                </label>
-              </div>
+      <details>
+        <summary>
+          <h3 className="filters-title">Tags</h3>
+        </summary>
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          type="search"
+          placeholder="Search tag"
+          className="search-bar"
+        />
+        <div key={selectQuery} className="filter-body custom-scrollbar">
+          {selectSoloTags.length > 0 ? (
+            (searchResults.length > 0 ? searchResults : selectSoloTags).map(
+              (tag, i) => (
+                // tag.products ? (
+                <div className="form-group filter-item" key={i}>
+                  <input
+                    key={selected}
+                    onChange={handleChange}
+                    type="checkbox"
+                    className="custom-checkbox"
+                    name=""
+                    id={tag}
+                    defaultChecked={
+                      selected.includes(tag) ||
+                      selectQuery.includes(
+                        `tags_like=(?<!\\s)\\b${tag}\\b(?!\\s)`
+                      )
+                    }
+                  />
+                  <label
+                    className="filtering-label text-secondary"
+                    htmlFor={tag}
+                  >
+                    {tag}{" "}
+                    {/* <span className="text-dark-gray ">({tag.products})</span> */}
+                  </label>
+                </div>
+              )
+              // ) : null
             )
-            // ) : null
-          )
-        ) : (
-          <Spinner />
-        )}
-      </div>
+          ) : (
+            <Spinner />
+          )}
+        </div>
+      </details>
     </section>
   );
 };

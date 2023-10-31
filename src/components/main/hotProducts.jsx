@@ -55,7 +55,7 @@ export default function HotProducts() {
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
-          className="hot-products"
+          className="hot-products hide-scroll-bar"
         >
           {allProducts.value.length ? (
             allProducts.value.map(
@@ -75,7 +75,7 @@ export default function HotProducts() {
                           width={160}
                           alt=""
                           src={require(`./../../assets/img/thumbnails/thumbnail${
-                            item.name.length + Math.floor(item.price) - 6 - i
+                            item.name.length
                           }.jpg`)}
                           onError={() =>
                             this.src !==

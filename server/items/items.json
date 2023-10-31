@@ -17399,6 +17399,566 @@
       "added": 1482749110863,
       "manufacturer": "Feil-Dooley-and-Reinger",
       "itemType": "shirt"
+    },
+    {
+      "tags": ["Trees"],
+      "price": 10.99,
+      "name": "Handcrafted Trees Mug",
+      "description": "enim corporis voluptatibus laudantium possimus alias dolorem voluptatem similique aut aliquam voluptatem voluptatem omnis id consequatur",
+      "slug": "Handcrafted-Trees-Mug",
+      "added": 1485723766805,
+      "manufacturer": "OHara-Group",
+      "itemType": "mug"
+    },
+    {
+      "tags": ["Beach", "Ocean", "Water"],
+      "price": 19.99,
+      "name": "Rustic Beach Mug",
+      "description": "totam at veritatis eligendi assumenda ex quia praesentium quibusdam ducimus",
+      "slug": "Rustic-Beach-Mug",
+      "added": 1481573896833,
+      "manufacturer": "Sipes-Inc",
+      "itemType": "mug"
+    },
+    {
+      "tags": ["Electronics", "Smartphones"],
+      "price": 599.99,
+      "name": "High-End Smartphone",
+      "description": "the latest smartphone with cutting-edge features and technology",
+      "slug": "High-End-Smartphone",
+      "added": 1492356789012,
+      "manufacturer": "Tech-Giant-Company",
+      "itemType": "electronics"
+    },
+    {
+      "tags": ["Clothing", "Fashion"],
+      "price": 49.99,
+      "name": "Designer Dress",
+      "description": "a stylish designer dress for special occasions",
+      "slug": "Designer-Dress",
+      "added": 1493456789123,
+      "manufacturer": "Fashion-Studio",
+      "itemType": "clothing"
+    },
+    {
+      "tags": ["Garden", "Flowers"],
+      "price": 12.99,
+      "name": "Elegant Flower Vase",
+      "description": "beautiful handcrafted vase for your favorite flowers",
+      "slug": "Elegant-Flower-Vase",
+      "added": 1490124567890,
+      "manufacturer": "Smith-and-Co",
+      "itemType": "vase"
+    },
+    {
+      "tags": ["Books", "Literature"],
+      "price": 24.99,
+      "name": "Classic Literature Collection",
+      "description": "a set of timeless literary classics for book enthusiasts",
+      "slug": "Classic-Literature-Collection",
+      "added": 1491287654321,
+      "manufacturer": "Bookworm-Publishers",
+      "itemType": "book"
+    },
+    {
+      "tags": ["Nature", "Hiking"],
+      "price": 79.99,
+      "name": "Durable Hiking Backpack",
+      "description": "a rugged backpack for outdoor enthusiasts",
+      "slug": "Durable-Hiking-Backpack",
+      "added": 1494567890123,
+      "manufacturer": "Outdoor-Gear-Co",
+      "itemType": "backpack"
+    },
+    {
+      "tags": ["Tech", "Accessories"],
+      "price": 34.99,
+      "name": "Wireless Earbuds",
+      "description": "high-quality wireless earbuds with long battery life",
+      "slug": "Wireless-Earbuds",
+      "added": 1495678901234,
+      "manufacturer": "Tech-Accessories-Inc",
+      "itemType": "earbuds"
+    },
+    {
+      "tags": ["Home", "Decor"],
+      "price": 39.99,
+      "name": "Modern Wall Art",
+      "description": "contemporary wall art to enhance your home decor",
+      "slug": "Modern-Wall-Art",
+      "added": 1496789012345,
+      "manufacturer": "Art-Designs-Studio",
+      "itemType": "art"
+    },
+    {
+      "tags": ["Fitness", "Exercise"],
+      "price": 129.99,
+      "name": "Professional Treadmill",
+      "description": "a high-performance treadmill for serious fitness enthusiasts",
+      "slug": "Professional-Treadmill",
+      "added": 1497890123456,
+      "manufacturer": "Fitness-World-Inc",
+      "itemType": "fitness equipment"
+    },
+    {
+      "tags": ["Kitchen", "Cookware"],
+      "price": 29.99,
+      "name": "Non-Stick Frying Pan",
+      "description": "a versatile frying pan for your kitchen needs",
+      "slug": "Non-Stick-Frying-Pan",
+      "added": 1498901234567,
+      "manufacturer": "Kitchenware-Co",
+      "itemType": "kitchenware"
+    },
+    {
+      "tags": ["Games", "Board Games"],
+      "price": 39.99,
+      "name": "Strategy Board Game",
+      "description": "a challenging strategy board game for game night",
+      "slug": "Strategy-Board-Game",
+      "added": 1500123456789,
+      "manufacturer": "Game-Masters-Inc",
+      "itemType": "board game"
+    },
+    {
+      "tags": ["Tech", "Laptops"],
+      "price": 999.99,
+      "name": "Powerful Laptop",
+      "description": "a high-performance laptop for work and entertainment",
+      "slug": "Powerful-Laptop",
+      "added": 1501234567890,
+      "manufacturer": "Tech-Genius-Company",
+      "itemType": "laptop"
+    },
+    {
+      "tags": ["Gym", "Fitness"],
+      "price": 199.99,
+      "name": "Multi-Station Home Gym",
+      "description": "a complete home gym setup for full-body workouts",
+      "slug": "Multi-Station-Home-Gym",
+      "added": 1502345678901,
+      "manufacturer": "Fitness-Equipment-Corp",
+      "itemType": "home gym"
+    },
+    {
+      "tags": ["Music", "Instruments"],
+      "price": 499.99,
+      "name": "Acoustic Guitar",
+      "description": "a high-quality acoustic guitar for aspiring musicians",
+      "slug": "Acoustic-Guitar",
+      "added": 1503456789012,
+      "manufacturer": "Music-Instruments-Co",
+      "itemType": "guitar"
+    },
+    {
+      "tags": ["Toys", "Kids"],
+      "price": 19.99,
+      "name": "Educational Toy Set",
+      "description": "fun and educational toys for children's development",
+      "slug": "Educational-Toy-Set",
+      "added": 1504567890123,
+      "manufacturer": "Toy-World-Enterprises",
+      "itemType": "toy"
+    },
+    {
+      "tags": ["Beauty", "Skincare"],
+      "price": 34.99,
+      "name": "Anti-Aging Cream",
+      "description": "a premium anti-aging cream for youthful skin",
+      "slug": "Anti-Aging-Cream",
+      "added": 1505678901234,
+      "manufacturer": "Beauty-Products-Co",
+      "itemType": "skincare"
+    },
+    {
+      "tags": ["Furniture", "Living Room"],
+      "price": 249.99,
+      "name": "Modern Sofa Set",
+      "description": "contemporary sofa set for your living room",
+      "slug": "Modern-Sofa-Set",
+      "added": 1506789012345,
+      "manufacturer": "Furniture-Designs-Inc",
+      "itemType": "furniture"
+    },
+    {
+      "tags": ["Pets", "Dog Supplies"],
+      "price": 14.99,
+      "name": "Durable Dog Leash",
+      "description": "a strong leash for walking your canine companion",
+      "slug": "Durable-Dog-Leash",
+      "added": 1507890123456,
+      "manufacturer": "Pet-Supplies-Company",
+      "itemType": "pet supplies"
+    },
+    {
+      "tags": ["Outdoors", "Camping"],
+      "price": 89.99,
+      "name": "Camping Tent",
+      "description": "a spacious and weather-resistant tent for camping adventures",
+      "slug": "Camping-Tent",
+      "added": 1508901234567,
+      "manufacturer": "Outdoor-Gear-Co",
+      "itemType": "camping gear"
+    },
+    {
+      "tags": ["Electronics", "Headphones"],
+      "price": 49.99,
+      "name": "Wireless Bluetooth Headphones",
+      "description": "high-quality wireless headphones for music enthusiasts",
+      "slug": "Wireless-Bluetooth-Headphones",
+      "added": 1509012345678,
+      "manufacturer": "Audio-Tech-Inc",
+      "itemType": "headphones"
+    },
+    {
+      "tags": ["Sports", "Equipment"],
+      "price": 79.99,
+      "name": "Professional Tennis Racket",
+      "description": "a racket designed for precision and power on the tennis court",
+      "slug": "Professional-Tennis-Racket",
+      "added": 1510123456789,
+      "manufacturer": "Sports-Gear-Co",
+      "itemType": "tennis racket"
+    },
+    {
+      "tags": ["Home", "Appliances"],
+      "price": 349.99,
+      "name": "Smart Refrigerator",
+      "description": "a smart refrigerator with advanced features and connectivity",
+      "slug": "Smart-Refrigerator",
+      "added": 1511234567890,
+      "manufacturer": "Appliance-Technologies",
+      "itemType": "refrigerator"
+    },
+    {
+      "tags": ["Beauty", "Makeup"],
+      "price": 19.99,
+      "name": "Cosmetic Brush Set",
+      "description": "a set of high-quality brushes for makeup application",
+      "slug": "Cosmetic-Brush-Set",
+      "added": 1512345678901,
+      "manufacturer": "Beauty-Tools-Inc",
+      "itemType": "makeup tools"
+    },
+    {
+      "tags": ["Toys", "Educational"],
+      "price": 29.99,
+      "name": "Educational Puzzle Set",
+      "description": "fun and educational puzzles for kids' cognitive development",
+      "slug": "Educational-Puzzle-Set",
+      "added": 1513456789012,
+      "manufacturer": "Learning-Toys-Co",
+      "itemType": "puzzle"
+    },
+    {
+      "tags": ["Tech", "Gaming"],
+      "price": 399.99,
+      "name": "Gaming Console",
+      "description": "a powerful gaming console for immersive gaming experiences",
+      "slug": "Gaming-Console",
+      "added": 1514567890123,
+      "manufacturer": "Game-Tech-Enterprises",
+      "itemType": "gaming console"
+    },
+    {
+      "tags": ["Sports", "Footwear"],
+      "price": 79.99,
+      "name": "Running Shoes",
+      "description": "comfortable running shoes for athletes and runners",
+      "slug": "Running-Shoes",
+      "added": 1515678901234,
+      "manufacturer": "Athletic-Footwear-Co",
+      "itemType": "shoes"
+    },
+    {
+      "tags": ["Pets", "Cat Supplies"],
+      "price": 9.99,
+      "name": "Cat Toy Set",
+      "description": "interactive toys to entertain your feline friend",
+      "slug": "Cat-Toy-Set",
+      "added": 1516789012345,
+      "manufacturer": "Pet-Playthings-Inc",
+      "itemType": "cat toys"
+    },
+    {
+      "tags": ["Books", "Non-Fiction"],
+      "price": 14.99,
+      "name": "Best-Selling Non-Fiction Book",
+      "description": "an engaging non-fiction book for avid readers",
+      "slug": "Best-Selling-Non-Fiction-Book",
+      "added": 1517890123456,
+      "manufacturer": "Book-Publishing-Co",
+      "itemType": "book"
+    },
+    {
+      "tags": ["Electronics", "Smart Home"],
+      "price": 59.99,
+      "name": "Smart Home Security Camera",
+      "description": "a camera for monitoring your home's security remotely",
+      "slug": "Smart-Home-Security-Camera",
+      "added": 1518901234567,
+      "manufacturer": "Home-Tech-Solutions",
+      "itemType": "security camera"
+    },
+    {
+      "tags": ["Sports", "Outdoor"],
+      "price": 49.99,
+      "name": "Camping Sleeping Bag",
+      "description": "a warm and cozy sleeping bag for outdoor adventures",
+      "slug": "Camping-Sleeping-Bag",
+      "added": 1519012345678,
+      "manufacturer": "Outdoor-Gear-Co",
+      "itemType": "sleeping bag"
+    },
+    {
+      "tags": ["Music", "Instruments"],
+      "price": 599.99,
+      "name": "Digital Piano",
+      "description": "a digital piano with realistic sound and touch sensitivity",
+      "slug": "Digital-Piano",
+      "added": 1520123456789,
+      "manufacturer": "Music-Instruments-Co",
+      "itemType": "piano"
+    },
+    {
+      "tags": ["Home", "Decor"],
+      "price": 24.99,
+      "name": "Artificial Plant Set",
+      "description": "lifelike artificial plants to enhance your home decor",
+      "slug": "Artificial-Plant-Set",
+      "added": 1521234567890,
+      "manufacturer": "Decor-Artistry-Inc",
+      "itemType": "home decor"
+    },
+    {
+      "tags": ["Fitness", "Accessories"],
+      "price": 14.99,
+      "name": "Yoga Mat",
+      "description": "a non-slip yoga mat for your fitness and relaxation routines",
+      "slug": "Yoga-Mat",
+      "added": 1522345678901,
+      "manufacturer": "Fitness-Equipment-Corp",
+      "itemType": "yoga mat"
+    },
+    {
+      "tags": ["Garden", "Outdoor"],
+      "price": 39.99,
+      "name": "Solar-Powered Garden Lights",
+      "description": "solar lights to illuminate your garden or outdoor space",
+      "slug": "Solar-Powered-Garden-Lights",
+      "added": 1523456789012,
+      "manufacturer": "Garden-Lighting-Co",
+      "itemType": "garden lights"
+    },
+    {
+      "tags": ["Clothing", "Accessories"],
+      "price": 29.99,
+      "name": "Leather Belt",
+      "description": "a stylish leather belt to complete your outfit",
+      "slug": "Leather-Belt",
+      "added": 1524567890123,
+      "manufacturer": "Fashion-Accessories-Inc",
+      "itemType": "belt"
+    },
+    {
+      "tags": ["Electronics", "Audio"],
+      "price": 69.99,
+      "name": "Portable Bluetooth Speaker",
+      "description": "a portable speaker for music on the go",
+      "slug": "Portable-Bluetooth-Speaker",
+      "added": 1525678901234,
+      "manufacturer": "Audio-Tech-Inc",
+      "itemType": "speaker"
+    },
+    {
+      "tags": ["Toys", "Children"],
+      "price": 19.99,
+      "name": "Remote-Controlled Toy Car",
+      "description": "a fun and interactive toy car for kids",
+      "slug": "Remote-Controlled-Toy-Car",
+      "added": 1526789012345,
+      "manufacturer": "Toy-World-Enterprises",
+      "itemType": "toy car"
+    },
+    {
+      "tags": ["Sports", "Outdoor"],
+      "price": 149.99,
+      "name": "Hiking Backpack with Hydration",
+      "description": "a hydration-compatible hiking backpack for outdoor enthusiasts",
+      "slug": "Hiking-Backpack-with-Hydration",
+      "added": 1527890123456,
+      "manufacturer": "Outdoor-Gear-Co",
+      "itemType": "backpack"
+    },
+    {
+      "tags": ["Tech", "Accessories"],
+      "price": 9.99,
+      "name": "Phone Screen Protectors (Set of 3)",
+      "description": "protect your phone screen with these durable protectors",
+      "slug": "Phone-Screen-Protectors",
+      "added": 1528901234567,
+      "manufacturer": "Tech-Accessories-Inc",
+      "itemType": "screen protectors"
+    },
+    {
+      "tags": ["Home", "Furniture"],
+      "price": 179.99,
+      "name": "Modern Coffee Table",
+      "description": "a sleek and stylish coffee table for your living room",
+      "slug": "Modern-Coffee-Table",
+      "added": 1529012345678,
+      "manufacturer": "Furniture-Designs-Inc",
+      "itemType": "coffee table"
+    },
+    {
+      "tags": ["Electronics", "Camera"],
+      "price": 449.99,
+      "name": "Digital Camera Kit",
+      "description": "a digital camera kit for photography enthusiasts",
+      "slug": "Digital-Camera-Kit",
+      "added": 1530123456789,
+      "manufacturer": "Camera-Tech-Enterprises",
+      "itemType": "camera kit"
+    },
+    {
+      "tags": ["Beauty", "Hair Care"],
+      "price": 34.99,
+      "name": "Hair Straightener",
+      "description": "a hair straightener for sleek and smooth hair",
+      "slug": "Hair-Straightener",
+      "added": 1531234567890,
+      "manufacturer": "Beauty-Tools-Inc",
+      "itemType": "hair care"
+    },
+    {
+      "tags": ["Sports", "Fitness"],
+      "price": 89.99,
+      "name": "Adjustable Dumbbell Set",
+      "description": "an adjustable dumbbell set for versatile workouts",
+      "slug": "Adjustable-Dumbbell-Set",
+      "added": 1532345678901,
+      "manufacturer": "Fitness-Equipment-Corp",
+      "itemType": "dumbbell set"
+    },
+    {
+      "tags": ["Pets", "Dog Supplies"],
+      "price": 24.99,
+      "name": "Dog Bed with Memory Foam",
+      "description": "a comfortable dog bed with memory foam for your pet's relaxation",
+      "slug": "Dog-Bed-with-Memory-Foam",
+      "added": 1533456789012,
+      "manufacturer": "Pet-Supplies-Company",
+      "itemType": "dog bed"
+    },
+    {
+      "tags": ["Clothing", "Footwear"],
+      "price": 59.99,
+      "name": "Classic Leather Boots",
+      "description": "classic leather boots for a timeless look",
+      "slug": "Classic-Leather-Boots",
+      "added": 1534567890123,
+      "manufacturer": "Fashion-Studio",
+      "itemType": "boots"
+    },
+    {
+      "tags": ["Games", "Video Games"],
+      "price": 49.99,
+      "name": "Popular Video Game Title",
+      "description": "a popular video game for gaming enthusiasts",
+      "slug": "Popular-Video-Game-Title",
+      "added": 1535678901234,
+      "manufacturer": "Game-Publishing-Co",
+      "itemType": "video game"
+    },
+    {
+      "tags": ["Tech", "Accessories"],
+      "price": 19.99,
+      "name": "Wireless Mouse",
+      "description": "a wireless mouse for efficient computer use",
+      "slug": "Wireless-Mouse",
+      "added": 1536789012345,
+      "manufacturer": "Tech-Accessories-Inc",
+      "itemType": "mouse"
+    },
+    {
+      "tags": ["Home", "Kitchen"],
+      "price": 44.99,
+      "name": "Stainless Steel Cookware Set",
+      "description": "a durable cookware set for your kitchen needs",
+      "slug": "Stainless-Steel-Cookware-Set",
+      "added": 1537890123456,
+      "manufacturer": "Kitchenware-Co",
+      "itemType": "cookware set"
+    },
+    {
+      "tags": ["Fitness", "Equipment"],
+      "price": 299.99,
+      "name": "Elliptical Trainer",
+      "description": "a versatile elliptical trainer for a full-body workout",
+      "slug": "Elliptical-Trainer",
+      "added": 1538901234567,
+      "manufacturer": "Fitness-World-Inc",
+      "itemType": "elliptical trainer"
+    },
+    {
+      "tags": ["Books", "Fantasy"],
+      "price": 14.99,
+      "name": "Fantasy Novel",
+      "description": "an exciting fantasy novel for avid readers",
+      "slug": "Fantasy-Novel",
+      "added": 1540012345678,
+      "manufacturer": "Book-Publishing-Co",
+      "itemType": "book"
+    },
+    {
+      "tags": ["Outdoors", "Camping"],
+      "price": 69.99,
+      "name": "Camping Cookware Set",
+      "description": "a compact cookware set for outdoor cooking adventures",
+      "slug": "Camping-Cookware-Set",
+      "added": 1541123456789,
+      "manufacturer": "Outdoor-Gear-Co",
+      "itemType": "camping cookware"
+    },
+    {
+      "tags": ["Tech", "Smart Home"],
+      "price": 39.99,
+      "name": "Smart Plug with Voice Control",
+      "description": "a smart plug for convenient home automation",
+      "slug": "Smart-Plug-with-Voice-Control",
+      "added": 1542234567890,
+      "manufacturer": "Home-Tech-Solutions",
+      "itemType": "smart plug"
+    },
+    {
+      "tags": ["Toys", "Action Figures"],
+      "price": 12.99,
+      "name": "Collectible Action Figure",
+      "description": "a collectible action figure for collectors and fans",
+      "slug": "Collectible-Action-Figure",
+      "added": 1543345678901,
+      "manufacturer": "Toy-World-Enterprises",
+      "itemType": "action figure"
+    },
+    {
+      "tags": ["Clothing", "Accessories"],
+      "price": 19.99,
+      "name": "Designer Silk Scarf",
+      "description": "a luxurious silk scarf to complement your style",
+      "slug": "Designer-Silk-Scarf",
+      "added": 1544456789012,
+      "manufacturer": "Fashion-Accessories-Inc",
+      "itemType": "scarf"
+    },
+    {
+      "tags": ["Home", "Bedroom"],
+      "price": 149.99,
+      "name": "Queen Size Bed Frame",
+      "description": "a sturdy bed frame for a comfortable night's sleep",
+      "slug": "Queen-Size-Bed-Frame",
+      "added": 1545567890123,
+      "manufacturer": "Furniture-Designs-Inc",
+      "itemType": "bed frame"
     }
   ]
 }

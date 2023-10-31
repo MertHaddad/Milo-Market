@@ -5,16 +5,29 @@ import brandReducer from "../features/brandSlice";
 import queryReducer from "../features/querySlice";
 import allproductsSlice from "../features/allProductsSlice";
 import filteredProductsSlice from "../features/filteredProducts";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // Defaults to localStorage for web
+
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedProductsReducer = persistReducer(persistConfig,allproductsSlice);
+const persistedBasketReducer = persistReducer(persistConfig,basketReducer);
 
 export const store = configureStore(
   {
     reducer: {
-      basket: basketReducer,
+      basket: persistedBasketReducer,
       product: productReducer,
       brand: brandReducer,
       query: queryReducer,
-      allProducts: allproductsSlice,
+      allProducts: persistedProductsReducer,
       filteredProducts: filteredProductsSlice,
     },
   },
 );
+
+export const persistor = persistStore(store);

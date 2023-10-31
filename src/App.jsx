@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./routes/home";
 import Product from "./routes/product";

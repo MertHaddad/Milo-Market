@@ -1,6 +1,6 @@
 import React, { useState, useTransition } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  setQuery } from "../../features/querySlice";
+import { setQuery } from "../../features/querySlice";
 import { getItems } from "../../features/productSlice";
 import { getStockByTags } from "../../features/allProductsSlice";
 import { getFilteredItemsNumber } from "../../features/filteredProducts";
@@ -29,7 +29,6 @@ const BrandFilter = () => {
   }, [search]);
 
   const handleChange = (e) => {
-
     startTransition(() => {
       if (e.target.name === "All") {
         setSelected(
@@ -44,7 +43,8 @@ const BrandFilter = () => {
         }
 
         setSelected(
-          filtered.includes(e.target.id) || selectQuery.includes("manufacturer="+e.target.id)
+          filtered.includes(e.target.id) ||
+            selectQuery.includes("manufacturer=" + e.target.id)
             ? filtered.filter((item) => item !== e.target.id)
             : [...filtered, e.target.id]
         );
@@ -57,12 +57,11 @@ const BrandFilter = () => {
   };
 
   useDidMountEffect(() => {
-
     if (productsNumberSelector.status === "fulfilled") {
       setShowSpinner(true);
       dispatch(
         getStockByTags({
-          query:querySelector,
+          query: querySelector,
           selected: selected,
           filteredProductsNum: productsNumberSelector.currentProductNumber,
         })
@@ -78,59 +77,63 @@ const BrandFilter = () => {
 
   return (
     <section className="filter-container">
-      <h3 className="filters-title">Brands</h3>
-      <input
-        onChange={(e) => setSearch(e.target.value)}
-        value={search}
-        type="search"
-        placeholder="Search brand"
-        className="search-bar"
-      />
-      <span className="float-spinner">
-      {showSpinner? <Spinner /> : null}
-      </span>
-      <div key={selectQuery} className="filter-body custom-scrollbar">
-        <>
-
-          {selectBrand.length ? (
-            (searchResults.length ? searchResults : selectBrand).map(
-              (brand, i) =>
-                brand.products ? (
-                  <div className="form-group filter-item" key={i}>
-                    <input
-                      key={selected}
-                      onChange={handleChange}
-                      type="checkbox"
-                      name={brand.brand.name}
-                      // className="custom-checkbox"
-                      data-testid="test-brand-filter-checkbox"
-                      id={brand.brand.slug}
-                      defaultChecked={
-                        selected.includes(brand.brand.slug) ||
-                        selected.includes(brand.brand.name) ||
-                        selectQuery.includes("manufacturer="+brand.brand.slug)
-                      }
-                    />
-                    <label
-                    title={brand.brand.slug}
-                      className="filtering-label text-secondary"
-                      htmlFor={brand.brand.slug}
-                    >
-                      {brand.brand.name}
-                      <span className="text-dark-gray">
-                        {" "}
-                        ({brand.products})
-                      </span>
-                    </label>
-                  </div>
-                ) : null
-            )
-          ) : (
-            <Spinner />
-          )}
-
-        </>
-      </div>
+      <details>
+        <summary>
+          <h3 className="filters-title">Brands</h3>
+        </summary>
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          type="search"
+          placeholder="Search brand"
+          className="search-bar"
+        />
+        <span className="float-spinner">
+          {showSpinner ? <Spinner /> : null}
+        </span>
+        <div key={selectQuery} className="filter-body custom-scrollbar">
+          <>
+            {selectBrand.length ? (
+              (searchResults.length ? searchResults : selectBrand).map(
+                (brand, i) =>
+                  brand.products ? (
+                    <div className="form-group filter-item" key={i}>
+                      <input
+                        key={selected}
+                        onChange={handleChange}
+                        type="checkbox"
+                        name={brand.brand.name}
+                        // className="custom-checkbox"
+                        data-testid="test-brand-filter-checkbox"
+                        id={brand.brand.slug}
+                        defaultChecked={
+                          selected.includes(brand.brand.slug) ||
+                          selected.includes(brand.brand.name) ||
+                          selectQuery.includes(
+                            "manufacturer=" + brand.brand.slug
+                          )
+                        }
+                      />
+                      <label
+                        title={brand.brand.slug}
+                        className="filtering-label text-secondary"
+                        htmlFor={brand.brand.slug}
+                      >
+                        {brand.brand.name}
+                        <span className="text-dark-gray">
+                          {" "}
+                          ({brand.products})
+                        </span>
+                      </label>
+                    </div>
+                  ) : null
+              )
+            ) : (
+              <Spinner />
+            )}
+          </>
+        </div>
+      </details>
     </section>
   );
 };

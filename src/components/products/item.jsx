@@ -16,7 +16,7 @@ const Item = () => {
 
   return (
       <section className="products products-container">
-        {products.value.length ? (
+        {products?.value?.length ? (
           products.value.map((item, i) => (
             <div data-testid="product-item" className="product-card" key={i}>
               <Link
@@ -25,11 +25,12 @@ const Item = () => {
               >
                 <span className="product-thumbnail">
                   <img
-                    width={90}
+                  className="product-thumbnail-img"
+                    
                     alt=""
                     // eslint-disable-next-line no-undef
                     src={require(`./../../assets/img/thumbnails/thumbnail${
-                      item.name.length + Math.floor(item.price) - 6
+                      item.name.length 
                     }.jpg`)}
                   />
                 </span>

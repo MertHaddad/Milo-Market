@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { value: ["?_page=1&_limit=24"] };
+const initialState = { value: ["?_page=1&_limit=20"] };
 
 const evaluateQuery = (state, action) => {
   const { payload } = action;
