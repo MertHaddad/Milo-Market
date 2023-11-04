@@ -112,11 +112,32 @@
   padding: 0 1.4rem 0 1.4rem;
 }
 
+.mt-0{
+  margin-top: 0 ;
+}
+
+.mb-0{
+  margin-bottom: 0 ;
+}
+
+.mt-1{
+  margin-top: 0.5rem;
+}
+
+.me-1{
+  margin-right: 0.5rem;
+}
+
 .d-flex {
   display: flex;
 }
+
 .d-block {
   display: block;
+}
+
+.d-none {
+  display: none;
 }
 
 .text-center {

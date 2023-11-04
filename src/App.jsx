@@ -11,12 +11,13 @@ import Navbar from "./components/main/navbar";
 import Footer from "./components/main/footer";
 import UpButton from "./components/main/upButton";
 import MobileNavigation from "./components/main/mobileNavigation";
-
+import PopupBasket from "./components/basket/popupBasket";
 export default function App() {
   const Layout = () => {
     return (
       <div className="app">
         <Navbar />
+        <PopupBasket />
         <Outlet />
         <UpButton />
         <MobileNavigation />
