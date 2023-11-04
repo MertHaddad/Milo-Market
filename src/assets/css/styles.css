@@ -1,6 +1,9 @@
 :root {
   --navbar-height: 3rem;
   --primary-color: #8f95d3;
+  /*--primary-color: #c3012e;
+   --primary-light-color: #8f95d3;
+  --primary-lighter-color: #8f95d3;  */
   --secondary-color: #d3c4e3;
   --info-color: #89daff;
   --warn-color: #58504a;
@@ -21,13 +24,10 @@
 
 .container {
   display: flex;
-  flex-direction: row-reverse;
-  margin-top: 1rem;
-  justify-content: space-around;
-}
-
-.basket {
-  width: 20vw !important;
+  /* flex-direction: row-reverse; */
+  margin: 1rem;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 
 .products {
@@ -138,7 +138,7 @@ html:not([data-scroll="0"]) .go-up-button {
   padding: 0 0.7rem;
 }
 .navigation-items span:hover {
-  color: var(--info-color);
+  color: var(--secondary-color);
 }
 
 .navbar-logo strong {
@@ -195,7 +195,7 @@ html:not([data-scroll="0"]) .go-up-button {
   border: 1.18px solid #f3f0fe;
   border-radius: 12px;
 }
-.product-thumbnail-img{
+.product-thumbnail-img {
   max-width: 12em;
 }
 
@@ -470,12 +470,18 @@ input[type="text"] {
 /* scrollbar style */
 
 /* basket styling */
-.basket-container {
-  padding: 1.35rem;
+
+.popup-basket {
+  position: fixed;
+  top: calc(var(--navbar-height)+ 10px);
+  right: 0;
+  width: min(25vw, 20rem) !important;
+  padding: 1rem 1rem 0 1rem;
   background-color: white;
   max-height: 80vh;
   overflow-y: auto;
-  border: 2px solid var(--primary-color);
+  z-index: 99;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .basket-item {
@@ -530,20 +536,34 @@ input[type="text"] {
 
 .basket-button-container {
   display: flex;
-  flex-direction: row-reverse;
   justify-content: space-between;
+}
+.basket-info {
+  color: var(--primary-color);
+  position: absolute;
+  right: 1rem;
+}
+.basket-footer {
+  border-top: 1px solid var(--primary-color);
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  padding-bottom: 1rem;
 }
 
 .basket-button {
-  margin-top: 1.35rem;
-  padding: 0.9rem 1.5rem;
-  /* margin: 1rem; */
-  border: 2px solid var(--primary-color);
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 1px dashed var(--primary-color);
   background-color: transparent;
   color: var(--primary-color);
-
-  font-weight: 600;
   cursor: pointer;
+}
+
+.basket-button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transition: 0.3s ease-in-out;
 }
 
 .empty-cart {
@@ -553,8 +573,36 @@ input[type="text"] {
   align-items: center;
   max-width: 70%;
   margin: auto;
+  padding: 2rem;
+}
+.empty-cart img {
+  width: 20em;
+}
 
-  /* flex-direction: "column"; */
+/* Cart Page Start */
+.cart-container {
+  display: flex;
+  gap: 4rem;
+  justify-content: flex-start;
+  margin: 2rem 10%;
+}
+
+.cart-options {
+  display: block;
+  position: fixed;
+  top: calc(1rem + var(--navbar-height));
+  right: 5%;
+  padding: 1rem;
+  background-color: #ffffff70;
+  width: 15%;
+}
+
+.cart-column {
+  width: 75%;
+}
+
+.cart-container .basket-footer {
+  display: none;
 }
 
 /* Pills style */
@@ -625,15 +673,38 @@ input[type="text"] {
 }
 
 .quantity-circle {
+  font-size: 0.9rem;
   background-color: var(--primary-color);
   border-radius: 50%;
-  /* clip-path: circle(40%); */
-  height: 1.3rem;
-  width: 1.3rem;
+  aspect-ratio: 1 / 1;
+  min-width: 1rem;
   padding: 0.3rem;
   text-align: center;
   color: #fff;
   margin-right: 4px;
+}
+
+.animate-pulse {
+  animation: pulse 1s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(143, 149, 211, 0.7);
+    background-color: yellow;
+    color: black;
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(143, 149, 211, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(143, 149, 211, 0);
+  }
 }
 
 .video-banner {
@@ -735,6 +806,30 @@ input[type="text"] {
 }
 
 @media screen and (max-width: 1100px) {
+  .popup-basket {
+    display: none !important;
+  }
+  .cart-container {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin: 2rem 0;
+  }
+
+  .cart-options {
+    position: fixed;
+    flex-direction: column;
+    top: calc(1rem + var(--navbar-height));
+    right: unset;
+    top: unset;
+    bottom: 40px;
+    padding: 0;
+    width: 80%;
+    backdrop-filter: blur(10px);
+    height: 12%;
+    z-index: 99;
+  }
+
   .container {
     margin: 0.2rem 0.4rem;
     flex-direction: column-reverse;

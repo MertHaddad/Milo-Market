@@ -4,6 +4,11 @@ const initialState = {
   payment: 0,
   quantity: 0,
   basketProducts: [],
+  showBasket: {show:false,message:""},
+};
+
+const handleShowBasket = (state, action) => {
+  state.showBasket = action;
 };
 
 const handleQuantityChange = (state, action) => {
@@ -18,6 +23,7 @@ const handleQuantityChange = (state, action) => {
       );
       state.payment += action.price;
       state.quantity++;
+      state.showBasket = {payload:{show:true,message:"Quantity increased"}};
     } else if (action.action === "decrease") {
       state.basketProducts.map(
         (product) => product.name === action.product && product.quantity--
@@ -28,9 +34,13 @@ const handleQuantityChange = (state, action) => {
         (product) => product.name === action.product
       );
       if (checkQuantity.quantity === 0) {
+        state.showBasket = {payload:{show:true,message:"Product removed"}};
         state.basketProducts = state.basketProducts.filter(
           (product) => product.name !== checkQuantity.name
         );
+      }
+      else{
+        state.showBasket = {payload:{show:true,message:"Quantity decreased"}};
       }
     } else return;
   } else {
@@ -46,6 +56,7 @@ const handleAddProduct = (state, action) => {
       product.name === (action?.payload?.product.name || action.product)
   );
   if (!checkExisting) {
+    state.showBasket = {payload:{show:true,message:"Product added"}};
     console.log("recived first Adding order!");
     console.log(action);
     state.basketProducts.push({
@@ -74,10 +85,18 @@ export const basketSlice = createSlice({
     addProduct: (state, action) => {
       handleAddProduct(state, action);
     },
+    showBasket: (state, action) => {
+      handleShowBasket(state, action);
+    },
+    emptyBasket: (state) => {
+      state.basketProducts = [];
+      state.payment = 0;
+      state.quantity = 0;
+    },
   },
 });
 
-export const { addProduct, setQuantity } = basketSlice.actions;
+export const { addProduct, setQuantity, showBasket,emptyBasket } = basketSlice.actions;
 
 export const selectBasket = (state) => state.counter;
 

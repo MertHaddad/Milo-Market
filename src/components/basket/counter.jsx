@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setQuantity } from "../../features/basketSlice";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Counter = ({ product }) => {
   const dispatch = useDispatch();
@@ -22,11 +22,9 @@ const Counter = ({ product }) => {
         name="decrease"
         className="pointer fs-1 text-bold quantity-button"
       >
-       -
+        -
       </button>
-      <button className="counter fs-2">
-        {product?.quantity || 0}
-      </button>
+      <button className="counter fs-2">{product?.quantity || 0}</button>
       <button
         onClick={handleQuantity}
         name="increase"
@@ -41,9 +39,10 @@ const Counter = ({ product }) => {
 Counter.propTypes = {
   product: PropTypes.exact({
     name: PropTypes.string.isRequired,
-    quantity:PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired
-  })
+    quantity: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+  }),
+  handleHideBasket: PropTypes.func.isRequired,
 };
 
 export default Counter;

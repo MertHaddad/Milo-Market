@@ -68,8 +68,9 @@ export default function ItemCarousel({ items, title, type, description }) {
                   >
                     <div className="product-thumbnail hot-thumbnail">
                       <img
-                        width={160}
+                      className="product-thumbnail-img"
                         alt=""
+                        // eslint-disable-next-line no-undef
                         src={require(`./../../assets/img/thumbnails/thumbnail${
                           i + 9 + type.length
                         }.jpg`)}

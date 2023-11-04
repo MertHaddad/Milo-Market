@@ -1,25 +1,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { addProduct } from "../../features/basketSlice";
+import { useSelector } from "react-redux";
 import Spinner from "../main/spinner";
-import Counter from "../basket/counter";
+import ProductItem from "./../products/productItem";
 
 export default function HotProducts() {
   const allProducts = useSelector((state) => state.product);
-  const dispatch = useDispatch();
-
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [allowClick, setAllowClick] = useState(true);
-  const selectBasket = useSelector((state) => state.basket);
-
-  const checkProduct = (item) => {
-    return selectBasket.basketProducts.find((el) => el.name === item.name);
-  };
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -47,7 +38,9 @@ export default function HotProducts() {
   return (
     <section>
       <div className="main-title main-text">Hot Products</div>
-      <div className="main-title text-darkest-gray">Especially picked products for you, check the store for more.</div>
+      <div className="main-title text-darkest-gray">
+        Especially picked products for you, check the store for more.
+      </div>
       <div className="hot-products-container">
         <div
           ref={containerRef}
@@ -58,53 +51,9 @@ export default function HotProducts() {
           className="hot-products hide-scroll-bar"
         >
           {allProducts.value.length ? (
-            allProducts.value.map(
-              (item, i) =>
-                i < 20 && (
-                  <div
-                    data-testid="product-item"
-                    className="product-card"
-                    key={i}
-                  >
-                    <Link
-                      to={allowClick ? "/product/slug=" + item.slug : "#"}
-                      state={{ item: item, i: i }}
-                    >
-                      <span className="product-thumbnail hot-thumbnail">
-                        <img
-                          width={160}
-                          alt=""
-                          src={require(`./../../assets/img/thumbnails/thumbnail${
-                            item.name.length
-                          }.jpg`)}
-                          onError={() =>
-                            this.src !==
-                            require(`./../../assets/img/thumbnails/thumbnail1.jpg`)
-                              ? (this.src = require(`./../../assets/img/thumbnails/thumbnail1.jpg`))
-                              : null
-                          }
-                        />
-                      </span>
-                    </Link>
-                    <span className="product-price">$ {item.price}</span>
-                    <span className="product-title text-default">
-                      {item.name}
-                    </span>
-                    
-                    {checkProduct(item) ? (
-                <Counter product={checkProduct(item)} />
-              ) : (
-                <button
-                  onClick={() => dispatch(addProduct({ product: item }))}
-                  data-testid="add-button"
-                  className="product-button text-bold fs-3"
-                >
-                  Add
-                </button>
-              )}
-                  </div>
-                )
-            )
+            allProducts.value.map((item, i) => (
+              <ProductItem item={item} i={i} key={i} allowClick={allowClick} />
+            ))
           ) : (
             <Spinner />
           )}
