@@ -9,7 +9,7 @@
 
 .carousel-nav-button{
   position:absolute;
-  background-color: #8f95d390;
+  background-color: var(--primary-color-50);
   color:#ffffff;
   height: 2em;
   width: 2em;
