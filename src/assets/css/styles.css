@@ -1,17 +1,19 @@
 :root {
   --navbar-height: 3rem;
-  --primary-color: #8f95d3;
-  /*--primary-color: #c3012e;
-   --primary-light-color: #8f95d3;
-  --primary-lighter-color: #8f95d3;  */
-  --secondary-color: #d3c4e3;
+  --primary-color: #c3012e;
+  --primary-color-50: #c3012e50;
+   --primary-dark: #9c0125;
+   --primary-darker: #550014;
+   --primary-light: #c91a43;
+  --primary-lighter: #fe3a67;
+  --secondary-color: #f9e6ea;
   --info-color: #89daff;
   --warn-color: #58504a;
   --gray-color: #e0e0e0;
   --gray-dark: #a8a8a8;
   --gray-darkest: #6f6f6f;
   --light-blue: #697488;
-  --secondary-button: #f2f0fd;
+  --secondary-button: var(--secondary-color);
   --primary-text-color: #000000cc;
 }
 
@@ -67,7 +69,7 @@ button {
 
 html:not([data-scroll="0"]) .navbar,
 .go-up-button {
-  background-color: #8f95d3b2;
+  background-color: var(--primary-color-50);
   backdrop-filter: blur(10px);
 }
 
@@ -225,10 +227,12 @@ html:not([data-scroll="0"]) .go-up-button {
   cursor: pointer;
   padding: 0.4rem 0;
   width: 100%;
+  transition: 0.2s ease-in-out;
 }
 .product-button:hover {
-  background-color: var(--secondary-color);
+  background-color:var(--primary-dark);
   color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
 .products-container {
@@ -514,7 +518,7 @@ input[type="text"] {
 
 .quantity-button {
   vertical-align: middle;
-  background-color: var(--secondary-button);
+  background-color: var(--secondary-color);
   color: var(--primary-color);
   width: 2.1rem;
   height: 2.1rem;
@@ -522,14 +526,14 @@ input[type="text"] {
 }
 
 .quantity-button:hover {
-  background-color: var(--secondary-color);
-  color: #ffffff;
+  background-color: var(--primary-color-50);
+  color: var(--primary-dark);
 }
 .counter {
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 0 !important ;
-  background-color: var(--primary-color);
+  background-color: var(--primary-dark);
   font-weight: 600;
   color: white;
 }
@@ -750,7 +754,7 @@ input[type="text"] {
 }
 .banner-items button:hover {
   background-color: var(--secondary-color);
-  color: white;
+  color: var(--primary-color);
 }
 
 .video-banner video {
