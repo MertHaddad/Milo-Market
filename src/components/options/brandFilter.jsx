@@ -14,7 +14,6 @@ const BrandFilter = () => {
   const querySelector = useSelector((state) => state.query.value);
   const selectBrand = useSelector((state) => state.allProducts.stockByBrand);
   const productsNumberSelector = useSelector((state) => state.filteredProducts);
-  // const itemsSelector = useSelector((state) => state.product);
   const [showSpinner, setShowSpinner] = useState(false);
   const selectQuery = useSelector((state) => state.query.value);
   const dispatch = useDispatch();
@@ -77,7 +76,7 @@ const BrandFilter = () => {
 
   return (
     <section className="filter-container">
-      <details>
+      <details open>
         <summary>
           <h3 className="filters-title">Brands</h3>
         </summary>

@@ -67,7 +67,7 @@ const TagsFilter = () => {
 
   return (
     <section className="filter-container">
-      <details>
+      <details open>
         <summary>
           <h3 className="filters-title">Tags</h3>
         </summary>

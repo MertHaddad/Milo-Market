@@ -36,7 +36,6 @@ const Sort = () => {
             <input
               defaultChecked={input.name === checkedOption}
               onClick={handleChange}
-              // onChange={handleChange}
               id={input.name}
               type="radio"
               data-testid="test-sort-radio"
