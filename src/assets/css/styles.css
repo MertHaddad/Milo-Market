@@ -723,6 +723,9 @@ input[type="text"] {
 }
 
 .video-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 40vh; /* Set the desired height for your banner */
   overflow: hidden; /* Hide the overflow of the video */
@@ -730,18 +733,22 @@ input[type="text"] {
   margin-bottom: 1rem;
 }
 
+
 .banner-items {
-  position: relative;
-  top: 18%;
-  left: 20%;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   color: white;
   text-shadow: 1px 0px 1px black;
+  background-color: #00000026;
+  z-index: 1;
 }
 .banner-items > * {
   padding: 0.5rem;
+  
 }
 .banner-title {
   color: aliceblue;
@@ -776,6 +783,7 @@ input[type="text"] {
   left: 0;
   right: 0;
 }
+
 .content {
   margin: 0 10%;
 }
@@ -809,14 +817,14 @@ input[type="text"] {
     left: 1%;
   }
   .banner-title {
-    font-size: 20px;
+    font-size: 2.2rem;
   }
 
   .banner-description {
-    font-size: 14px;
+    font-size: 1.2rem;
   }
   .banner-items button {
-    font-size: 12px;
+    font-size: 1.2rem;
   }
 }
 
