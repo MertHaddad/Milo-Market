@@ -8,6 +8,7 @@ import { addProduct } from "../features/basketSlice";
 import { getSelectedItem } from "../features/filteredProducts";
 import useDidMountEffect from "../helpers/useDidMountEffect";
 import "./../assets/css/product.css";
+import defaultThumbnail from "./../assets/img/thumbnails/thumbnail1.jpg";
 
 export default function Product() {
   //here I supported 2 way for getting clicked product info
@@ -24,6 +25,16 @@ export default function Product() {
   const location = useLocation();
   const { item: clickedItem = null } = location?.state || {};
 
+  
+  function getImagePath(imageName) {
+    try {
+      // eslint-disable-next-line no-undef
+      return require(`./../assets/img/thumbnails/thumbnail${imageName}.jpg`);
+    } catch {
+      return defaultThumbnail;
+    }
+  }
+
   const checkQuantity = (item) => {
     return (
       selectBasket?.basketProducts?.filter((x) => x.name === item.name)[0] || {
@@ -33,14 +44,15 @@ export default function Product() {
       }
     );
   };
+
   useEffect(() => {
     if (clickedItem) {
       setItem(clickedItem);
       setProduct(checkQuantity(clickedItem));
     } else {
-      const prod = getSelectedItem(slug.split("=")[1]);
-      dispatch(prod);
-      setProduct(checkQuantity(prod));
+      const selectedItem = getSelectedItem(slug.split("=")[1]);
+      dispatch(selectedItem);
+      setProduct(checkQuantity(selectedItem));
     }
   }, [selectBasket]);
 
@@ -57,16 +69,8 @@ export default function Product() {
           <div className="product-image">
             <img
               width={"100%"}
-              alt={item.name + " image"}
-              src={require(`./../assets/img/thumbnails/thumbnail${
-                item.name.length
-              }.jpg`)}
-              onError={() =>
-                this.src !==
-                require(`./../assets/img/thumbnails/thumbnail1.jpg`)
-                  ? (this.src = require(`./../assets/img/thumbnails/thumbnail1.jpg`))
-                  : null
-              }
+              alt={item.name + " product image"}
+              src={getImagePath(item.name.length)}
             />
           </div>
           <div className="product-details">
@@ -87,8 +91,8 @@ export default function Product() {
               </button>
             </div>
             <div className="div pills">
-              {item.tags.length
-                ? item.tags.map((item, i) => (
+              {item.tags?.length > 0
+                ? item.tags?.map((item, i) => (
                     <span className="pill" key={i}>
                       {" "}
                       {item}{" "}

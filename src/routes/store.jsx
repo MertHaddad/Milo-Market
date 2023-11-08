@@ -1,4 +1,4 @@
-import React, { Suspense, useLayoutEffect} from "react";
+import React, { Suspense} from "react";
 import "./../assets/css/styles.css";
 import "./../assets/css/predefined.css";
 import Products from "./../components/products/products";
@@ -28,7 +28,7 @@ export default function Store() {
     window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     dispatch(getItems(querySelector));
   }, []);
 

@@ -1,4 +1,4 @@
-import React, { Suspense, useLayoutEffect, useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import "./../assets/css/styles.css";
 import "./../assets/css/home.css";
 import "./../assets/css/predefined.css";
@@ -24,7 +24,7 @@ export default function Home() {
   const selectTags = useSelector((state) => state.allProducts.tags);
   const querySelector = useSelector((state) => state.query.value);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     dispatch(clearQuery());
     dispatch(getAllItems());
     dispatch(getBrands());

@@ -6,14 +6,12 @@ import queryReducer from "../features/querySlice";
 import allproductsSlice from "../features/allProductsSlice";
 import filteredProductsSlice from "../features/filteredProducts";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // Defaults to localStorage for web
-
+import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
   key: "root",
   storage,
 };
-
 const persistedProductsReducer = persistReducer(persistConfig,allproductsSlice);
 const persistedBasketReducer = persistReducer(persistConfig,basketReducer);
 

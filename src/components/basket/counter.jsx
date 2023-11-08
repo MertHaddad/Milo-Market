@@ -42,7 +42,7 @@ Counter.propTypes = {
     quantity: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
   }),
-  handleHideBasket: PropTypes.func.isRequired,
+  handleHideBasket: PropTypes.func,
 };
 
 export default Counter;

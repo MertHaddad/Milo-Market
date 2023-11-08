@@ -38,5 +38,5 @@ export const querySlice = createSlice({
 });
 
 export const { setQuery,clearQuery } = querySlice.actions;
-export const selectQueries = (state) => state.query.value; //defined in alice name
+export const selectQueries = (state) => state.query.value;
 export default querySlice.reducer;

@@ -7,7 +7,7 @@ const initialState = {
   stockByBrand: [],
   tags: [],
   status: "idle",
-  types:[]
+  types: [],
 };
 
 const getAllTags = (state) => {
@@ -20,56 +20,53 @@ const getAllTags = (state) => {
   return uniqueTags;
 };
 
+const queryTypeMap = {
+  mug: /mug/i,
+  shirt: /shirt/i,
+};
+
 const checkQueryType = (query) => {
-  if (/itemType/.test(query)) {
-    if (/mug/i.test(query)) {
-      return "mug";
-    } else if (/shirt/i.test(query)) {
-      return "shirt";
+  for (const [type, regex] of Object.entries(queryTypeMap)) {
+    if (regex.test(query)) {
+      return type;
     }
-  } else {
-    return false;
   }
+  return null;
 };
 
 const calculateStockByTags = (state, payload) => {
-  console.time("calculateStockByTags");
   const selectedBrands = payload.selected;
   const typeFilterExists = checkQueryType(payload.query);
   const stockByTag = [{ tag: "All", products: payload.filteredProductsNum }];
-  state.tags.forEach((tag) => {
-    let count = 0;
-    for (let item of state.value) {
-      if (selectedBrands.length && selectedBrands[0] !== "All") {
-        if (
-          (!!typeFilterExists &&
-            item.itemType === typeFilterExists &&
-            item.tags.includes(tag)) ||
-          item.tags.includes(tag)
-        ) {
-          const evaluateTag = selectedBrands.includes(item.manufacturer);
 
-          if (evaluateTag) count++;
-        } 
-      } else if (
-        typeFilterExists
-          ? item.itemType === typeFilterExists && item.tags.includes(tag)
-          : item.tags.includes(tag)
-      ) {
-        count++;
-      } 
-    }
+  const tagCounts = state.value.reduce((counts, item) => {
+    item.tags.forEach((tag) => {
+      if (selectedBrands.length && selectedBrands[0] !== "All") {
+        const evaluateTag = typeFilterExists
+          ? item.itemType === typeFilterExists &&
+            selectedBrands.includes(item.manufacturer)
+          : selectedBrands.includes(item.manufacturer);
+        if (evaluateTag) {
+          counts[tag] = (counts[tag] || 0) + 1;
+        }
+      } else if (typeFilterExists ? item.itemType === typeFilterExists : true) {
+        counts[tag] = (counts[tag] || 0) + 1;
+      }
+    });
+    return counts;
+  }, {});
+
+  state.tags.forEach((tag) => {
     stockByTag.push({
       tag: tag,
-      products: count,
+      products: tagCounts[tag] || 0,
     });
   });
-  console.timeEnd("calculateStockByTags");
+
   return stockByTag;
 };
 
 const calculateStockByBrands = (state, action) => {
-  // console.log(action.payload.query);
   const typeFilterExists = checkQueryType(action.payload.query);
   const stockByBrand = [
     {
@@ -132,11 +129,11 @@ export const allProductsSlice = createSlice({
     getStockByBrands: (state, action) => {
       state.stockByBrand = calculateStockByBrands(state, action);
     },
-    getTypes :(state) => {
+    getTypes: (state) => {
       const types = state.value.map((item) => item.itemType);
       const uniqueTypes = [...new Set(types)];
       state.types = uniqueTypes;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -153,6 +150,7 @@ export const allProductsSlice = createSlice({
   },
 });
 
-export const { getTags, getStockByTags, getStockByBrands, getTypes } =  allProductsSlice.actions;
+export const { getTags, getStockByTags, getStockByBrands, getTypes } =
+  allProductsSlice.actions;
 // export const selectProducts = (state) => state.allproducts.value;
 export default allProductsSlice.reducer;

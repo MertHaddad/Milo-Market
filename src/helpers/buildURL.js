@@ -1,7 +1,6 @@
 import { store } from "../app/store";
 import PropTypes from 'prop-types';
 
-
 export const buildURL = (baseURL, noPagination) => {
   const allQueries = store.getState().query.value;
   let queries;
@@ -11,15 +10,13 @@ export const buildURL = (baseURL, noPagination) => {
   } else queries = allQueries;
   let url = baseURL + "?";
   if (queries.length) {
-    for (const query of queries) {
-      url += query + "&";
-    }
+    const queryParams = queries.map(query => `${query}`);
+    url += queryParams.join('&');
     return url;
   } else return url;
 };
 
-
-buildURL.PropTypes={
+buildURL.propTypes={
   baseURL:PropTypes.string,
   noPagination:PropTypes.bool
 }

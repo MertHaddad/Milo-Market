@@ -52,11 +52,7 @@ export default function ProductItem({ item, i, allowClick = true }) {
 }
 
 ProductItem.propTypes = {
-  item: PropTypes.exact({
-    name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-  }),
+  item: PropTypes.object,
   i: PropTypes.number.isRequired,
   allowClick: PropTypes.bool,
 };
