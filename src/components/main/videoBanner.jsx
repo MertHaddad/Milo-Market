@@ -24,7 +24,7 @@ export default function VideoBanner() {
           <div className="banner-title" >Welcome to Milo Market!</div>
           <span className="banner-description">Here you will find all the organics in the world</span>
           <Link to="/store">
-          <button >Check out the store</button>
+          <button className="visit-store-button">Check out the store</button>
           </Link>
         </div>
       </header>

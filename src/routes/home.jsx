@@ -1,11 +1,11 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import "./../assets/css/styles.css";
 import "./../assets/css/home.css";
 import "./../assets/css/predefined.css";
 import Spinner from "../components/main/spinner";
 import SlideShow from "../components/main/slideshow";
-import HotProducts from "../components/main/hotProducts";
-import ItemCarousel from "../components/main/itemCarousel";
+import HotProducts from "../components/products/hotProducts";
+// import ItemCarousel from "../components/main/itemCarousel";
 import VideoBanner from "../components/main/videoBanner";
 import { useDispatch, useSelector } from "react-redux";
 import { getItems } from "./../features/productSlice";
@@ -14,14 +14,15 @@ import { getBrands } from "./../features/brandSlice";
 import { clearQuery } from "../features/querySlice";
 import { getFilteredItemsNumber } from "./../features/filteredProducts";
 import useDidMountEffect from "./../helpers/useDidMountEffect";
+import Hero from "../components/main/hero";
 
 export default function Home() {
-  const [topTags, setTopTags] = useState([]);
-  const [hotBrands, setHotBrands] = useState([]);
+  // const [topTags, setTopTags] = useState([]);
+  // const [hotBrands, setHotBrands] = useState([]);
   const dispatch = useDispatch();
   const selectAllProducts = useSelector((state) => state.allProducts);
-  const selectBrands = useSelector((state) => state.brand.value);
-  const selectTags = useSelector((state) => state.allProducts.tags);
+  // const selectBrands = useSelector((state) => state.brand.value);
+  // const selectTags = useSelector((state) => state.allProducts.tags);
   const querySelector = useSelector((state) => state.query.value);
 
   useEffect(() => {
@@ -39,21 +40,24 @@ export default function Home() {
     }
   }, [selectAllProducts.status]);
 
-  useEffect(() => {
-    if (selectTags.length) {
-      setTopTags(selectTags.slice(0, 15));
-    }
-    if (selectBrands.length) {
-      setHotBrands(selectBrands.slice(0, 15));
-    }
-  }, [selectTags]);
+  // useEffect(() => {
+  //   if (selectTags.length) {
+  //     setTopTags(selectTags.slice(0, 15));
+  //   }
+  //   if (selectBrands.length) {
+  //     setHotBrands(selectBrands.slice(0, 15));
+  //   }
+  // }, [selectTags]);
 
   return (
     <main>
       <Suspense fallback={<Spinner />}>
         <VideoBanner />
         <section className="content">
-          <ItemCarousel
+          <Hero classType="hero-tag" />
+          <HotProducts />
+          <Hero classType="hero-brand" />
+          {/* <ItemCarousel
             type="brand"
             title="Hot Brands"
             description="Check out our organic products and healthy snacks"
@@ -64,8 +68,8 @@ export default function Home() {
             title="Top Tags"
             description="Best collection for this year summer, most wanted all the time"
             items={topTags}
-          />
-          <HotProducts />
+          /> */}
+
           <SlideShow />
         </section>
       </Suspense>

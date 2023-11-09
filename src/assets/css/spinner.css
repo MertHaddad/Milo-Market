@@ -3,8 +3,6 @@
   z-index: 9999;
 }
 
-
-
 .filters .float-spinner .lds-spinner {
   color: official;
   position: absolute;
@@ -50,11 +48,12 @@
 .lds-spinner {
     color: official;
     display: inline-block;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    width: 5rem;
+    /* position: absolute; */
+    /* top: 40%;
+    left: 50%; */
+    width: 6rem;
     height: 5rem;
+    scale: 0.6;
   }
   .lds-spinner div {
     transform-origin: 40px 40px;

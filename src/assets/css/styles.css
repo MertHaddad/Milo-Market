@@ -796,8 +796,10 @@ input[type="text"] {
 .hide-scroll-bar {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
-  /* //hide scroll bar */
+  /*this enables Hardware Acceleration to enhance scroll experience*/
+  transform: translate3d(0,0,0)
 }
+
 .hide-scroll-bar::-webkit-scrollbar {
   display: none;
 }

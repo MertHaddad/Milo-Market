@@ -9,6 +9,8 @@ import { getSelectedItem } from "../features/filteredProducts";
 import useDidMountEffect from "../helpers/useDidMountEffect";
 import "./../assets/css/product.css";
 import defaultThumbnail from "./../assets/img/thumbnails/thumbnail1.jpg";
+import RecommendedProducts from "./../components/products/recommendedProducts";
+import Spinner from "./../components/main/spinner";
 
 export default function Product() {
   //here I supported 2 way for getting clicked product info
@@ -25,7 +27,6 @@ export default function Product() {
   const location = useLocation();
   const { item: clickedItem = null } = location?.state || {};
 
-  
   function getImagePath(imageName) {
     try {
       // eslint-disable-next-line no-undef
@@ -54,55 +55,58 @@ export default function Product() {
       dispatch(selectedItem);
       setProduct(checkQuantity(selectedItem));
     }
-  }, [selectBasket]);
+  }, [selectBasket, location.pathname]);
 
   useDidMountEffect(() => {
     if (selectedItem.status === "fulfilled") {
-      setItem(...selectedItem.item.data[0]);
+      setItem(selectedItem.item.data[0]);
     }
   }, [selectedItem.status]);
 
-  return (
-    <>
-      {item ? (
-        <div className="product-container">
-          <div className="product-image">
-            <img
-              width={"100%"}
-              alt={item.name + " product image"}
-              src={getImagePath(item.name.length)}
-            />
+  return item ? (
+    <main key={item.slug}>
+      <div className="product-container">
+        <div className="product-image">
+          <img
+            width="100%"
+            alt={item.name + " product image"}
+            src={getImagePath(item.name.length)}
+          />
+        </div>
+        <div className="product-details">
+          <h1 className="fs-1"> {item.name}</h1>
+          <div className="fs-1">{item.price} $</div>
+          <div className="fs-3">Manufacturer : {item.manufacturer}</div>
+          <div className="fs-3">
+            Description :<div> {item.description} </div>
           </div>
-          <div className="product-details">
-            <span className="fs-1"> {item.name}</span>
-            <div className="fs-1">{item.price} $</div>
-            <div className="fs-3">Manufacturer : {item.manufacturer}</div>
-            <div className="fs-3">
-              Description :<div> {item.description} </div>
-            </div>
-            <div className="d-flex">
-              {item?.name ? <Counter product={product} /> : null}
-              <button
-                onClick={() => dispatch(addProduct({ product: item }))}
-                data-testid="add-button"
-                className="product-button text-bold px-4 mx-4"
-              >
-                Add to cart
-              </button>
-            </div>
-            <div className="div pills">
-              {item.tags?.length > 0
-                ? item.tags?.map((item, i) => (
-                    <span className="pill" key={i}>
-                      {" "}
-                      {item}{" "}
-                    </span>
-                  ))
-                : null}
-            </div>
+          <div className="d-flex">
+            {item?.name ? <Counter product={product} /> : null}
+            <button
+              onClick={() => dispatch(addProduct({ product: item }))}
+              data-testid="add-button"
+              className="product-button text-bold px-4 mx-4"
+            >
+              Add to cart
+            </button>
+          </div>
+          <div className="div pills">
+            {item.tags?.length > 0
+              ? item.tags?.map((item, i) => (
+                  <span className="pill" key={i}>
+                    {" "}
+                    {item}{" "}
+                  </span>
+                ))
+              : null}
           </div>
         </div>
-      ) : null}
-    </>
+      </div>
+      <section className="recommended-products">
+        <RecommendedProducts tag={item.tags[0]} />
+      </section>
+    </main>
+  ) : (
+    <Spinner />
   );
 }

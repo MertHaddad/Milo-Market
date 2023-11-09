@@ -22,6 +22,7 @@ export default function ProductItem({ item, i, allowClick = true }) {
       <Link
         to={allowClick ? "/product/slug=" + item.slug : "#"}
         state={{ item: item, i: i }}
+        key={item.slug}
       >
         <span className="product-thumbnail">
           <img
@@ -35,9 +36,7 @@ export default function ProductItem({ item, i, allowClick = true }) {
       <span className="product-price">$ {item.price}</span>
       <span className="product-title text-default">{item.name}</span>
       {checkProduct(item) ? (
-        <Counter
-          product={checkProduct(item)}
-        />
+        <Counter product={checkProduct(item)} />
       ) : (
         <button
           onClick={() => handleAddProduct(item)}

@@ -1,5 +1,5 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet  } from "react-router-dom";
 import Home from "./routes/home";
 import Product from "./routes/product";
 import Checkout from "./routes/checkout";
@@ -39,10 +39,12 @@ export default function App() {
         {
           path: "/store",
           element: <Store />,
+          errorElement: <Home />,
         },
         {
           path: "/product/:slug",
           element: <Product />,
+          // errorElement: <Home />,
         },
         {
           path: "/checkout",
@@ -59,6 +61,7 @@ export default function App() {
         {
           path: "*",
           element: <Home />,
+          // errorElement: <Home />,
         },
       ],
     },
