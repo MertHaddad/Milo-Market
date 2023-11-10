@@ -15,6 +15,7 @@ export default function Store() {
   const querySelector = useSelector((state) => state.query.value);
   const location = useLocation();
   const { item = {}, type = {} } = location?.state || {};
+  
   useEffect(() => {
     if (item) {
       let query = "";
