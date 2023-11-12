@@ -1,7 +1,7 @@
 .hot-products-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .nav-buttons {
   padding: 10px;
@@ -39,10 +39,12 @@
   justify-content: flex-start;
   overflow-y: hidden;
   scroll-behavior: smooth;
+  gap:1rem
+  /* padding-keft */
 }
 
 .hot-products > * {
-  padding: 0.5rem 0;
+  padding: 0.5rem;
 }
 
 .hot-thumbnail {

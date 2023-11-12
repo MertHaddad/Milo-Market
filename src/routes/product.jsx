@@ -58,7 +58,7 @@ export default function Product() {
   }, [selectBasket, location.pathname]);
 
   useDidMountEffect(() => {
-    if (selectedItem.status === "fulfilled") {
+    if (selectedItem.status === "fulfilled" && selectedItem?.item?.data) {
       setItem(selectedItem.item.data[0]);
     }
   }, [selectedItem.status]);

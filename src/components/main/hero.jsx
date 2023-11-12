@@ -93,7 +93,7 @@ export default function Hero({ classType = "hero-brand" }) {
           // eslint-disable-next-line no-undef
           style={{
             backgroundImage: `url(${images(
-              `./${classType}/${classType}${i + 1}.png`
+              `./${classType}/${classType}${i + 1}.jpg`
             )})`,
           }}
           className={classType}

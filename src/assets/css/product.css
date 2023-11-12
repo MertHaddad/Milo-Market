@@ -4,6 +4,7 @@
 }
 .product-image{
     object-fit: initial;
+    min-width: 25rem;
 }
 .product-details{
     margin: 3rem 2rem;

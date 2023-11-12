@@ -177,15 +177,11 @@ html:not([data-scroll="0"]) .go-up-button {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 0.8rem;
-  max-width: 12rem;
+  max-width: 14rem;
   text-align: center;
   flex-grow: 1; /* Make all items take up equal space */
   flex-basis: 0;
   border-radius: 12px;
-  /* padding: 1em;
-  border-radius: 8px;
-  border: 1px solid #f3f3f3; */
 }
 
 .product-thumbnail {
@@ -198,7 +194,11 @@ html:not([data-scroll="0"]) .go-up-button {
   border-radius: 12px;
 }
 .product-thumbnail-img {
-  max-width: 12em;
+  /* max-width: 12em; */
+  /* max-width: 25%; */
+  width: 100%;
+  min-width: 12em;
+  min-height: 12em;
 }
 
 .product-thumbnail:hover {
@@ -241,7 +241,8 @@ html:not([data-scroll="0"]) .go-up-button {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
+  gap:1rem
 }
 
 .top-bar-container {
@@ -819,15 +820,20 @@ input[type="text"] {
     left: 1%;
   }
   .banner-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
   }
 
   .banner-description {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .banner-items button {
     font-size: 1.2rem;
   }
+
+  .product-card {
+    width: 45%;
+  }
+
 }
 
 @media screen and (max-width: 1100px) {

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useRef, useState,useEffect } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import React, { useRef, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../main/spinner";
 import ProductItem from "./../products/productItem";
 import { setQuery } from "../../features/querySlice";
@@ -47,30 +47,38 @@ export default function RecommendedProducts({ tag }) {
   };
 
   return (
-    <section>
-      <div className="main-title main-text">Recommended Products</div>
-      <div className="main-title text-darkest-gray">
-        Especially picked products for you, check the store for more.
-      </div>
-      <div className="hot-products-container">
-        <div
-          ref={containerRef}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          className="hot-products hide-scroll-bar"
-        >
-          {allProducts.value.length ? (
-            allProducts.value.map((item, i) => (
-              <ProductItem item={item} i={i} key={i} allowClick={allowClick} />
-            ))
-          ) : (
-            <Spinner />
-          )}
+    allProducts.value.length > 1 &&
+    allProducts.status === "fulfilled" && (
+      <section>
+        <div className="main-title main-text">Recommended Products</div>
+        <div className="main-title text-darkest-gray">
+          Especially picked products for you, check the store for more.
         </div>
-      </div>
-    </section>
+        <div className="hot-products-container">
+          <div
+            ref={containerRef}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            className="hot-products hide-scroll-bar"
+          >
+            {allProducts.value.length ? (
+              allProducts.value.map((item, i) => (
+                <ProductItem
+                  item={item}
+                  i={i}
+                  key={i}
+                  allowClick={allowClick}
+                />
+              ))
+            ) : (
+              <Spinner />
+            )}
+          </div>
+        </div>
+      </section>
+    )
   );
 }
 
